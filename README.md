@@ -3,14 +3,16 @@ OrderEase Development Progress, Meeting Records, etc.
 
 # Teamwork Index
 
-[About](https://github.com/OrderEase/Dashboard/blob/master/doc/about.md)
-[Backlog](https://github.com/OrderEase/Dashboard/blob/master/doc/backlog.md)
-[Investigation](https://github.com/OrderEase/Dashboard/blob/master/doc/investigation.md)
-[Team Profile](https://github.com/OrderEase/Dashboard/blob/master/doc/teamProfile.md)
-[Use Case](https://github.com/OrderEase/Dashboard/blob/master/doc/useCase.md)
-[Vision](https://github.com/OrderEase/Dashboard/blob/master/doc/vision.md)
+- [About](https://github.com/OrderEase/Dashboard/blob/master/doc/about.md)
+- [Backlog](https://github.com/OrderEase/Dashboard/blob/master/doc/backlog.md)
+- [Investigation](https://github.com/OrderEase/Dashboard/blob/master/doc/investigation.md)
+- [Team Profile](https://github.com/OrderEase/Dashboard/blob/master/doc/teamProfile.md)
+- [Use Case](https://github.com/OrderEase/Dashboard/blob/master/doc/useCase.md)
+- [Vision](https://github.com/OrderEase/Dashboard/blob/master/doc/vision.md)
 
-[1st meeting](https://github.com/OrderEase/Dashboard/blob/master/meeting/inception.md)
+# Meetings Records
+
+- [1st meeting](https://github.com/OrderEase/Dashboard/blob/master/meeting/inception.md)
 
 
 Note:
