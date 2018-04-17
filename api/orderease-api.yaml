@@ -1,0 +1,235 @@
+swagger: "2.0"
+info:
+  description: "OrderEase RESTful API 2B"
+  version: "1.0"
+  title: "OrderEase API for Business"
+host: "orderease.ml"
+basePath: "/v1"
+
+# API
+schemes:
+- "http"
+paths:
+  # User
+  /user/login:
+    post:
+      tags:
+      - "user"
+      summary: "business account login"
+  /user/logout:
+    put:
+      tags:
+      - "user"
+      summary: "business account logout"
+
+  # Dish
+  /dish:
+    # Add A New Dish
+    post:
+      tags:
+      - "dish"
+      summary: "add a new dish"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dish object to add into database."
+        required: true
+        schema:
+          $ref: "#/definitions/Dish"
+      responses:
+        405:
+          description: "Invalid input"
+    # Get A Specific Info of A Dish
+    get:
+      tags:
+      - "dish"
+      summary: "get info of a dish"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Identifier of the dish to query"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+              example: "番茄炒蛋"
+            restaurantId:
+              type: "string"
+              example: "ASW23122W"
+      responses:
+        200:
+          description: "Successful query for dish info"
+          schema:
+            $ref: "#/definitions/Dish"
+    # Update Info of A Dish
+    put:
+      tags:
+      - "dish"
+      summary: "update info of a dish"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dish object with update information."
+        required: true
+        schema:
+          $ref: "#/definitions/Dish"
+      responses:
+        200:
+          description: "Successful update"
+        404:
+          description: "Restaurant or Dish Not Found"
+          schema:
+            type: string
+            example: "Restaurant Not Found"
+        405:
+          description: "Invalid Input"
+    # DELETE A Dish
+    delete:
+      tags:
+      - "dish"
+      summary: "delete a dish"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Identifier of the dish to delete"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+              example: "鸡汤抄手"
+            category:
+              type: "string"
+              example: "小吃"
+            restaurantId:
+              type: "string"
+              exmaple: "SAS21232W"
+  # Get Dishes List
+  /dishes:
+    get:
+      tags:
+      - "dish"
+      summary: "get dishes list for a certain category and restaurant"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Identifier of the dishes list"
+        required: true
+        schema:
+          # Identifier of the dish
+          type: "object"
+          properties:
+            restaurantId:
+              type: "string"
+              example: "AWS21232D"
+            category:
+              type: "string"
+              example: "荤菜"
+
+  # Restaurant
+  /rstrt:
+    get: 
+      tags:
+      - "Restaurant"
+      summary: "Get info of a restaurant"
+
+  # Customer Operation
+  /order/new:
+    post:
+      tags:
+      - "order"
+      summary: "User place an order"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request identifier of the order"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            restaurantId:
+              type: "string"
+              example: "AWS21232D"
+            tableId:
+              type: "string"
+              example: "23E"
+            dishes:
+              type: "array"
+              example: "["番茄炒蛋"，"毛血旺"]"
+  /order/info:
+    get:
+      tags:
+      - "order"
+      summary: "User check order's info"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+
+
+
+# Data Models
+definitions:
+  Dish:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "毛血旺"
+      restaurantId:
+        type: "string"
+        example: "ASW23312W"
+      category:
+        type: "string"
+        example: "荤菜"
+      price:
+        type: "number"
+        format: "float"
+        example: 28.5
+      stock:
+        type: "integer"
+        format: "int32"
+        example: 99
+      avaliable:
+        type: "boolean"
+        example: true
+
+  Order:
+    type: "object"
+    properties:
+      orderId:
+        type: "string"
+        example: "2018030412398123"
+      tableId:
+        type: "string"
+        example: "23E"
+      restaurantId:
+        type: "string"
+        example: "ASW20322W"
+      time:
+        type: "integer"
+        format: timestamp
+      price:
+        type: "number"
+        format: "float"
+        example: 28.5
+      dishes:
+        type: "array"
+        items:
+          type: "string"
