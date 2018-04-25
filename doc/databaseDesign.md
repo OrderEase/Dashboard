@@ -9,6 +9,3 @@ We use group to define a user's authority. A group can be manager, stuff and so 
 2. Ordering dishes subsystem design
 
 ![](../assets/dishOrder.png)
-
-TODO:
-1. Make category an independent table when the system is too big.
