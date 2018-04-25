@@ -9,6 +9,7 @@ OrderEase Development Progress, Meeting Records, etc.
 - [Team Profile](https://github.com/OrderEase/Dashboard/blob/master/doc/teamProfile.md)
 - [Use Case](https://github.com/OrderEase/Dashboard/blob/master/doc/useCase.md)
 - [Vision](https://github.com/OrderEase/Dashboard/blob/master/doc/vision.md)
+- [Database Design](doc/databaseDesign.md)
 
 # Meetings Records
 
