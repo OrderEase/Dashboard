@@ -11,7 +11,7 @@ OrderEase Development Progress, Meeting Records, etc.
 - Requirement specification
   - [Use Case](https://github.com/OrderEase/Dashboard/blob/master/doc/useCase.md)
   - [Domain Model](doc/domainModel.md)
-- [Design]
+- Design
   - [Database design](doc/databaseDesign.md)
 
 # Meetings Records
