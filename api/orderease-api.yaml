@@ -147,7 +147,7 @@ paths:
       summary: "Get info of a restaurant"
 
   # Customer Operation
-  /order/new:
+  /order:
     post:
       tags:
       - "order"
@@ -171,7 +171,6 @@ paths:
             dishes:
               type: "array"
               example: "["番茄炒蛋"，"毛血旺"]"
-  /order/info:
     get:
       tags:
       - "order"
@@ -181,6 +180,10 @@ paths:
       parameters:
       - in: "body"
         name: "body"
+    put:
+
+
+
 
 
 
