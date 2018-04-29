@@ -4,11 +4,15 @@ OrderEase Development Progress, Meeting Records, etc.
 # Teamwork Index
 
 - [About](https://github.com/OrderEase/Dashboard/blob/master/doc/about.md)
-- [Backlog](https://github.com/OrderEase/Dashboard/blob/master/doc/backlog.md)
-- [Investigation](https://github.com/OrderEase/Dashboard/blob/master/doc/investigation.md)
 - [Team Profile](https://github.com/OrderEase/Dashboard/blob/master/doc/teamProfile.md)
-- [Use Case](https://github.com/OrderEase/Dashboard/blob/master/doc/useCase.md)
+- [Investigation](https://github.com/OrderEase/Dashboard/blob/master/doc/investigation.md)
 - [Vision](https://github.com/OrderEase/Dashboard/blob/master/doc/vision.md)
+- [Backlog](https://github.com/OrderEase/Dashboard/blob/master/doc/backlog.md)
+- Requirement specification
+  - [Use Case](https://github.com/OrderEase/Dashboard/blob/master/doc/useCase.md)
+  - [Domain Model](doc/domainModel.md)
+- Design
+  - [Database design](doc/databaseDesign.md)
 
 # Meetings Records
 
