@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
+  <version>2.1</version>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T07:34:55.033Z" timestamp="2018-05-03T07:34:55.033Z">
+    <change idref="t69" attribute="title" type="string" from="第一次迭代" to="第一次迭代（2C基本功能）" resolved="yes"/>
+    <change idref="t74" attribute="internalPrerequisitesString" type="string" from="77FS" to="77FS, 78FS" resolved="yes"/>
+    <change idref="t77" attribute="internalPrerequisitesString" type="string" from="78FS" resolved="yes"/>
+    <change idref="t78" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-01T00:00:00.000Z" to="2018-04-30T16:00:00.000Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T07:45:36.324Z" timestamp="2018-05-03T07:45:36.324Z">
+    <change idref="t71" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t72" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t73" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t73" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z" resolved="yes"/>
+    <change idref="t74" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t75" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t75" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z" resolved="yes"/>
+    <change idref="t77" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t78" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t80" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-01T00:00:00.000Z" to="2018-05-15T00:00:00.000Z" resolved="yes"/>
+    <change idref="t80" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t81" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t82" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t84" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t85" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t86" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t89" attribute="noEarlierThanConstraintDate" type="date" from="2018-06-14T00:00:00.000Z" to="2018-06-15T00:00:00.000Z" resolved="yes"/>
+    <change idref="t89" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t90" attribute="noEarlierThanConstraintDate" type="date" from="2018-06-12T00:00:00.000Z" to="2018-06-13T00:00:00.000Z" resolved="yes"/>
+    <change idref="t90" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t91" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-16T00:00:00.000Z" to="2018-06-14T00:00:00.000Z" resolved="yes"/>
+    <change idref="t91" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t92" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+    <change idref="t93" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T07:48:55.913Z" timestamp="2018-05-03T07:48:55.913Z">
+    <change idref="t80" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-15T00:00:00.000Z" to="2018-05-24T00:00:00.000Z" resolved="yes"/>
+    <change idref="t81" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-14T00:00:00.000Z" to="2018-05-22T00:00:00.000Z" resolved="yes"/>
+    <change idref="t84" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-14T00:00:00.000Z" to="2018-05-28T00:00:00.000Z" resolved="yes"/>
+    <change idref="t85" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-16T00:00:00.000Z" to="2018-06-07T00:00:00.000Z" resolved="yes"/>
+    <change idref="t86" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-15T00:00:00.000Z" to="2018-05-25T00:00:00.000Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:06:48.945Z" timestamp="2018-05-03T08:06:48.945Z">
+    <change idref="t117" to="t-1" to-position="3" resolved="yes">
+      <change idref="t117" attribute="internalAssignments" type="string" from="" to="11"/>
+      <change idref="t117" attribute="internalPrerequisitesString" type="string" to="78FS"/>
+      <change idref="t117" attribute="noEarlierThanConstraintDate" type="date" to="2018-04-30T16:00:00.000Z"/>
+      <change idref="t117" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t117" attribute="title" type="string" to="[后端] 设置简单的菜单、商家数据库"/>
+    </change>
+    <change idref="t72" from="t69" from-position="2" resolved="yes">
+      <change idref="t72" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t72" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-01T00:00:00.000Z"/>
+      <change idref="t72" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t72" attribute="title" type="string" to="[前端]商家菜单管理界面"/>
+    </change>
+    <change idref="t71" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t71" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t71" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t71" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t71" attribute="title" type="string" from="[前端]用户菜单点菜界面" to="[前端] 2C 界面" resolved="yes"/>
+    <change idref="t71" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t71" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t71" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t71" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t71" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t71" attribute="internalAssignments" type="string" from="10" resolved="yes"/>
+    <change idref="t71" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t71" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t107" to="t71" to-position="0" resolved="yes">
+      <change idref="t107" attribute="internalAssignments" type="string" from="" to="10; 14"/>
+      <change idref="t107" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t107" attribute="title" type="string" to="[前端] 购物车界面"/>
+    </change>
+    <change idref="t114" to="t71" to-position="1" resolved="yes">
+      <change idref="t114" attribute="internalAssignments" type="string" from="" to="10; 14"/>
+      <change idref="t114" attribute="noEarlierThanConstraintDate" type="date" to="2018-04-30T00:00:00.000Z"/>
+      <change idref="t114" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t114" attribute="title" type="string" to="[前端] 支付界面"/>
+    </change>
+    <change idref="t109" to="t71" to-position="2" resolved="yes">
+      <change idref="t109" attribute="internalAssignments" type="string" from="" to="10; 16"/>
+      <change idref="t109" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t109" attribute="title" type="string" to="[前端] 登录界面"/>
+    </change>
+    <change idref="t110" to="t71" to-position="3" resolved="yes">
+      <change idref="t110" attribute="internalAssignments" type="string" from="" to="10; 16"/>
+      <change idref="t110" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t110" attribute="title" type="string" to="[前端] 我的订单界面"/>
+    </change>
+    <change idref="t111" to="t71" to-position="4" resolved="yes">
+      <change idref="t111" attribute="internalAssignments" type="string" from="" to="10; 15"/>
+      <change idref="t111" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t111" attribute="title" type="string" to="[前端] 菜单点菜界面"/>
+    </change>
+    <change idref="t112" to="t71" to-position="5" resolved="yes">
+      <change idref="t112" attribute="internalAssignments" type="string" from="" to="10; 15"/>
+      <change idref="t112" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t112" attribute="title" type="string" to="[前端] 随机点菜界面"/>
+    </change>
+    <change idref="t116" to="t71" to-position="6" resolved="yes">
+      <change idref="t116" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t116" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-01T00:00:00.000Z"/>
+      <change idref="t116" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t116" attribute="title" type="string" to="[前端]商家菜单管理界面"/>
+    </change>
+    <change idref="t73" attribute="title" type="string" from="[测试]用户菜单点菜界面" to="[测试] 用户菜单点菜界面" resolved="yes"/>
+    <change idref="t73" attribute="internalAssignments" type="string" from="" to="12" resolved="yes"/>
+    <change idref="t73" attribute="internalPrerequisitesString" type="string" to="71FS, 74FS" resolved="yes"/>
+    <change idref="t74" attribute="title" type="string" from="[测试]建立后台菜单数据" to="[测试] 建立后台菜单数据" resolved="yes"/>
+    <change idref="t74" attribute="internalAssignments" type="string" from="" to="12" resolved="yes"/>
+    <change idref="t74" attribute="internalPrerequisitesString" type="string" to="77FS, 78FS" resolved="yes"/>
+    <change idref="t75" attribute="title" type="string" from="[测试]用户菜单管理界面" to="[测试] 用户菜单管理界面" resolved="yes"/>
+    <change idref="t75" attribute="internalAssignments" type="string" from="" to="12" resolved="yes"/>
+    <change idref="t75" attribute="internalPrerequisitesString" type="string" to="74FS" resolved="yes"/>
+    <change idref="t76" attribute="internalPrerequisitesString" type="string" to="73FS, 75FS" resolved="yes"/>
+    <change idref="t77" attribute="title" type="string" from="[后端]完成菜单相关 API 设计" to="[后端] 完成菜单相关 API 设计" resolved="yes"/>
+    <change idref="t78" attribute="title" type="string" from="[后端]建立菜单、商家数据库" to="[后端] 建立菜单、商家数据库" resolved="yes"/>
+    <change idref="t79" attribute="title" type="string" from="第二次迭代" to="第二次迭代（完成商家）" resolved="yes"/>
+    <change idref="t80" attribute="internalPrerequisitesString" type="string" from="81FS" to="81FS, 82FS, 86FS" resolved="yes"/>
+    <change idref="t80" attribute="title" type="string" from="[测试]后台显示订单" to="[测试] 后台显示订单" resolved="yes"/>
+    <change idref="t81" attribute="title" type="string" from="[前端]完成后厨订单界面" to="[前端] 完成后厨订单界面" resolved="yes"/>
+    <change idref="t82" attribute="title" type="string" from="[后端]完成商家登陆模块" to="[后端] 完成商家登陆模块" resolved="yes"/>
+    <change idref="t83" attribute="internalPrerequisitesString" type="string" to="80FS, 84FS, 85FS" resolved="yes"/>
+    <change idref="t84" attribute="title" type="string" from="[测试]用户下单、支付" to="[测试] 用户下单、支付" resolved="yes"/>
+    <change idref="t84" attribute="internalPrerequisitesString" type="string" to="86FS" resolved="yes"/>
+    <change idref="t85" attribute="title" type="string" from="[测试]商家账户登录" to="[测试] 商家账户登录" resolved="yes"/>
+    <change idref="t86" attribute="title" type="string" from="[前端]商家登陆界面" to="[前端] 商家登陆界面" resolved="yes"/>
+    <change idref="t88" attribute="internalPrerequisitesString" type="string" to="89FS, 90FS" resolved="yes"/>
+    <change idref="t89" attribute="title" type="string" from="[测试]后台数据显示" to="[测试] 后台数据显示" resolved="yes"/>
+    <change idref="t90" attribute="title" type="string" from="[测试]商家发布、编辑活动" to="[测试] 商家发布、编辑活动" resolved="yes"/>
+    <change idref="t91" attribute="title" type="string" from="[前端]完成数据分析界面" to="[前端] 完成数据分析界面" resolved="yes"/>
+    <change idref="t92" attribute="title" type="string" from="[后端]商家活动管理模块" to="[后端] 商家活动管理模块" resolved="yes"/>
+    <change idref="t93" attribute="title" type="string" from="[前端]活动展示" to="[前端] 活动展示" resolved="yes"/>
+    <change idref="t94" attribute="title" type="string" from="[产品]商家数据分析需求" to="[产品] 商家数据分析需求" resolved="yes"/>
+    <change idref="t95" attribute="title" type="string" from="[设计]商家数据分析界面" to="[设计] 商家数据分析界面" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:08:34.844Z" timestamp="2018-05-03T08:08:34.844Z">
+    <change idref="t117" from="t-1" from-position="3" resolved="yes">
+      <change idref="t117" attribute="internalAssignments" type="string" from="" to="11"/>
+      <change idref="t117" attribute="internalPrerequisitesString" type="string" to="78FS"/>
+      <change idref="t117" attribute="noEarlierThanConstraintDate" type="date" to="2018-04-30T16:00:00.000Z"/>
+      <change idref="t117" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t117" attribute="title" type="string" to="[后端] 设置简单的菜单、商家数据库"/>
+    </change>
+    <change idref="t75" from="t69" from-position="2" resolved="yes">
+      <change idref="t75" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t75" attribute="internalPrerequisitesString" type="string" to="74FS"/>
+      <change idref="t75" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z"/>
+      <change idref="t75" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t75" attribute="title" type="string" to="[测试] 用户菜单管理界面"/>
+    </change>
+    <change idref="t76" attribute="internalPrerequisitesString" type="string" from="73FS, 75FS" to="73FS" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:11:15.083Z" timestamp="2018-05-03T08:11:15.083Z">
+    <change idref="t119" to="t-1" to-position="3" resolved="yes">
+      <change idref="t119" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t119" attribute="internalPrerequisitesString" type="string" to="73FS"/>
+      <change idref="t119" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z"/>
+      <change idref="t119" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t119" attribute="title" type="string" to="[测试] 用户下单界面"/>
+    </change>
+    <change idref="t74" attribute="title" type="string" from="[测试] 建立后台菜单数据" to="[测试] 建立简单测试数据" resolved="yes"/>
+    <change idref="t77" attribute="title" type="string" from="[后端] 完成菜单相关 API 设计" to="[后端] 完成菜单 API" resolved="yes"/>
+    <change idref="t78" attribute="title" type="string" from="[后端] 建立菜单、商家数据库" to="[后端] 建立数据库" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:25:32.356Z" timestamp="2018-05-03T08:25:32.356Z">
+    <change idref="t119" from="t-1" from-position="3" resolved="yes">
+      <change idref="t119" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t119" attribute="internalPrerequisitesString" type="string" to="73FS"/>
+      <change idref="t119" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z"/>
+      <change idref="t119" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t119" attribute="title" type="string" to="[测试] 用户下单界面"/>
+    </change>
+    <change idref="t133" to="t-1" to-position="3" resolved="yes">
+      <change idref="t133" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t133" attribute="internalPrerequisitesString" type="string" to="86FS"/>
+      <change idref="t133" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-01T00:00:00.000Z"/>
+      <change idref="t133" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t133" attribute="title" type="string" to="[前端]商家菜单管理界面"/>
+    </change>
+    <change idref="t150" to="t69" to-position="6" resolved="yes">
+      <change idref="t150" attribute="effort" type="real" from="28800" to="5400"/>
+      <change idref="t150" attribute="internalAssignments" type="string" from="" to="11"/>
+      <change idref="t150" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-03T16:00:00.000Z"/>
+      <change idref="t150" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t150" attribute="title" type="string" to="[后端] 完成菜单 API"/>
+    </change>
+    <change idref="t152" to="t69" to-position="7" resolved="yes">
+      <change idref="t152" attribute="effort" type="real" from="28800" to="5400"/>
+      <change idref="t152" attribute="internalAssignments" type="string" from="" to="11"/>
+      <change idref="t152" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-03T16:00:00.000Z"/>
+      <change idref="t152" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.211432&quot;;&#10;        g = &quot;0.458381&quot;;&#10;        r = &quot;0.988&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t152" attribute="title" type="string" to="[后端] 完成餐馆 API"/>
+    </change>
+    <change idref="t116" from="t71" from-position="6" resolved="yes">
+      <change idref="t116" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t116" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-01T00:00:00.000Z"/>
+      <change idref="t116" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t116" attribute="title" type="string" to="[前端]商家菜单管理界面"/>
+    </change>
+    <change idref="t73" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t73" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t73" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t73" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t73" attribute="title" type="string" from="[测试] 用户菜单点菜界面" to="[测试] 2C 界面" resolved="yes"/>
+    <change idref="t73" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t73" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t73" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t73" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t73" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t73" attribute="internalAssignments" type="string" from="12" resolved="yes"/>
+    <change idref="t73" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t73" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t129" to="t73" to-position="0" resolved="yes">
+      <change idref="t129" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t129" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z"/>
+      <change idref="t129" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t129" attribute="title" type="string" to="[测试] 获取菜单"/>
+    </change>
+    <change idref="t130" to="t73" to-position="1" resolved="yes">
+      <change idref="t130" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t130" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z"/>
+      <change idref="t130" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t130" attribute="title" type="string" to="[测试] 用户下单"/>
+    </change>
+    <change idref="t132" to="t73" to-position="2" resolved="yes">
+      <change idref="t132" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t132" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-11T00:00:00.000Z"/>
+      <change idref="t132" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t132" attribute="title" type="string" to="[测试] 用户查看订单"/>
+    </change>
+    <change idref="t74" attribute="internalPrerequisitesString" type="string" from="77FS, 78FS" to="77FS, 78FS, 150FS, 152FS" resolved="yes"/>
+    <change idref="t74" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-04T00:00:00.000Z" to="2018-05-09T00:00:00.000Z" resolved="yes"/>
+    <change idref="t76" attribute="internalPrerequisitesString" type="string" from="73FS" to="73FS, 129FS, 130FS" resolved="yes"/>
+    <change idref="t76" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-12T15:00:00.000Z" resolved="yes"/>
+    <change idref="t77" attribute="title" type="string" from="[后端] 完成菜单 API" to="[后端] 完成订单 API" resolved="yes"/>
+    <change idref="t77" attribute="effort" type="real" from="28800" to="5400" resolved="yes"/>
+    <change idref="t77" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-02T00:00:00.000Z" to="2018-05-03T16:00:00.000Z" resolved="yes"/>
+    <change idref="t83" attribute="internalPrerequisitesString" type="string" from="80FS, 84FS, 85FS" to="80FS, 84FS, 85FS, 133FS" resolved="yes"/>
+    <change idref="t107" attribute="effort" type="real" from="28800" to="403200" resolved="yes"/>
+    <change idref="t109" attribute="effort" type="real" from="28800" to="403200" resolved="yes"/>
+    <change idref="t110" attribute="effort" type="real" from="28800" to="403200" resolved="yes"/>
+    <change idref="t111" attribute="effort" type="real" from="28800" to="403200" resolved="yes"/>
+    <change idref="t112" attribute="effort" type="real" from="28800" to="403200" resolved="yes"/>
+    <change idref="t114" attribute="effort" type="real" from="28800" to="403200" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:30:55.524Z" timestamp="2018-05-03T08:30:55.524Z">
+    <change idref="t74" attribute="effort" type="real" from="28800" to="10800"/>
+    <change idref="t74" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-09T00:00:00.000Z" to="2018-05-08T16:00:00.000Z"/>
+    <change idref="t76" attribute="internalPrerequisitesString" type="string" from="73FS, 129FS, 130FS" to="73FS"/>
+    <change idref="t77" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-03T16:00:00.000Z" to="2018-05-04T16:00:00.000Z"/>
+    <change idref="t77" attribute="noLaterThanConstraintDate" type="date" to="2018-05-05T16:00:00.000Z"/>
+    <change idref="t78" attribute="effort" type="real" from="28800" to="7200"/>
+    <change idref="t78" attribute="noEarlierThanConstraintDate" type="date" from="2018-04-30T16:00:00.000Z" to="2018-05-07T16:00:00.000Z"/>
+    <change idref="t150" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-03T16:00:00.000Z" to="2018-05-04T16:00:00.000Z"/>
+    <change idref="t150" attribute="noLaterThanConstraintDate" type="date" to="2018-05-05T16:00:00.000Z"/>
+    <change idref="t152" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-03T16:00:00.000Z" to="2018-05-04T16:00:00.000Z"/>
+    <change idref="t152" attribute="noLaterThanConstraintDate" type="date" to="2018-05-05T16:00:00.000Z"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:41:02.162Z" timestamp="2018-05-03T08:41:02.162Z">
+    <change idref="t133" from="t-1" from-position="3" resolved="yes">
+      <change idref="t133" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t133" attribute="internalPrerequisitesString" type="string" to="86FS"/>
+      <change idref="t133" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-01T00:00:00.000Z"/>
+      <change idref="t133" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t133" attribute="title" type="string" to="[前端]商家菜单管理界面"/>
+    </change>
+    <change idref="t81" from="t79" from-position="6" resolved="yes">
+      <change idref="t81" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t81" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-22T00:00:00.000Z"/>
+      <change idref="t81" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t81" attribute="title" type="string" to="[前端] 完成后厨订单界面"/>
+    </change>
+    <change idref="t85" from="t79" from-position="4" resolved="yes">
+      <change idref="t85" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t85" attribute="internalPrerequisitesString" type="string" to="82FS, 86FS"/>
+      <change idref="t85" attribute="noEarlierThanConstraintDate" type="date" to="2018-06-07T00:00:00.000Z"/>
+      <change idref="t85" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t85" attribute="title" type="string" to="[测试] 商家账户登录"/>
+    </change>
+    <change idref="t80" from="t79" from-position="0" resolved="yes">
+      <change idref="t80" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t80" attribute="internalPrerequisitesString" type="string" to="81FS, 82FS, 86FS"/>
+      <change idref="t80" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-24T00:00:00.000Z"/>
+      <change idref="t80" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t80" attribute="title" type="string" to="[测试] 后台显示订单"/>
+    </change>
+    <change idref="t154" to="t79" to-position="4" resolved="yes">
+      <change idref="t154" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t154" attribute="title" type="string" to="[设计] 2B 界面"/>
+    </change>
+    <change idref="t82" attribute="title" type="string" from="[后端] 完成商家登陆模块" to="[后端] 商家账户与登陆" resolved="yes"/>
+    <change idref="t83" attribute="internalPrerequisitesString" type="string" from="80FS, 84FS, 85FS, 133FS" to="84FS" resolved="yes"/>
+    <change idref="t84" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t84" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t84" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t84" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t84" attribute="title" type="string" from="[测试] 用户下单、支付" to="[测试] 2B 菜单、订单" resolved="yes"/>
+    <change idref="t84" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t84" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t84" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t84" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t84" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t84" attribute="internalAssignments" type="string" from="" resolved="yes"/>
+    <change idref="t84" attribute="internalPrerequisitesString" type="string" to="82FS, 86FS" resolved="yes"/>
+    <change idref="t84" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t84" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t160" to="t84" to-position="0" resolved="yes">
+      <change idref="t160" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t160" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-24T00:00:00.000Z"/>
+      <change idref="t160" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t160" attribute="title" type="string" to="[测试] 后台显示订单"/>
+    </change>
+    <change idref="t163" to="t84" to-position="1" resolved="yes">
+      <change idref="t163" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t163" attribute="noEarlierThanConstraintDate" type="date" to="2018-06-07T00:00:00.000Z"/>
+      <change idref="t163" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t163" attribute="title" type="string" to="[测试] 商家账户登录"/>
+    </change>
+    <change idref="t86" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t86" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t86" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t86" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t86" attribute="title" type="string" from="[前端] 商家登陆界面" to="[前端] 2B 界面" resolved="yes"/>
+    <change idref="t86" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t86" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t86" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t86" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t86" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t86" attribute="internalAssignments" type="string" from="10" resolved="yes"/>
+    <change idref="t86" attribute="internalPrerequisitesString" type="string" to="154FS" resolved="yes"/>
+    <change idref="t86" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t86" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t156" to="t86" to-position="0" resolved="yes">
+      <change idref="t156" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t156" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-22T00:00:00.000Z"/>
+      <change idref="t156" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t156" attribute="title" type="string" to="[前端] 完成后厨订单界面"/>
+    </change>
+    <change idref="t158" to="t86" to-position="1" resolved="yes">
+      <change idref="t158" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t158" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-01T00:00:00.000Z"/>
+      <change idref="t158" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t158" attribute="title" type="string" to="[前端]商家菜单管理界面"/>
+    </change>
+    <change idref="t88" attribute="noEarlierThanConstraintDate" type="date" from="2018-06-23T15:00:00.000Z" to="2018-06-17T14:30:00.000Z" resolved="yes"/>
+    <change idref="t95" attribute="internalAssignments" type="string" from="" to="12" resolved="yes"/>
+    <change idref="t95" attribute="internalPrerequisitesString" type="string" to="94FS" resolved="yes"/>
+    <change idref="t107" attribute="effort" type="real" from="403200" to="680400" resolved="yes"/>
+    <change idref="t107" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-03T00:00:00.000Z" resolved="yes"/>
+    <change idref="t109" attribute="effort" type="real" from="403200" to="680400" resolved="yes"/>
+    <change idref="t109" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-03T00:00:00.000Z" resolved="yes"/>
+    <change idref="t110" attribute="effort" type="real" from="403200" to="680400" resolved="yes"/>
+    <change idref="t110" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-03T00:00:00.000Z" resolved="yes"/>
+    <change idref="t111" attribute="effort" type="real" from="403200" to="680400" resolved="yes"/>
+    <change idref="t111" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-03T00:00:00.000Z" resolved="yes"/>
+    <change idref="t112" attribute="effort" type="real" from="403200" to="680400" resolved="yes"/>
+    <change idref="t112" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-03T00:00:00.000Z" resolved="yes"/>
+    <change idref="t114" attribute="effort" type="real" from="403200" to="680400" resolved="yes"/>
+    <change idref="t114" attribute="noEarlierThanConstraintDate" type="date" from="2018-04-30T00:00:00.000Z" to="2018-05-03T00:00:00.000Z" resolved="yes"/>
+    <change idref="t160" to="t84" to-position="0" resolved="yes">
+      <change idref="t160" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t160" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-24T00:00:00.000Z"/>
+      <change idref="t160" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t160" attribute="title" type="string" to="[测试] 后台显示订单"/>
+    </change>
+    <change idref="t163" to="t84" to-position="1" resolved="yes">
+      <change idref="t163" attribute="internalAssignments" type="string" from="" to="12"/>
+      <change idref="t163" attribute="noEarlierThanConstraintDate" type="date" to="2018-06-07T00:00:00.000Z"/>
+      <change idref="t163" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t163" attribute="title" type="string" to="[测试] 商家账户登录"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:49:09.906Z" timestamp="2018-05-03T08:49:09.906Z">
+    <change idref="t82" attribute="internalAssignments" type="string" from="" to="11" resolved="yes"/>
+    <change idref="t169" to="t84" to-position="2" resolved="yes">
+      <change idref="t169" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t169" attribute="internalPrerequisitesString" type="string" to="160FS"/>
+      <change idref="t169" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-24T00:00:00.000Z"/>
+      <change idref="t169" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.999&quot;;&#10;        g = &quot;0.400599&quot;;&#10;        r = &quot;0.696209&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t169" attribute="title" type="string" to="[测试] 后台显示订单"/>
+    </change>
+    <change idref="t86" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-25T00:00:00.000Z" to="2018-05-15T00:00:00.000Z" resolved="yes"/>
+    <change idref="t156" attribute="effort" type="real" from="28800" to="534600" resolved="yes"/>
+    <change idref="t156" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-22T00:00:00.000Z" to="2018-05-15T00:00:00.000Z" resolved="yes"/>
+    <change idref="t158" attribute="effort" type="real" from="28800" to="534600" resolved="yes"/>
+    <change idref="t158" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-01T00:00:00.000Z" to="2018-05-15T00:00:00.000Z" resolved="yes"/>
+    <change idref="t160" attribute="title" type="string" from="[测试] 后台显示订单" to="[测试] 添加详细测试数据" resolved="yes"/>
+    <change idref="t163" attribute="internalPrerequisitesString" type="string" to="160FS" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T08:51:19.361Z" timestamp="2018-05-03T08:51:19.361Z">
+    <change idref="t82" attribute="effort" type="real" from="28800" to="437400" resolved="yes"/>
+    <change idref="t84" attribute="noEarlierThanConstraintDate" type="date" from="2018-05-28T00:00:00.000Z" to="2018-05-25T00:00:00.000Z" resolved="yes"/>
+    <change idref="t163" attribute="noEarlierThanConstraintDate" type="date" from="2018-06-07T00:00:00.000Z" to="2018-05-27T00:00:00.000Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jonathan Yang" date="2018-05-03T09:04:32.033Z" timestamp="2018-05-03T09:04:32.033Z">
+    <change idref="t171" to="t71" to-position="6" resolved="yes">
+      <change idref="t171" attribute="effort" type="real" from="28800" to="145800"/>
+      <change idref="t171" attribute="internalAssignments" type="string" from="" to="15"/>
+      <change idref="t171" attribute="noEarlierThanConstraintDate" type="date" to="2018-05-07T00:00:00.000Z"/>
+      <change idref="t171" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t171" attribute="title" type="string" to="[前端] 活动公告界面"/>
+    </change>
+    <change idref="t93" from="t87" from-position="7" resolved="yes">
+      <change idref="t93" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t93" attribute="noEarlierThanConstraintDate" type="date" to="2018-06-12T00:00:00.000Z"/>
+      <change idref="t93" attribute="styleDict" type="dict" to="{&#10;    &quot;gantt-fill-color&quot; =     {&#10;        b = &quot;0.566152&quot;;&#10;        g = &quot;0.803&quot;;&#10;        r = &quot;0.440847&quot;;&#10;        space = srgb;&#10;    };&#10;}"/>
+      <change idref="t93" attribute="title" type="string" to="[前端] 活动展示"/>
+    </change>
+    <change idref="t90" attribute="internalPrerequisitesString" type="string" from="92FS, 93FS" to="92FS" resolved="yes"/>
+    <change idref="t90" attribute="title" type="string" from="[测试] 商家发布、编辑活动" to="[测试] 商家活动" resolved="yes"/>
+  </task-change-set>
+  <resource-change-set user="Jonathan Yang" date="2018-05-03T07:36:42.842Z" timestamp="2018-05-03T07:36:42.842Z">
+    <change idref="r10" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="r10" attribute="costPerUse" type="real" from="0" resolved="yes"/>
+    <change idref="r10" attribute="costPerHour" type="real" from="0" resolved="yes"/>
+    <change idref="r10" attribute="efficiency" type="real" from="1" resolved="yes"/>
+    <change idref="r10" attribute="unitsAvailable" type="real" from="1" resolved="yes"/>
+    <change idref="r10" attribute="resourceTypeRank" type="real" from="0" to="3" resolved="yes"/>
+    <change idref="r14" to="r10" to-position="0" resolved="yes">
+      <change idref="r14" attribute="name" type="string" from="" to="许琦"/>
+    </change>
+    <change idref="r15" to="r10" to-position="1" resolved="yes">
+      <change idref="r15" attribute="name" type="string" from="" to="佳全"/>
+    </change>
+    <change idref="r16" to="r10" to-position="2" resolved="yes">
+      <change idref="r16" attribute="name" type="string" from="" to="叶政"/>
+    </change>
+    <change idref="r11" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="r11" attribute="costPerUse" type="real" from="0" resolved="yes"/>
+    <change idref="r11" attribute="costPerHour" type="real" from="0" resolved="yes"/>
+    <change idref="r11" attribute="efficiency" type="real" from="1" resolved="yes"/>
+    <change idref="r11" attribute="unitsAvailable" type="real" from="1" resolved="yes"/>
+    <change idref="r11" attribute="resourceTypeRank" type="real" from="0" to="3" resolved="yes"/>
+    <change idref="r17" to="r11" to-position="0" resolved="yes">
+      <change idref="r17" attribute="name" type="string" from="" to="泓江"/>
+    </change>
+    <change idref="r18" to="r11" to-position="1" resolved="yes">
+      <change idref="r18" attribute="name" type="string" from="" to="志立"/>
+    </change>
+    <change idref="r12" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="r12" attribute="costPerUse" type="real" from="0" resolved="yes"/>
+    <change idref="r12" attribute="costPerHour" type="real" from="0" resolved="yes"/>
+    <change idref="r12" attribute="efficiency" type="real" from="1" resolved="yes"/>
+    <change idref="r12" attribute="unitsAvailable" type="real" from="1" resolved="yes"/>
+    <change idref="r12" attribute="resourceTypeRank" type="real" from="0" to="3" resolved="yes"/>
+    <change idref="r20" to="r12" to-position="0" resolved="yes">
+      <change idref="r20" attribute="name" type="string" from="" to="慕欣"/>
+    </change>
+    <change idref="r19" to="r12" to-position="1" resolved="yes">
+      <change idref="r19" attribute="name" type="string" from="" to="竣然"/>
+    </change>
+  </resource-change-set>
+  <resource-change-set user="Jonathan Yang" date="2018-05-03T08:30:55.524Z" timestamp="2018-05-03T08:30:55.524Z">
+    <change idref="r-1" attribute="standardHoursString" type="string" from="-;-;-;-;-;-;-" to="28800,43200,46800,81000;28800,43200,46800,81000;28800,43200,46800,81000;28800,43200,46800,81000;28800,43200,46800,81000;28800,43200,46800,81000;28800,43200,46800,81000"/>
+  </resource-change-set>
+</changelog>

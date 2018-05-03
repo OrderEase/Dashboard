@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" xmlns:opns="http://www.omnigroup.com/namespace/OmniPlan/v2" id="fDdXQeXat6d">
+  <start-date>2018-04-29T00:00:00.000Z</start-date>
+  <granularity>days</granularity>
+  <prototype-task>
+    <task id="t-2">
+      <title>Task 1</title>
+      <effort>28800</effort>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t-3">
+      <title>Milestone 1</title>
+      <type>milestone</type>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t-4">
+      <title>Group 1</title>
+      <type>group</type>
+    </task>
+  </prototype-task>
+  <prototype-resource>
+    <resource id="r-2">
+      <name>Resource 1</name>
+      <type>Staff</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-3">
+      <name>Equipment 1</name>
+      <type>Equipment</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-4">
+      <name>Material 1</name>
+      <type>Material</type>
+      <units-available>0</units-available>
+      <efficiency>0</efficiency>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-5">
+      <name>Group 1</name>
+      <type>Group</type>
+    </resource>
+  </prototype-resource>
+  <top-resource idref="r-1"/>
+  <resource id="r-1">
+    <name/>
+    <type>Group</type>
+    <schedule>
+      <schedule-day day-of-week="sunday">
+        <time-span start-time="28800" end-time="43200"/>
+        <time-span start-time="46800" end-time="81000"/>
+      </schedule-day>
+      <schedule-day day-of-week="monday">
+        <time-span start-time="28800" end-time="43200"/>
+        <time-span start-time="46800" end-time="81000"/>
+      </schedule-day>
+      <schedule-day day-of-week="tuesday">
+        <time-span start-time="28800" end-time="43200"/>
+        <time-span start-time="46800" end-time="81000"/>
+      </schedule-day>
+      <schedule-day day-of-week="wednesday">
+        <time-span start-time="28800" end-time="43200"/>
+        <time-span start-time="46800" end-time="81000"/>
+      </schedule-day>
+      <schedule-day day-of-week="thursday">
+        <time-span start-time="28800" end-time="43200"/>
+        <time-span start-time="46800" end-time="81000"/>
+      </schedule-day>
+      <schedule-day day-of-week="friday">
+        <time-span start-time="28800" end-time="43200"/>
+        <time-span start-time="46800" end-time="81000"/>
+      </schedule-day>
+      <schedule-day day-of-week="saturday">
+        <time-span start-time="28800" end-time="43200"/>
+        <time-span start-time="46800" end-time="81000"/>
+      </schedule-day>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes"/>
+    </schedule>
+    <child-resource idref="r10"/>
+    <child-resource idref="r11"/>
+    <child-resource idref="r12"/>
+  </resource>
+  <resource id="r10">
+    <name>前端</name>
+    <type>Group</type>
+    <child-resource idref="r14"/>
+    <child-resource idref="r15"/>
+    <child-resource idref="r16"/>
+  </resource>
+  <resource id="r11">
+    <name>后端</name>
+    <type>Group</type>
+    <child-resource idref="r17"/>
+    <child-resource idref="r18"/>
+  </resource>
+  <resource id="r12">
+    <name>产品</name>
+    <type>Group</type>
+    <child-resource idref="r20"/>
+    <child-resource idref="r19"/>
+  </resource>
+  <resource id="r14">
+    <name>许琦</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r15">
+    <name>佳全</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r16">
+    <name>叶政</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r17">
+    <name>泓江</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r18">
+    <name>志立</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r19">
+    <name>竣然</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r20">
+    <name>慕欣</name>
+    <type>Staff</type>
+  </resource>
+  <top-task idref="t-1"/>
+  <task id="t-1">
+    <type>group</type>
+    <child-task idref="t69"/>
+    <child-task idref="t79"/>
+    <child-task idref="t87"/>
+  </task>
+  <task id="t69">
+    <title>第一次迭代（2C基本功能）</title>
+    <type>group</type>
+    <child-task idref="t71"/>
+    <child-task idref="t73"/>
+    <child-task idref="t76"/>
+    <child-task idref="t74"/>
+    <child-task idref="t77"/>
+    <child-task idref="t78"/>
+    <child-task idref="t150"/>
+    <child-task idref="t152"/>
+  </task>
+  <task id="t71">
+    <title>[前端] 2C 界面</title>
+    <type>group</type>
+    <child-task idref="t107"/>
+    <child-task idref="t114"/>
+    <child-task idref="t109"/>
+    <child-task idref="t110"/>
+    <child-task idref="t111"/>
+    <child-task idref="t112"/>
+    <child-task idref="t171"/>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+  </task>
+  <task id="t73">
+    <title>[测试] 2C 界面</title>
+    <type>group</type>
+    <start-constraint-date>2018-05-11T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t129"/>
+    <child-task idref="t130"/>
+    <child-task idref="t132"/>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t71"/>
+    <prerequisite-task idref="t74"/>
+    <start-no-earlier-than>2018-05-11T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t74">
+    <title>[测试] 建立简单测试数据</title>
+    <effort>10800</effort>
+    <start-constraint-date>2018-05-08T16:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t77"/>
+    <prerequisite-task idref="t78"/>
+    <prerequisite-task idref="t150"/>
+    <prerequisite-task idref="t152"/>
+    <assignment idref="r12"/>
+    <start-no-earlier-than>2018-05-08T16:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t76">
+    <title>第一次迭代完成</title>
+    <type>milestone</type>
+    <prerequisite-task idref="t73"/>
+  </task>
+  <task id="t77">
+    <title>[后端] 完成订单 API</title>
+    <effort>5400</effort>
+    <min-estimate>1800</min-estimate>
+    <max-estimate>9000</max-estimate>
+    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
+    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
+    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
+  </task>
+  <task id="t78">
+    <title>[后端] 建立数据库</title>
+    <effort>7200</effort>
+    <start-constraint-date>2018-05-07T16:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-07T16:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t79">
+    <title>第二次迭代（完成商家）</title>
+    <type>group</type>
+    <start-constraint-date>2018-05-13T16:00:00.000Z</start-constraint-date>
+    <child-task idref="t82"/>
+    <child-task idref="t83"/>
+    <child-task idref="t84"/>
+    <child-task idref="t86"/>
+    <child-task idref="t154"/>
+    <start-no-earlier-than>2018-05-13T16:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t82">
+    <title>[后端] 商家账户与登陆</title>
+    <effort>437400</effort>
+    <start-constraint-date>2018-05-12T16:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-12T16:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t83">
+    <title>第二次迭代完成</title>
+    <type>milestone</type>
+    <start-constraint-date>2018-06-08T09:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t84"/>
+    <start-no-earlier-than>2018-06-08T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t84">
+    <title>[测试] 2B 菜单、订单</title>
+    <type>group</type>
+    <start-constraint-date>2018-05-25T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t160"/>
+    <child-task idref="t163"/>
+    <child-task idref="t169"/>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t82"/>
+    <prerequisite-task idref="t86"/>
+    <start-no-earlier-than>2018-05-25T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t86">
+    <title>[前端] 2B 界面</title>
+    <type>group</type>
+    <start-constraint-date>2018-05-15T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t156"/>
+    <child-task idref="t158"/>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t154"/>
+    <start-no-earlier-than>2018-05-15T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t87">
+    <title>第三次迭代</title>
+    <type>group</type>
+    <start-constraint-date>2018-06-11T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t88"/>
+    <child-task idref="t94"/>
+    <child-task idref="t95"/>
+    <child-task idref="t91"/>
+    <child-task idref="t89"/>
+    <child-task idref="t92"/>
+    <child-task idref="t90"/>
+    <start-no-earlier-than>2018-06-11T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t88">
+    <title>第三次迭代完成</title>
+    <type>milestone</type>
+    <start-constraint-date>2018-06-17T14:30:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t89"/>
+    <prerequisite-task idref="t90"/>
+    <start-no-earlier-than>2018-06-17T14:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t89">
+    <title>[测试] 后台数据显示</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-06-15T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t91"/>
+    <assignment idref="r12"/>
+    <start-no-earlier-than>2018-06-15T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t90">
+    <title>[测试] 商家活动</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-06-13T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t92"/>
+    <assignment idref="r12"/>
+    <start-no-earlier-than>2018-06-13T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t91">
+    <title>[前端] 完成数据分析界面</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-06-14T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t95"/>
+    <assignment idref="r10"/>
+    <start-no-earlier-than>2018-06-14T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t92">
+    <title>[后端] 商家活动管理模块</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-06-12T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-06-12T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t94">
+    <title>[产品] 商家数据分析需求</title>
+    <effort>28800</effort>
+    <assignment idref="r12"/>
+  </task>
+  <task id="t95">
+    <title>[设计] 商家数据分析界面</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t94"/>
+    <assignment idref="r12"/>
+  </task>
+  <task id="t107">
+    <title>[前端] 购物车界面</title>
+    <effort>680400</effort>
+    <start-constraint-date>2018-05-03T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <assignment idref="r14"/>
+    <start-no-earlier-than>2018-05-03T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t109">
+    <title>[前端] 登录界面</title>
+    <effort>680400</effort>
+    <start-constraint-date>2018-05-03T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <assignment idref="r16"/>
+    <start-no-earlier-than>2018-05-03T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t110">
+    <title>[前端] 我的订单界面</title>
+    <effort>680400</effort>
+    <start-constraint-date>2018-05-03T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <assignment idref="r16"/>
+    <start-no-earlier-than>2018-05-03T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t111">
+    <title>[前端] 菜单点菜界面</title>
+    <effort>680400</effort>
+    <start-constraint-date>2018-05-03T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <assignment idref="r15"/>
+    <start-no-earlier-than>2018-05-03T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t112">
+    <title>[前端] 随机点菜界面</title>
+    <effort>680400</effort>
+    <start-constraint-date>2018-05-03T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <assignment idref="r15"/>
+    <start-no-earlier-than>2018-05-03T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t114">
+    <title>[前端] 支付界面</title>
+    <effort>680400</effort>
+    <start-constraint-date>2018-05-03T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <assignment idref="r14"/>
+    <start-no-earlier-than>2018-05-03T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t129">
+    <title>[测试] 获取菜单</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-05-11T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <assignment idref="r12"/>
+    <start-no-earlier-than>2018-05-11T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t130">
+    <title>[测试] 用户下单</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-05-11T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <assignment idref="r12"/>
+    <start-no-earlier-than>2018-05-11T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t132">
+    <title>[测试] 用户查看订单</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-05-11T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <assignment idref="r12"/>
+    <start-no-earlier-than>2018-05-11T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t150">
+    <title>[后端] 完成菜单 API</title>
+    <effort>5400</effort>
+    <min-estimate>1800</min-estimate>
+    <max-estimate>9000</max-estimate>
+    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
+    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
+    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
+  </task>
+  <task id="t152">
+    <title>[后端] 完成餐馆 API</title>
+    <effort>5400</effort>
+    <min-estimate>1800</min-estimate>
+    <max-estimate>9000</max-estimate>
+    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
+    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
+    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
+  </task>
+  <task id="t154">
+    <title>[设计] 2B 界面</title>
+    <effort>28800</effort>
+    <assignment idref="r12"/>
+  </task>
+  <task id="t156">
+    <title>[前端] 完成后厨订单界面</title>
+    <effort>534600</effort>
+    <start-constraint-date>2018-05-15T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <start-no-earlier-than>2018-05-15T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t158">
+    <title>[前端]商家菜单管理界面</title>
+    <effort>534600</effort>
+    <start-constraint-date>2018-05-15T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <start-no-earlier-than>2018-05-15T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t160">
+    <title>[测试] 添加详细测试数据</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-05-24T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <assignment idref="r10"/>
+    <start-no-earlier-than>2018-05-24T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t163">
+    <title>[测试] 商家账户登录</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-05-27T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t160"/>
+    <assignment idref="r12"/>
+    <start-no-earlier-than>2018-05-27T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t169">
+    <title>[测试] 后台显示订单</title>
+    <effort>28800</effort>
+    <start-constraint-date>2018-05-24T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t160"/>
+    <assignment idref="r10"/>
+    <start-no-earlier-than>2018-05-24T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t171">
+    <title>[前端] 活动公告界面</title>
+    <effort>145800</effort>
+    <start-constraint-date>2018-05-07T00:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.440847" g="0.803" b="0.566152"/>
+      </value>
+    </style>
+    <assignment idref="r15"/>
+    <start-no-earlier-than>2018-05-07T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <critical-path root="-1" enabled="false" resources="false">
+    <color space="srgb" r="1" g="0.5" b="0.5"/>
+  </critical-path>
+</scenario>
