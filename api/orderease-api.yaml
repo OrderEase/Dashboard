@@ -6,6 +6,7 @@ info:
 host: "orderease.ml"
 basePath: "/v1"
 
+
 # API
 schemes:
 - "http"
