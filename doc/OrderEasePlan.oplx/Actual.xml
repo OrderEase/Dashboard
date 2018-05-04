@@ -147,10 +147,11 @@
     <child-task idref="t73"/>
     <child-task idref="t76"/>
     <child-task idref="t74"/>
-    <child-task idref="t77"/>
     <child-task idref="t78"/>
-    <child-task idref="t150"/>
-    <child-task idref="t152"/>
+    <child-task idref="t185"/>
+    <child-task idref="t186"/>
+    <child-task idref="t187"/>
+    <child-task idref="t189"/>
   </task>
   <task id="t71">
     <title>[前端] 2C 界面</title>
@@ -193,10 +194,8 @@
         <color space="srgb" r="0.696209" g="0.400599" b="0.999"/>
       </value>
     </style>
-    <prerequisite-task idref="t77"/>
     <prerequisite-task idref="t78"/>
-    <prerequisite-task idref="t150"/>
-    <prerequisite-task idref="t152"/>
+    <prerequisite-task idref="t189"/>
     <assignment idref="r12"/>
     <start-no-earlier-than>2018-05-08T16:00:00.000Z</start-no-earlier-than>
   </task>
@@ -205,33 +204,17 @@
     <type>milestone</type>
     <prerequisite-task idref="t73"/>
   </task>
-  <task id="t77">
-    <title>[后端] 完成订单 API</title>
-    <effort>5400</effort>
-    <min-estimate>1800</min-estimate>
-    <max-estimate>9000</max-estimate>
-    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
-    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
-    <style>
-      <value key="gantt-fill-color">
-        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
-      </value>
-    </style>
-    <assignment idref="r11"/>
-    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
-    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
-  </task>
   <task id="t78">
     <title>[后端] 建立数据库</title>
-    <effort>7200</effort>
-    <start-constraint-date>2018-05-07T16:00:00.000Z</start-constraint-date>
+    <effort>145800</effort>
+    <start-constraint-date>2018-05-06T00:00:00.000Z</start-constraint-date>
     <style>
       <value key="gantt-fill-color">
         <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
       </value>
     </style>
     <assignment idref="r11"/>
-    <start-no-earlier-than>2018-05-07T16:00:00.000Z</start-no-earlier-than>
+    <start-no-earlier-than>2018-05-06T00:00:00.000Z</start-no-earlier-than>
   </task>
   <task id="t79">
     <title>第二次迭代（完成商家）</title>
@@ -490,38 +473,6 @@
     <assignment idref="r12"/>
     <start-no-earlier-than>2018-05-11T00:00:00.000Z</start-no-earlier-than>
   </task>
-  <task id="t150">
-    <title>[后端] 完成菜单 API</title>
-    <effort>5400</effort>
-    <min-estimate>1800</min-estimate>
-    <max-estimate>9000</max-estimate>
-    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
-    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
-    <style>
-      <value key="gantt-fill-color">
-        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
-      </value>
-    </style>
-    <assignment idref="r11"/>
-    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
-    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
-  </task>
-  <task id="t152">
-    <title>[后端] 完成餐馆 API</title>
-    <effort>5400</effort>
-    <min-estimate>1800</min-estimate>
-    <max-estimate>9000</max-estimate>
-    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
-    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
-    <style>
-      <value key="gantt-fill-color">
-        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
-      </value>
-    </style>
-    <assignment idref="r11"/>
-    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
-    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
-  </task>
   <task id="t154">
     <title>[设计] 2B 界面</title>
     <effort>28800</effort>
@@ -600,6 +551,71 @@
     </style>
     <assignment idref="r15"/>
     <start-no-earlier-than>2018-05-07T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t185">
+    <title>[后端] 完成订单 API</title>
+    <effort>5400</effort>
+    <min-estimate>1800</min-estimate>
+    <max-estimate>9000</max-estimate>
+    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
+    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
+    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
+  </task>
+  <task id="t186">
+    <title>[后端] 完成菜单 API</title>
+    <effort>5400</effort>
+    <min-estimate>1800</min-estimate>
+    <max-estimate>9000</max-estimate>
+    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
+    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
+    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
+  </task>
+  <task id="t187">
+    <title>[后端] 完成餐馆 API</title>
+    <effort>5400</effort>
+    <min-estimate>1800</min-estimate>
+    <max-estimate>9000</max-estimate>
+    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
+    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
+    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
+  </task>
+  <task id="t189">
+    <title>[后端] 搭建 API</title>
+    <effort>145800</effort>
+    <start-constraint-date>2018-05-04T16:00:00.000Z</start-constraint-date>
+    <end-constraint-date>2018-05-05T16:00:00.000Z</end-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0.988" g="0.458381" b="0.211432"/>
+      </value>
+    </style>
+    <prerequisite-task idref="t185"/>
+    <prerequisite-task idref="t186"/>
+    <prerequisite-task idref="t187"/>
+    <assignment idref="r11"/>
+    <start-no-earlier-than>2018-05-04T16:00:00.000Z</start-no-earlier-than>
+    <end-no-later-than>2018-05-05T16:00:00.000Z</end-no-later-than>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
     <color space="srgb" r="1" g="0.5" b="0.5"/>

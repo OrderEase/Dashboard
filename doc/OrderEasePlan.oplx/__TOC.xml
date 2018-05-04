@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" xmlns:opnx="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="-0" y="-0" w="1920" h="1080">
+  <window x="0" y="0" w="1440" h="900">
     <editing-scenario>fDdXQeXat6d</editing-scenario>
     <view>pert</view>
     <change-tracking/>
@@ -136,7 +136,7 @@ End:</group-table-style>
     </network-view>
   </window>
   <project>
-    <next-task-id>172</next-task-id>
+    <next-task-id>191</next-task-id>
     <next-resource-id>21</next-resource-id>
     <scenario id="fDdXQeXat6d" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="false" seconds="false"/>
