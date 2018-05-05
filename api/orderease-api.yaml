@@ -1,26 +1,157 @@
 swagger: "2.0"
 info:
-  description: "OrderEase RESTful API 2B"
+  description: "OrderEase RESTful API"
   version: "1.0"
-  title: "OrderEase API for Business"
+  title: "OrderEase API"
 host: "orderease.ml"
 basePath: "/v1"
 
+
 # API
 schemes:
-- "http"
+- "https"
 paths:
-  # User
-  /user/login:
+  # CUser
+  /cuser/login:
     post:
       tags:
-      - "user"
-      summary: "business account login"
-  /user/logout:
+      - "cuser"
+      summary: "2C: user login"
+      parameters: 
+      - in: "body"
+        name: "body"
+        description: "user info for login"
+        required: true
+        schema:
+          type: object
+          properties:
+            username: 
+              type: string
+              example: "simpleUsername"
+      responses:
+        200:
+          description: "successfully login"
+        404:
+          description: "restaurant id not found"
+        
+  /cuser/logout:
     put:
       tags:
-      - "user"
-      summary: "business account logout"
+      - "cuser"
+      summary: "2C: user logout"
+      responses:
+        200:
+          description: "successfully logout"
+        401:
+          description: "login required"
+
+  # BUser 
+  /buser/register:
+    post:
+      tags:
+      - "buser"
+      summary: "2B: create a new user"
+      parameters: 
+      - in: "body"
+        name: "body"
+        description: "register info"
+        required: true
+        schema:
+          type: object
+          properties:
+            restId:
+              type: string
+              example: DDD123
+            username: 
+              type: string
+              example: simpleUsername
+            password:
+              type: string
+              example: naviePassword
+            authority:
+              type: string
+              example: manager
+      responses:
+        200:
+          description: "successfully register"
+        400:
+          description: "invalid username or password"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                enum: ["invalid type or length of username",
+                        "username already exist",
+                        "invalid type or length of password"]
+                example: username already exist
+        404:
+          description: "restaurant id not found"
+
+  /buser:
+    put:
+      tags:
+      - "buser"
+      summary: "2B: change password"
+      parameters: 
+      - in: "body"
+        name: "body"
+        description: "register info"
+        required: true
+        schema:
+          type: object
+          properties:
+            password:
+              type: string
+              example: naviePassword
+      responses:
+        200:
+          description: "successfully change password"
+        400:
+          description: "invalid password"
+        401:
+          description: "login required"
+
+  /buser/login:
+    post:
+      tags:
+      - "buser"
+      summary: "2B: user login"
+      parameters: 
+      - in: "body"
+        name: "body"
+        description: "user info for login"
+        required: true
+        schema:
+          type: object
+          properties:
+            username: 
+              type: string
+              example: simpleUsername
+            restId:
+              type: string
+              example: DDD123
+            password:
+              type: string
+              example: naviePassword
+      responses:
+        200:
+          description: "successfully login"
+        401:
+          description: "invalid username or password"
+        404:
+          description: "restaurant id not found"
+        
+  /buser/logout:
+    put:
+      tags:
+      - "buser"
+      summary: "2B: user logout"
+      responses:
+        200:
+          description: "successfully logout"
+        401:
+          description: "login required"
 
   # Dish
   /dish:
@@ -28,24 +159,46 @@ paths:
     post:
       tags:
       - "dish"
-      summary: "add a new dish"
+      summary: "2B: add a new dish"
       consumes:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "Dish object to add into database."
+        description: "Dish object to add into database. Id is not needed"
         required: true
         schema:
           $ref: "#/definitions/Dish"
       responses:
-        405:
+        400:
           description: "Invalid input"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                enum: ["dish name is required",
+                        "dish name already exist",
+                        "price must be lager than 0"]
+                example: dish name is required
+        200:
+          description: "add a new dish successfully"
+          schema:
+            type: object
+            properties:
+              dishId:
+                type: integer
+                example: 3910
+        401:
+          description: "login required"
+        403:
+          description: "lack of authority"
+        
     # Get A Specific Info of A Dish
     get:
       tags:
       - "dish"
-      summary: "get info of a dish"
+      summary: "2B&2C: get info of a dish"
       consumes:
       - "application/json"
       parameters:
@@ -54,24 +207,26 @@ paths:
         description: "Identifier of the dish to query"
         required: true
         schema:
-          type: "object"
+          type: object
           properties:
-            name:
-              type: "string"
-              example: "番茄炒蛋"
-            restaurantId:
-              type: "string"
-              example: "ASW23122W"
+            dishId:
+              type: integer
+              example: 3910
       responses:
         200:
           description: "Successful query for dish info"
           schema:
             $ref: "#/definitions/Dish"
+        404:
+          description: "dish not found"
+        401:
+          description: "login required"
+
     # Update Info of A Dish
     put:
       tags:
       - "dish"
-      summary: "update info of a dish"
+      summary: "2B: update info of a dish"
       consumes:
       - "application/json"
       parameters:
@@ -85,17 +240,28 @@ paths:
         200:
           description: "Successful update"
         404:
-          description: "Restaurant or Dish Not Found"
+          description: "dish Not Found"
+        400:
+          description: "Invalid input"
           schema:
-            type: string
-            example: "Restaurant Not Found"
-        405:
-          description: "Invalid Input"
+            type: object
+            properties:
+              error:
+                type: string
+                enum: ["dish name can not be empty",
+                        "dish name already exist",
+                        "price must be lager than 0"]
+                example: dish name can not be empty
+        401:
+          description: "login required"
+        403:
+          description: "lack of authority"
+              
     # DELETE A Dish
     delete:
       tags:
       - "dish"
-      summary: "delete a dish"
+      summary: "2B: delete a dish"
       consumes:
       - "application/json"
       parameters:
@@ -104,23 +270,27 @@ paths:
         description: "Identifier of the dish to delete"
         required: true
         schema:
-          type: "object"
+          type: object
           properties:
             name:
-              type: "string"
-              example: "鸡汤抄手"
-            category:
-              type: "string"
-              example: "小吃"
-            restaurantId:
-              type: "string"
-              exmaple: "SAS21232W"
+              type: string
+              example: 老麻抄手
+      responses:
+        200:
+          description: "successfully delete"
+        404:
+          description: "dish not found"
+        401:
+          description: "login required"
+        403:
+          description: "lack of authority"
+        
   # Get Dishes List
   /dishes:
     get:
       tags:
       - "dish"
-      summary: "get dishes list for a certain category and restaurant"
+      summary: "2B&2C: get dishes list for a certain category"
       consumes:
       - "application/json"
       parameters:
@@ -130,109 +300,247 @@ paths:
         required: true
         schema:
           # Identifier of the dish
-          type: "object"
+          type: object
           properties:
-            restaurantId:
-              type: "string"
-              example: "AWS21232D"
             category:
-              type: "string"
+              type: string
               example: "荤菜"
-
-  # Restaurant
-  /rstrt:
-    get: 
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              category:
+                type: string
+                example: "荤菜"
+              dishes:
+                type: array
+                items:
+                  $ref: "#/definitions/Dish"
+        404:
+          description: "category not found"
+        401:
+          description: "login required"
+                        
+  # restaurant information
+  /rstr:
+    post:
       tags:
-      - "Restaurant"
-      summary: "Get info of a restaurant"
+      - "rstr"
+      summary: "2C: get restaurant info and menu, call it at the beginning"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Request identifier of the order. Id is not needed"
+        required: true
+        schema:
+          type: object
+          properties:
+            rstrId:
+              type: string
+              example: DDD123
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 点都德
+              info:
+                type: string
+                example: Hello, 点都德
+              menu:
+                $ref: "#/definitions/Menu"
+        404:
+          description: "restaurant not found"
+
 
   # Customer Operation
   /order:
     post:
       tags:
       - "order"
-      summary: "User place an order"
+      summary: "2C: User place an order"
       consumes:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "Request identifier of the order"
+        description: "Request identifier of the order. Id is not needed"
         required: true
         schema:
-          type: "object"
+          type: object
           properties:
-            restaurantId:
-              type: "string"
-              example: "AWS21232D"
             tableId:
-              type: "string"
+              type: string
               example: "23E"
             dishes:
-              type: "array"
-              example: "["番茄炒蛋"，"毛血旺"]"
+              type: array
+              items:
+                $ref: "#/definitions/Dish"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              orderId:
+                type: integer
+                example: 4396
+        400:
+          description: "wrong order"
+        401:
+          description: "login required"
+        
     get:
       tags:
       - "order"
-      summary: "User check order's info"
+      summary: "2C: User check order's info"
       consumes:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-    put:
+        schema:
+          type: object
+          properties:
+            orderId:
+              type: integer
+              example: 4396
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+        401:
+          description: "login required"
 
-
-
-
-
+  /pay:
+    post:
+      tags:
+      - "order"
+      summary: "2C: call this api after customer pays the pill"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "payment id and the corresponding order id"
+        required: true
+        schema:
+          type: object
+          properties:
+            payId:
+              type: integer
+              example: 2200
+            orderId:
+              type: integer
+              example: 4396
+      responses:
+        200:
+          description: OK
+        404:
+          description: "order not found"
+        400:
+          description: "payid is wrong, no such payment"
+        401:
+          description: "login required"
 
 # Data Models
 definitions:
   Dish:
-    type: "object"
+    type: object
     properties:
+      id:
+        type: integer
+        example: 3910
       name:
-        type: "string"
+        type: string
         example: "毛血旺"
-      restaurantId:
-        type: "string"
-        example: "ASW23312W"
       category:
-        type: "string"
+        type: string
         example: "荤菜"
       price:
-        type: "number"
+        type: number
         format: "float"
         example: 28.5
       stock:
-        type: "integer"
+        type: integer
         format: "int32"
         example: 99
       avaliable:
         type: "boolean"
         example: true
+      likes:
+        type: integer
+        example: 4
+      description:
+        type: string
+        example: "Hello 毛血旺"
+    required:
+    - name
+    - price
+
+  Menu:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 10
+      name:
+        type: string
+        example: "springMenu"
+      content:
+        type: array
+        items:
+          type: object
+          properties:
+            category:
+              type: string
+              example: "荤菜"
+            dishes:
+              type: array
+              items:
+                $ref: "#/definitions/Dish"
+    required:
+    - name
 
   Order:
-    type: "object"
+    type: object
     properties:
       orderId:
-        type: "string"
-        example: "2018030412398123"
+        type: integer
+        example: 4396
       tableId:
-        type: "string"
+        type: string
         example: "23E"
-      restaurantId:
-        type: "string"
-        example: "ASW20322W"
-      time:
-        type: "integer"
-        format: timestamp
-      price:
-        type: "number"
-        format: "float"
-        example: 28.5
+      total:
+        type: number
+        format: float
+        example: 108.3
+      due:
+        type: number
+        format: float
+        example: 92.3
+      isPay:
+        type: boolean
+        example: true
+      payWay:
+        type: string
+        example: alipay
+      paydate:
+        type: string
+        format: date-time
+        example: 2018-05-05T17:32:28Z
       dishes:
-        type: "array"
+        type: array
         items:
-          type: "string"
+          $ref: "#/definitions/Dish"
+          
