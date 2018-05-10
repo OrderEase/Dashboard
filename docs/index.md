@@ -17,6 +17,7 @@ OrderEase Development Progress, Meeting Records, etc.
 # Meetings Records
 
 - [1st meeting](../meeting/inception.md)
+- [2nd meeting]
 
 
 Note:
