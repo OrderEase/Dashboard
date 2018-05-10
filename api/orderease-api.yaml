@@ -31,8 +31,20 @@ paths:
       responses:
         200:
           description: "successfully login"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully login."
         404:
           description: "restaurant id not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found."
 
     put:
       tags:
@@ -41,8 +53,20 @@ paths:
       responses:
         200:
           description: "successfully logout"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully logout"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
   # BUser 
   /buser/:
@@ -73,19 +97,28 @@ paths:
       responses:
         200:
           description: "successfully register"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully register"
         400:
           description: "invalid username or password"
           schema:
             type: object
             properties:
-              error:
+              message:
                 type: string
-                enum: ["invalid type or length of username",
-                        "username already exist",
-                        "invalid type or length of password"]
-                example: username already exist
+                example: "[error message]"
         404:
           description: "restaurant id not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found."
 
   /buser/<id>:
     put:
@@ -106,10 +139,28 @@ paths:
       responses:
         200:
           description: "successfully change password"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Change password successfully."
         400:
           description: "invalid password"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Invalid password."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
   /buser/session:
     post:
@@ -136,10 +187,28 @@ paths:
       responses:
         200:
           description: "successfully login"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully login."
         401:
           description: "invalid username or password"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Invalid username or password."
         404:
           description: "restaurant id not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found."
         
     put:
       tags:
@@ -148,8 +217,20 @@ paths:
       responses:
         200:
           description: "successfully logout"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully logout."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required"
 
   # Dish
   /dish:
@@ -173,12 +254,9 @@ paths:
           schema:
             type: object
             properties:
-              error:
+              message:
                 type: string
-                enum: ["dish name is required",
-                        "dish name already exist",
-                        "price must be lager than 0"]
-                example: dish name is required
+                example: "[error message]"
         200:
           description: "add a new dish successfully"
           schema:
@@ -189,8 +267,20 @@ paths:
                 example: 3910
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
         403:
           description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority."
   
   /dish/<dishId>:      
     # Get A Specific Info of A Dish
@@ -207,8 +297,20 @@ paths:
             $ref: "#/definitions/Dish"
         404:
           description: "dish not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Dish not found"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
     # Update Info of A Dish
     put:
@@ -229,21 +331,36 @@ paths:
           description: "Successful update"
         404:
           description: "dish Not Found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Dish not found"
         400:
           description: "Invalid input"
           schema:
             type: object
             properties:
-              error:
+              message:
                 type: string
-                enum: ["dish name can not be empty",
-                        "dish name already exist",
-                        "price must be lager than 0"]
-                example: dish name can not be empty
+                example: "[error message]"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required"
         403:
           description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority."
               
     # DELETE A Dish
     delete:
@@ -255,12 +372,36 @@ paths:
       responses:
         200:
           description: "successfully delete"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully delete."
         404:
           description: "dish not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Dish not found."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
         403:
           description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority"
         
   # Get Dishes List
   /dishes:
@@ -297,8 +438,20 @@ paths:
                   $ref: "#/definitions/Dish"
         404:
           description: "category not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Category not found"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required"
                         
   # restaurant information
   /rstr/<rstrid>:
@@ -327,6 +480,12 @@ paths:
                 $ref: "#/definitions/Menu"
         404:
           description: "restaurant not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found"
 
 
   # Customer Operation
@@ -363,8 +522,20 @@ paths:
                 example: 4396
         400:
           description: "wrong order"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "[invalid order form message]"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
           
   /order/cuid/<userId>/oid/<orderid>:      
     get:
@@ -380,8 +551,20 @@ paths:
             $ref: "#/definitions/Order"
         404:
           description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
   /orders/cuid/<userId>:      
     get:
@@ -402,8 +585,20 @@ paths:
                   $ref: "#/definitions/Order"
         404:
           description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required and you can only get your own order(s)."
 
   /orders/rstrid/<rstrid>/oid/<orderId>:      
     get:
@@ -419,8 +614,20 @@ paths:
             $ref: "#/definitions/Order"
         404:
           description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required and you can only get your own order."
 
   /orders/rstrid/<rstrid>:      
     get:
@@ -441,8 +648,20 @@ paths:
                   $ref: "#/definitions/Order"
         404:
           description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
   /pay:
     post:
@@ -468,12 +687,36 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully pay."
         404:
           description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
         400:
-          description: "payid is wrong, no such payment"
+          description: "ayid is wrong, no such payment"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Payid is wrong, no such payment."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
 # Data Models
 definitions:
@@ -557,10 +800,10 @@ definitions:
       payWay:
         type: string
         example: alipay
-      paydate:
+      payDate:
         type: string
         format: date-time
-        example: 2018-05-05T17:32:28Z
+        example: "2017-11-23 16:10:10"
       dishes:
         type: array
         items:
