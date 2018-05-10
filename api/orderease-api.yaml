@@ -12,7 +12,7 @@ schemes:
 - "https"
 paths:
   # CUser
-  /cuser/login:
+  /cuser/:
     post:
       tags:
       - "cuser"
@@ -34,7 +34,7 @@ paths:
         404:
           description: "restaurant id not found"
         
-  /cuser/logout:
+  /cuser/:
     put:
       tags:
       - "cuser"
@@ -46,7 +46,7 @@ paths:
           description: "login required"
 
   # BUser 
-  /buser/register:
+  /buser/:
     post:
       tags:
       - "buser"
@@ -88,7 +88,7 @@ paths:
         404:
           description: "restaurant id not found"
 
-  /buser:
+  /buser/<id>:
     put:
       tags:
       - "buser"
@@ -112,7 +112,7 @@ paths:
         401:
           description: "login required"
 
-  /buser/login:
+  /buser/:
     post:
       tags:
       - "buser"
@@ -142,7 +142,7 @@ paths:
         404:
           description: "restaurant id not found"
         
-  /buser/logout:
+  /buser/:
     put:
       tags:
       - "buser"
