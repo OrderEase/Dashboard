@@ -281,6 +281,55 @@ paths:
               message:
                 type: string
                 example: "Lack of authority."
+    
+    get:
+      tags:
+      - "dish"
+      summary: "2B&2C: get dishes list for a certain category"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Identifier of the dishes list"
+        required: true
+        schema:
+          # Identifier of the dish
+          type: object
+          properties:
+            category:
+              type: string
+              example: "荤菜"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              category:
+                type: string
+                example: "荤菜"
+              dishes:
+                type: array
+                items:
+                  $ref: "#/definitions/Dish"
+        404:
+          description: "category not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Category not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required"
+                        
   
   /dish/<dishId>:      
     # Get A Specific Info of A Dish
@@ -402,57 +451,7 @@ paths:
               message:
                 type: string
                 example: "Lack of authority"
-        
-  # Get Dishes List
-  /dishes:
-    get:
-      tags:
-      - "dish"
-      summary: "2B&2C: get dishes list for a certain category"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Identifier of the dishes list"
-        required: true
-        schema:
-          # Identifier of the dish
-          type: object
-          properties:
-            category:
-              type: string
-              example: "荤菜"
-      responses:
-        200:
-          description: OK
-          schema:
-            type: object
-            properties:
-              category:
-                type: string
-                example: "荤菜"
-              dishes:
-                type: array
-                items:
-                  $ref: "#/definitions/Dish"
-        404:
-          description: "category not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Category not found"
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required"
-                        
+  
   # restaurant information
   /rstr/<rstrid>:
     get:
@@ -566,7 +565,7 @@ paths:
                 type: string
                 example: "Login required."
 
-  /orders/cuid/<userId>:      
+  /order/cuid/<userId>:      
     get:
       tags:
       - "order"
@@ -600,7 +599,7 @@ paths:
                 type: string
                 example: "Login required and you can only get your own order(s)."
 
-  /orders/rstrid/<rstrid>/oid/<orderId>:      
+  /order/rstrid/<rstrid>/oid/<orderId>:      
     get:
       tags:
       - "order"
@@ -629,7 +628,7 @@ paths:
                 type: string
                 example: "Login required and you can only get your own order."
 
-  /orders/rstrid/<rstrid>:      
+  /order/rstrid/<rstrid>:      
     get:
       tags:
       - "order"
