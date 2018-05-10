@@ -1,3 +1,3 @@
 # Domain Model
 
-![](../assets/domainModel.png)
+![](./assets/domainModel.png)
