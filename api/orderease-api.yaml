@@ -12,11 +12,11 @@ schemes:
 - "https"
 paths:
   # CUser
-  /cuser/login:
+  /cuser/session:
     post:
       tags:
       - "cuser"
-      summary: "2C: user login"
+      summary: "2C: 顾客登出"
       parameters: 
       - in: "body"
         name: "body"
@@ -31,26 +31,49 @@ paths:
       responses:
         200:
           description: "successfully login"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully login."
         404:
           description: "restaurant id not found"
-        
-  /cuser/logout:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found."
+
     put:
       tags:
       - "cuser"
-      summary: "2C: user logout"
+      summary: "2C: 顾客登出"
       responses:
         200:
           description: "successfully logout"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully logout"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
   # BUser 
-  /buser/register:
+  /buser/:
     post:
       tags:
       - "buser"
-      summary: "2B: create a new user"
+      summary: "2B: 新建商家用户"
       parameters: 
       - in: "body"
         name: "body"
@@ -74,25 +97,34 @@ paths:
       responses:
         200:
           description: "successfully register"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully register"
         400:
           description: "invalid username or password"
           schema:
             type: object
             properties:
-              error:
+              message:
                 type: string
-                enum: ["invalid type or length of username",
-                        "username already exist",
-                        "invalid type or length of password"]
-                example: username already exist
+                example: "[error message]"
         404:
           description: "restaurant id not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found."
 
-  /buser:
+  /buser/<id>:
     put:
       tags:
       - "buser"
-      summary: "2B: change password"
+      summary: "2B: 商家改密码"
       parameters: 
       - in: "body"
         name: "body"
@@ -107,16 +139,34 @@ paths:
       responses:
         200:
           description: "successfully change password"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Change password successfully."
         400:
           description: "invalid password"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Invalid password."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
-  /buser/login:
+  /buser/session:
     post:
       tags:
       - "buser"
-      summary: "2B: user login"
+      summary: "2B: 商家登录"
       parameters: 
       - in: "body"
         name: "body"
@@ -137,21 +187,50 @@ paths:
       responses:
         200:
           description: "successfully login"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully login."
         401:
           description: "invalid username or password"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Invalid username or password."
         404:
           description: "restaurant id not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found."
         
-  /buser/logout:
     put:
       tags:
       - "buser"
-      summary: "2B: user logout"
+      summary: "2B: 商家登出"
       responses:
         200:
           description: "successfully logout"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully logout."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required"
 
   # Dish
   /dish:
@@ -159,7 +238,7 @@ paths:
     post:
       tags:
       - "dish"
-      summary: "2B: add a new dish"
+      summary: "2B: 新增一个菜"
       consumes:
       - "application/json"
       parameters:
@@ -175,12 +254,9 @@ paths:
           schema:
             type: object
             properties:
-              error:
+              message:
                 type: string
-                enum: ["dish name is required",
-                        "dish name already exist",
-                        "price must be lager than 0"]
-                example: dish name is required
+                example: "[error message]"
         200:
           description: "add a new dish successfully"
           schema:
@@ -191,106 +267,26 @@ paths:
                 example: 3910
         401:
           description: "login required"
-        403:
-          description: "lack of authority"
-        
-    # Get A Specific Info of A Dish
-    get:
-      tags:
-      - "dish"
-      summary: "2B&2C: get info of a dish"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Identifier of the dish to query"
-        required: true
-        schema:
-          type: object
-          properties:
-            dishId:
-              type: integer
-              example: 3910
-      responses:
-        200:
-          description: "Successful query for dish info"
-          schema:
-            $ref: "#/definitions/Dish"
-        404:
-          description: "dish not found"
-        401:
-          description: "login required"
-
-    # Update Info of A Dish
-    put:
-      tags:
-      - "dish"
-      summary: "2B: update info of a dish"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Dish object with update information."
-        required: true
-        schema:
-          $ref: "#/definitions/Dish"
-      responses:
-        200:
-          description: "Successful update"
-        404:
-          description: "dish Not Found"
-        400:
-          description: "Invalid input"
           schema:
             type: object
             properties:
-              error:
+              message:
                 type: string
-                enum: ["dish name can not be empty",
-                        "dish name already exist",
-                        "price must be lager than 0"]
-                example: dish name can not be empty
-        401:
-          description: "login required"
+                example: "Login required."
         403:
           description: "lack of authority"
-              
-    # DELETE A Dish
-    delete:
-      tags:
-      - "dish"
-      summary: "2B: delete a dish"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Identifier of the dish to delete"
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-              example: 老麻抄手
-      responses:
-        200:
-          description: "successfully delete"
-        404:
-          description: "dish not found"
-        401:
-          description: "login required"
-        403:
-          description: "lack of authority"
-        
-  # Get Dishes List
-  /dishes:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority."
+  
+  /dish/category/<cat>:
     get:
       tags:
       - "dish"
-      summary: "2B&2C: get dishes list for a certain category"
+      summary: "2B&2C: 获取一个类别的所有菜"
       consumes:
       - "application/json"
       parameters:
@@ -320,34 +316,160 @@ paths:
                   $ref: "#/definitions/Dish"
         404:
           description: "category not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Category not found"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required"
                         
-  # restaurant information
-  /rstr:
-    post:
+  
+  /dish/did/<dishId>:      
+    # Get A Specific Info of A Dish
+    get:
       tags:
-      - "rstr"
-      summary: "2C: get restaurant info and menu, call it at the beginning"
+      - "dish"
+      summary: "2B&2C: 获取一个菜"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful query for dish info"
+          schema:
+            $ref: "#/definitions/Dish"
+        404:
+          description: "dish not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Dish not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+
+    # Update Info of A Dish
+    put:
+      tags:
+      - "dish"
+      summary: "2B: 更新一个菜"
       consumes:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "Request identifier of the order. Id is not needed"
+        description: "Dish object with update information. Id is not needed"
         required: true
         schema:
-          type: object
-          properties:
-            rstrId:
-              type: string
-              example: DDD123
+          $ref: "#/definitions/Dish"
+      responses:
+        200:
+          description: "Successful update"
+        404:
+          description: "dish Not Found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Dish not found"
+        400:
+          description: "Invalid input"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "[error message]"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required"
+        403:
+          description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority."
+              
+    # DELETE A Dish
+    delete:
+      tags:
+      - "dish"
+      summary: "2B: delete a dish"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "successfully delete"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully delete."
+        404:
+          description: "dish not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Dish not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+        403:
+          description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority"
+  
+  # restaurant information
+  /rstr/<rstrid>:
+    get:
+      tags:
+      - "rstr"
+      summary: "2C: 获取餐馆信息，包括菜单"
+      consumes:
+      - "application/json"
       responses:
         200:
           description: OK
           schema:
             type: object
             properties:
+              id:
+                type: string
+                example: DDD123
               name:
                 type: string
                 example: 点都德
@@ -358,20 +480,26 @@ paths:
                 $ref: "#/definitions/Menu"
         404:
           description: "restaurant not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Restaurant not found"
 
 
   # Customer Operation
-  /order:
+  /order/cuid/<userId>/:
     post:
       tags:
       - "order"
-      summary: "2C: User place an order"
+      summary: "2C: 用户提交订单"
       consumes:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "Request identifier of the order. Id is not needed"
+        description: "Create a new Order."
         required: true
         schema:
           type: object
@@ -380,9 +508,8 @@ paths:
               type: string
               example: "23E"
             dishes:
-              type: array
-              items:
-                $ref: "#/definitions/Dish"
+              type: string
+              example: "1030, 2030"
       responses:
         200:
           description: OK
@@ -394,24 +521,28 @@ paths:
                 example: 4396
         400:
           description: "wrong order"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "[invalid order form message]"
         401:
           description: "login required"
-        
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+          
+  /order/cuid/<userId>/oid/<orderid>:      
     get:
       tags:
       - "order"
-      summary: "2C: User check order's info"
+      summary: "2C: 用户获取单个订单"
       consumes:
       - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        schema:
-          type: object
-          properties:
-            orderId:
-              type: integer
-              example: 4396
       responses:
         200:
           description: OK
@@ -419,14 +550,123 @@ paths:
             $ref: "#/definitions/Order"
         404:
           description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found"
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
-  /pay:
-    post:
+  /order/cuid/<userId>:      
+    get:
       tags:
       - "order"
-      summary: "2C: call this api after customer pays the pill"
+      summary: "2C: 用户获取全部订单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              orders:
+                type: array
+                items:
+                  $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required and you can only get your own order(s)."
+
+  /order/rstrid/<rstrid>/oid/<orderId>:      
+    get:
+      tags:
+      - "order"
+      summary: "2B: 商家获取一个订单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required and you can only get your own order."
+
+  /order/rstrid/<rstrid>:      
+    get:
+      tags:
+      - "order"
+      summary: "2B: 商家获取全部订单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              orders:
+                type: array
+                items:
+                  $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+
+  /order/cuid/<cuserId>/oid/<orderId>:
+    put:
+      tags:
+      - "order"
+      summary: "2C: 订单付款"
       consumes:
       - "application/json"
       parameters:
@@ -440,18 +680,39 @@ paths:
             payId:
               type: integer
               example: 2200
-            orderId:
-              type: integer
-              example: 4396
       responses:
         200:
           description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully pay."
         404:
           description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
         400:
-          description: "payid is wrong, no such payment"
+          description: "ayid is wrong, no such payment"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Payid is wrong, no such payment."
         401:
           description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
 # Data Models
 definitions:
@@ -535,10 +796,10 @@ definitions:
       payWay:
         type: string
         example: alipay
-      paydate:
+      payDate:
         type: string
         format: date-time
-        example: 2018-05-05T17:32:28Z
+        example: "2017-11-23 16:10:10"
       dishes:
         type: array
         items:
