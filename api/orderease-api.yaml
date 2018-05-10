@@ -193,7 +193,8 @@ paths:
           description: "login required"
         403:
           description: "lack of authority"
-        
+  
+  /dish/<id>:      
     # Get A Specific Info of A Dish
     get:
       tags:
@@ -201,17 +202,6 @@ paths:
       summary: "2B&2C: get info of a dish"
       consumes:
       - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Identifier of the dish to query"
-        required: true
-        schema:
-          type: object
-          properties:
-            dishId:
-              type: integer
-              example: 3910
       responses:
         200:
           description: "Successful query for dish info"
@@ -232,7 +222,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dish object with update information."
+        description: "Dish object with update information. Id is not needed"
         required: true
         schema:
           $ref: "#/definitions/Dish"
@@ -264,17 +254,6 @@ paths:
       summary: "2B: delete a dish"
       consumes:
       - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Identifier of the dish to delete"
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-              example: 老麻抄手
       responses:
         200:
           description: "successfully delete"
@@ -324,30 +303,22 @@ paths:
           description: "login required"
                         
   # restaurant information
-  /rstr:
-    post:
+  /rstr/<id>:
+    get:
       tags:
       - "rstr"
       summary: "2C: get restaurant info and menu, call it at the beginning"
       consumes:
       - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Request identifier of the order. Id is not needed"
-        required: true
-        schema:
-          type: object
-          properties:
-            rstrId:
-              type: string
-              example: DDD123
       responses:
         200:
           description: OK
           schema:
             type: object
             properties:
+              id:
+                type: string
+                example: DDD123
               name:
                 type: string
                 example: 点都德
@@ -396,22 +367,13 @@ paths:
           description: "wrong order"
         401:
           description: "login required"
-        
+  /order/<id>:      
     get:
       tags:
       - "order"
       summary: "2C: User check order's info"
       consumes:
       - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        schema:
-          type: object
-          properties:
-            orderId:
-              type: integer
-              example: 4396
       responses:
         200:
           description: OK
