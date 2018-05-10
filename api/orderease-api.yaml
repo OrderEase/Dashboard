@@ -192,7 +192,7 @@ paths:
         403:
           description: "lack of authority"
   
-  /dish/<id>:      
+  /dish/<dishId>:      
     # Get A Specific Info of A Dish
     get:
       tags:
@@ -301,7 +301,7 @@ paths:
           description: "login required"
                         
   # restaurant information
-  /rstr/<id>:
+  /rstr/<rstrid>:
     get:
       tags:
       - "rstr"
@@ -330,7 +330,7 @@ paths:
 
 
   # Customer Operation
-  /cuser/<userId>/order:
+  /order/cuid/<userId>/:
     post:
       tags:
       - "order"
@@ -340,7 +340,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Request identifier of the order. Id is not needed"
+        description: "Create a new Order. Id is not needed"
         required: true
         schema:
           type: object
@@ -365,11 +365,12 @@ paths:
           description: "wrong order"
         401:
           description: "login required"
-  /cuser/<userId>/order/<id>:      
+          
+  /order/cuid/<userId>/oid/<orderid>:      
     get:
       tags:
       - "order"
-      summary: "2C: User check order's info"
+      summary: "2C: User get a single order"
       consumes:
       - "application/json"
       responses:
@@ -382,7 +383,7 @@ paths:
         401:
           description: "login required"
 
-  /cuser/<userId>/orders/:      
+  /orders/cuid/<userId>:      
     get:
       tags:
       - "order"
@@ -404,7 +405,24 @@ paths:
         401:
           description: "login required"
 
-  /buser/<userId>/orders/:      
+  /orders/rstrid/<rstrid>/oid/<orderId>:      
+    get:
+      tags:
+      - "order"
+      summary: "2B: Manager get a single order of the restaurant"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+        401:
+          description: "login required"
+
+  /orders/rstrid/<rstrid>:      
     get:
       tags:
       - "order"
