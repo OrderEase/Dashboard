@@ -13,11 +13,12 @@ OrderEase Development Progress, Meeting Records, etc.
   - [Domain Model](./domainModel.md)
 - Design
   - [Database design](./databaseDesign.md)
+  - [API Design](./swagger-preview/index.html)
 
 # Meetings Records
 
 - [1st meeting](./meeting/inception.md)
-- [2nd meeting]
+- [2nd meeting](./meeting/2nd-meeting.md)
 
 
 Note:
