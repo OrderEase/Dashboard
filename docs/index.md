@@ -15,7 +15,8 @@ OrderEase Development Progress, Meeting Records, etc.
   - System Sequence Diagram
     - [下单场景](./Requirement Specification/System Sequence Diagram/scene-of-place-order.md)
 - Design
-  - [UI Design]()
+  - UI Design
+    - [2B Phone](./Design/OrderEase-2B-Phone/index.html)
   - [Database design](./databaseDesign.md)
   - [API Design](./swagger-preview/index.html)
 - Meeting Record
