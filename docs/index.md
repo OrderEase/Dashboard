@@ -21,4 +21,5 @@ OrderEase Development Progress, Meeting Records, etc.
   - [1st meeting](./meeting/inception.md)
   - [2nd meeting](./meeting/2nd-meeting.md)
 - Tech/Work Report
+ - [payment](./payment_seq.md)
 - 建模练习
