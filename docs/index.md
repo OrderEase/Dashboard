@@ -13,7 +13,7 @@ OrderEase Development Progress, Meeting Records, etc.
   - [Use Case](./useCase.md)
   - [Domain Model](./domainModel.md)
   - System Sequence Diagram
-    - [下单场景](./Requirement\ Specification/System\ Sequence\ Diagram/scene-of-place-order.md)
+    - [下单场景](./Requirement Specification/System Sequence Diagram/scene-of-place-order.md)
 - Design
   - [UI Design]()
   - [Database design](./databaseDesign.md)
