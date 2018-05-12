@@ -31,4 +31,4 @@ OrderEase Development Progress, Meeting Records, etc.
 - Tech/Work Report
 - Modeling Practice
   - app:ShanBei-RememberWords
-  - [modeling requirement](./Modeling Practice/ShanBei_RememberWord(V1).md)
+  - [modeling requirement](./Modeling Practice/ShanBei_RememberWord(V2).md)
