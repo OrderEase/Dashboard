@@ -18,6 +18,7 @@ OrderEase Development Progress, Meeting Records, etc.
   - System Sequence Diagram
     - [Ordering Scene](./Requirement Specification/System Sequence Diagram/scene-of-place-order.md)
     - [Payment Scene](payment_seq.md)
+    - [Bussiness Login Scene](./Requirement Specification/System Sequence Diagram/scene-of-2b-login.md)
 - Design
   - UI Design
     - [2B Phone](./Design/OrderEase-2B-Phone/index.html)
