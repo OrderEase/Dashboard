@@ -40,4 +40,7 @@ OrderEase Development Progress, Meeting Records, etc.
 - 建模练习
 - Modeling Practice
   - APP:ShanBei-RememberWords
-  - [modeling requirement](./ModelingPractice/ShanBei_RememberWord_V1.md)
+  - [Modeling Requirement](./ModelingPractice/ShanBay_RememberWord_V1.md)
+  - Feedback
+    - [Answer #1](./ModelingPractice/answerAndFeedback.md)
+    - [Answer #2](./ModelingPractice/answerAndFeedback2.md)
