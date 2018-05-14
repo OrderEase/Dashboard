@@ -17,7 +17,12 @@ OrderEase Development Progress, Meeting Records, etc.
   - [State Model](./Requirement Specification/stateModel.md)
   - System Sequence Diagram
     - [Ordering Scene](./Requirement Specification/System Sequence Diagram/scene-of-place-order.md)
-    - [Payment Scene](payment_seq.md)
+    - [2B Login Scene](./Requirement Specification/System Sequence Diagram/scene-of-2b-login.md)
+    - [Check Order Scene](./Requirement Specification/System Sequence Diagram/scene-of-check-order.md)
+    - [Menu Editing Scene](./Requirement Specification/System Sequence Diagram/scene-of-edit-menu.md)
+    - [Promot Editing Scene](./Requirement Specification/System Sequence Diagram/scene-of-edit-promotion.md)
+    - [Kitchen Order Scene](./Requirement Specification/System Sequence Diagram/scene-of-view-kitchen-order.md)
+    - [Payment Scene](./Requirement Specification/System Sequence Diagram/payment_seq.md)
 - Design
   - UI Design
     - [2B Phone](./Design/OrderEase-2B-Phone/index.html)
