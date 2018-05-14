@@ -26,6 +26,8 @@ OrderEase Development Progress, Meeting Records, etc.
 - Design
   - UI Design
     - [2B Phone](./Design/OrderEase-2B-Phone/index.html)
+    - [2B Web](./Design/OrderEase-2B-Web/index.html)
+    - [2C Phone](./Design/OrderEase-2C-Phone/index.html)
   - [Database Design](./Design/databaseDesign.md)
   - [API Design](./Design/API-Swagger-Preview/index.html)
 - Production Specification
