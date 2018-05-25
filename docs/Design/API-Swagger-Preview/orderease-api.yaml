@@ -416,7 +416,7 @@ paths:
     delete:
       tags:
       - "dish"
-      summary: "2B: delete a dish"
+      summary: "2B: 删除一个菜"
       consumes:
       - "application/json"
       responses:
@@ -454,7 +454,7 @@ paths:
                 example: "Lack of authority"
   
   # restaurant information
-  /rstr/<rstrid>:
+  /rstr:
     get:
       tags:
       - "rstr"
@@ -486,6 +486,100 @@ paths:
               message:
                 type: string
                 example: "Restaurant not found"
+  
+  /rstr/buid/<userId>:  
+    put:
+      tags:
+      - "rstr"
+      summary: "2B: 修改餐馆信息"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dishes format should be '<dishId>, <dishId>...'"
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "点都德"
+            info:
+              type: string
+              example: "一个吃饭的地方"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Modify rstr info successfully."
+                
+  /rstr/buid/<userId>/menu:  
+    post:
+      tags:
+      - "rstr"
+      summary: "2B: 给该餐馆新建菜单"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dishes format should be '<dishId>, <dishId>...'"
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "春季菜单"
+            dishes:
+              type: string
+              example: "1, 3, 4"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Add a new menu successfully"
+  
+  /rstr/buid/<userId>/menu/<menuId>:    
+    put:
+      tags:
+      - "rstr"
+      summary: "2B: 给该餐馆修改菜单"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dishes format should be '<dishId>, <dishId>...'"
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "春季菜单"
+            dishes:
+              type: string
+              example: "1, 3, 4"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Modify a new menu successfully"
+        
 
 
   # Customer Operation
