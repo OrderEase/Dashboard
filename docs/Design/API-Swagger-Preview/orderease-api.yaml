@@ -476,6 +476,8 @@ paths:
               info:
                 type: string
                 example: Hello, 点都德
+              carousel:
+                $ref: "#/definitions/Carousel"
               menu:
                 $ref: "#/definitions/Menu"
         404:
@@ -822,6 +824,9 @@ definitions:
       category:
         type: string
         example: "荤菜"
+      img:
+        type: string
+        example: "example.com/maoxuewan.jpg"
       price:
         type: number
         format: "float"
@@ -832,7 +837,7 @@ definitions:
         example: 99
       avaliable:
         type: "boolean"
-        example: true
+        example: 1
       likes:
         type: integer
         example: 4
@@ -898,3 +903,18 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Dish"
+  
+  Carousel:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        info:
+          type: string
+          example: "some info here"
+        img:
+          type: string
+          example: "example.com/1.jpg"
