@@ -30,7 +30,7 @@ OrderEase Development Progress, Meeting Records, etc.
     - [2C Phone](./Design/OrderEase-2C-Phone/index.html)
   - [Database Design](./Design/databaseDesign.md)
   - [API Design](./Design/API-Swagger-Preview/index.html)
-  - [System Architecture Model](./Design/SystemArchitectureModel.md)
+  - [System Architecture Model](./Design/SystemArchitectureDigram.md)
 - Production Specification
   - [RESTful API Specification](./Production Specifications/RESTful-API-Style.md)
 - Meeting Record
