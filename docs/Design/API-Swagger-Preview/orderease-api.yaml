@@ -233,7 +233,143 @@ paths:
                 example: "Login required"
 
   # Menu
-  /menu/<menuid>/dish:
+  /menu/<menuid>/category/:
+    post:
+      tags:
+      - "menu&dish"
+      summary: "2B: 在某一菜单下新增一个类别"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "不需要id, dishes可以为空"
+        required: true
+        schema:
+          $ref: "#/definitions/Category"
+      responses:
+        400:
+          description: "Invalid input"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "[error message]"
+        200:
+          description: "add a new category successfully"
+          schema:
+            type: object
+            properties:
+              categoryId:
+                type: integer
+                example: 3910
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+        403:
+          description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority."
+      
+  /menu/<menuid>/category/<catId>:
+    delete:
+      tags:
+      - "menu&dish"
+      summary: "2B: 在某一菜单下删除一个类别"
+      consumes:
+      - "application/json"
+      responses:
+        444:
+          description: "error message"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "[error message]"
+        200:
+          description: "delete a category successfully"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: OK
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+        403:
+          description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority."
+    
+    put:
+      tags:
+      - "menu&dish"
+      summary: "2B: 在某一菜单下修改一个类别"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "不需要id和dishes, 只需提交要修改的字段, 请不要在这里修改dish"
+        required: true
+        schema:
+          $ref: "#/definitions/Category"
+      responses:
+        444:
+          description: "error message"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "[error message]"
+        200:
+          description: "delete a category successfully"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: OK
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+        403:
+          description: "lack of authority"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Lack of authority."
+  
+  /menu/<menuid>/category/<cat>/dish:
     # Add A New Dish
     post:
       tags:
@@ -332,7 +468,7 @@ paths:
   #               example: "Login required"
                         
   
-  /menu/<menuid>/dish/<dishId>:      
+  /menu/<menuid>/category/<cat>/dish/<dishId>:      
     # Get A Specific Info of A Dish
     get:
       tags:
@@ -584,7 +720,7 @@ paths:
                 type: string
                 example: "Login required."
   
-  /menu/<menuId>:    
+  /menu/<menuid>:    
     put:
       tags:
       - "menu&dish"
@@ -917,9 +1053,6 @@ definitions:
       name:
         type: string
         example: "毛血旺"
-      category:
-        type: string
-        example: "荤菜"
       rank:
         type: integer
         example: 1
@@ -959,28 +1092,17 @@ definitions:
       used:
         type: boolean
         example: 1
-      rank:
-        type: integer
-        example: 1
       content:
         type: array
         items:
-          type: object
-          properties:
-            category:
-              type: string
-              example: "荤菜"
-            dishes:
-              type: array
-              items:
-                $ref: "#/definitions/Dish"
+          $ref: "#/definitions/Category"
     required:
     - name
 
   Order:
     type: object
     properties:
-      orderId:
+      id:
         type: integer
         example: 4396
       tableId:
@@ -1004,11 +1126,32 @@ definitions:
         type: string
         format: date-time
         example: "2017-11-23 16:10:10"
+      payId:
+        type: integer
+        example: 123
       dishes:
         type: array
         items:
           $ref: "#/definitions/Dish"
-  
+
+  Category:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: 荤菜
+      rank:
+        type: integer
+        example: 1
+      dishes:
+        type: array
+        items:
+          $ref: "#/definitions/Dish"
+      
+
   Carousel:
     type: array
     items:
