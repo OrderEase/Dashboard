@@ -553,6 +553,36 @@ paths:
               message:
                 type: string
                 example: "Add a new menu successfully"
+    
+    get:
+      tags:
+      - "menu&dish"
+      summary: "2B: 获取所有菜单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful delete for menu info"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Menu"
+        404:
+          description: "Menu not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Menu not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
   
   /menu/<menuId>:    
     put:
@@ -587,7 +617,67 @@ paths:
               message:
                 type: string
                 example: "Modify a new menu successfully"
-        
+                
+    get:
+      tags:
+      - "menu&dish"
+      summary: "2B: 获取某一菜单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful query for menu info"
+          schema:
+            $ref: "#/definitions/Menu"
+        404:
+          description: "Menu not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Menu not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+    
+    delete:
+      tags:
+      - "menu&dish"
+      summary: "2B: 删除某一菜单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful delete for menu info"
+          schema:  
+            type: object
+            properties:
+              message:
+                type: string
+                example: "OK"
+        404:
+          description: "Menu not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Menu not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+ 
 
 
   # Customer Operation
