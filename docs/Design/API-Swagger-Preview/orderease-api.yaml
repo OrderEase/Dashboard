@@ -282,57 +282,57 @@ paths:
                 type: string
                 example: "Lack of authority."
   
-  /menu/<menuid>/dish/category/<cat>:
-    get:
-      tags:
-      - "menu&dish"
-      summary: "2B&2C: 获取一个类别的所有菜"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Identifier of the dishes list"
-        required: true
-        schema:
-          # Identifier of the dish
-          type: object
-          properties:
-            category:
-              type: string
-              example: "荤菜"
-      responses:
-        200:
-          description: OK
-          schema:
-            type: object
-            properties:
-              category:
-                type: string
-                example: "荤菜"
-              dishes:
-                type: array
-                items:
-                  $ref: "#/definitions/Dish"
-        404:
-          description: "category not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Category not found"
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required"
+  # /menu/<menuid>/dish/category/<cat>:
+  #   get:
+  #     tags:
+  #     - "menu&dish"
+  #     summary: "2B&2C: 获取一个类别的所有菜"
+  #     consumes:
+  #     - "application/json"
+  #     parameters:
+  #     - in: "body"
+  #       name: "body"
+  #       description: "Identifier of the dishes list"
+  #       required: true
+  #       schema:
+  #         # Identifier of the dish
+  #         type: object
+  #         properties:
+  #           category:
+  #             type: string
+  #             example: "荤菜"
+  #     responses:
+  #       200:
+  #         description: OK
+  #         schema:
+  #           type: object
+  #           properties:
+  #             category:
+  #               type: string
+  #               example: "荤菜"
+  #             dishes:
+  #               type: array
+  #               items:
+  #                 $ref: "#/definitions/Dish"
+  #       404:
+  #         description: "category not found"
+  #         schema:
+  #           type: object
+  #           properties:
+  #             message:
+  #               type: string
+  #               example: "Category not found"
+  #       401:
+  #         description: "login required"
+  #         schema:
+  #           type: object
+  #           properties:
+  #             message:
+  #               type: string
+  #               example: "Login required"
                         
   
-  /menu/<menuid>dish/<dishId>:      
+  /menu/<menuid>/dish/<dishId>:      
     # Get A Specific Info of A Dish
     get:
       tags:
@@ -601,7 +601,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Create a new Order."
+        description: "dishes中的内容为: 菜1id, 菜1数量, 菜2id, 菜2数量...."
         required: true
         schema:
           type: object
@@ -611,7 +611,7 @@ paths:
               example: "23E"
             dishes:
               type: string
-              example: "1030, 2030"
+              example: "1030, 1, 2030, 2"
       responses:
         200:
           description: OK
