@@ -233,10 +233,169 @@ paths:
                 example: "Login required"
 
   # Menu
+  /menu/:  
+    post:
+      tags:
+      - "menu"
+      summary: "2B: 给该餐馆新建菜单"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dishes format should be '<dishId>, <dishId>...'"
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "春季菜单"
+            rank:
+              type: integer
+              example: 1
+            used:
+              type: boolean
+              example: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Add a new menu successfully"
+    
+    get:
+      tags:
+      - "menu"
+      summary: "2B: 获取所有菜单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful delete for menu info"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Menu"
+        404:
+          description: "Menu not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Menu not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+  
+  /menu/<menuid>:    
+    put:
+      tags:
+      - "menu"
+      summary: "2B: 给该餐馆修改菜单"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dishes format should be '<dishId>, <dishId>...'"
+        required: true
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "春季菜单"
+            rank:
+              type: integer
+              example: 1
+            used:
+              type: boolean
+              example: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Modify a new menu successfully"
+                
+    get:
+      tags:
+      - "menu"
+      summary: "2B: 获取某一菜单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful query for menu info"
+          schema:
+            $ref: "#/definitions/Menu"
+        404:
+          description: "Menu not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Menu not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+    
+    delete:
+      tags:
+      - "menu"
+      summary: "2B: 删除某一菜单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: "Successful delete for menu info"
+          schema:  
+            type: object
+            properties:
+              message:
+                type: string
+                example: "OK"
+        404:
+          description: "Menu not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Menu not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+ 
+
   /menu/<menuid>/category/:
     post:
       tags:
-      - "menu&dish"
+      - "category"
       summary: "2B: 在某一菜单下新增一个类别"
       consumes:
       - "application/json"
@@ -284,7 +443,7 @@ paths:
   /menu/<menuid>/category/<catId>:
     delete:
       tags:
-      - "menu&dish"
+      - "category"
       summary: "2B: 在某一菜单下删除一个类别"
       consumes:
       - "application/json"
@@ -324,7 +483,7 @@ paths:
     
     put:
       tags:
-      - "menu&dish"
+      - "category"
       summary: "2B: 在某一菜单下修改一个类别"
       consumes:
       - "application/json"
@@ -369,11 +528,11 @@ paths:
                 type: string
                 example: "Lack of authority."
   
-  /menu/<menuid>/category/<cat>/dish:
+  /menu/<menuid>/category/<catId>/dish:
     # Add A New Dish
     post:
       tags:
-      - "menu&dish"
+      - "dish"
       summary: "2B: 在某一菜单下新增一个菜"
       consumes:
       - "application/json"
@@ -468,11 +627,11 @@ paths:
   #               example: "Login required"
                         
   
-  /menu/<menuid>/category/<cat>/dish/<dishId>:      
+  /menu/<menuid>/category/<catId>/dish/<dishId>:      
     # Get A Specific Info of A Dish
     get:
       tags:
-      - "menu&dish"
+      - "dish"
       summary: "2B&2C: 获取一个菜"
       consumes:
       - "application/json"
@@ -501,7 +660,7 @@ paths:
     # Update Info of A Dish
     put:
       tags:
-      - "menu&dish"
+      - "dish"
       summary: "2B: 更新一个菜"
       consumes:
       - "application/json"
@@ -551,7 +710,7 @@ paths:
     # DELETE A Dish
     delete:
       tags:
-      - "menu&dish"
+      - "dish"
       summary: "2B: 删除一个菜"
       consumes:
       - "application/json"
@@ -594,7 +753,7 @@ paths:
     get:
       tags:
       - "rstr"
-      summary: "2C: 获取餐馆信息，包括菜单"
+      summary: "2C: 获取餐馆信息"
       consumes:
       - "application/json"
       responses:
@@ -656,165 +815,7 @@ paths:
                 type: string
                 example: "Modify rstr info successfully."
                 
-  /menu/:  
-    post:
-      tags:
-      - "menu&dish"
-      summary: "2B: 给该餐馆新建菜单"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Dishes format should be '<dishId>, <dishId>...'"
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-              example: "春季菜单"
-            rank:
-              type: integer
-              example: 1
-            used:
-              type: boolean
-              example: 1
-      responses:
-        200:
-          description: OK
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Add a new menu successfully"
-    
-    get:
-      tags:
-      - "menu&dish"
-      summary: "2B: 获取所有菜单"
-      consumes:
-      - "application/json"
-      responses:
-        200:
-          description: "Successful delete for menu info"
-          schema:
-            type: array
-            items:
-              $ref: "#/definitions/Menu"
-        404:
-          description: "Menu not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Menu not found"
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required."
   
-  /menu/<menuid>:    
-    put:
-      tags:
-      - "menu&dish"
-      summary: "2B: 给该餐馆修改菜单"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Dishes format should be '<dishId>, <dishId>...'"
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-              example: "春季菜单"
-            rank:
-              type: integer
-              example: 1
-            used:
-              type: boolean
-              example: 1
-      responses:
-        200:
-          description: OK
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Modify a new menu successfully"
-                
-    get:
-      tags:
-      - "menu&dish"
-      summary: "2B: 获取某一菜单"
-      consumes:
-      - "application/json"
-      responses:
-        200:
-          description: "Successful query for menu info"
-          schema:
-            $ref: "#/definitions/Menu"
-        404:
-          description: "Menu not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Menu not found"
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required."
-    
-    delete:
-      tags:
-      - "menu&dish"
-      summary: "2B: 删除某一菜单"
-      consumes:
-      - "application/json"
-      responses:
-        200:
-          description: "Successful delete for menu info"
-          schema:  
-            type: object
-            properties:
-              message:
-                type: string
-                example: "OK"
-        404:
-          description: "Menu not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Menu not found"
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required."
- 
-
 
   # Customer Operation
   /order/cuser/<userId>/:
@@ -1166,3 +1167,4 @@ definitions:
         img:
           type: string
           example: "example.com/1.jpg"
+  
