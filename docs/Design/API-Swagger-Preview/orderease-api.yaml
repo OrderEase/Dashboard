@@ -243,7 +243,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dishes format should be '<dishId>, <dishId>...'"
+        description: "只需要菜单名，排序，是否使用"
         required: true
         schema:
           type: object
@@ -266,6 +266,9 @@ paths:
               message:
                 type: string
                 example: "Add a new menu successfully"
+              id:
+                type: integer
+                example: 1
     
     get:
       tags:
@@ -307,7 +310,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dishes format should be '<dishId>, <dishId>...'"
+        description: "不要使用该api修改类别和菜！"
         required: true
         schema:
           type: object
@@ -402,7 +405,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "不需要id, dishes可以为空"
+        description: "不需要id和dishes"
         required: true
         schema:
           $ref: "#/definitions/Category"
@@ -420,7 +423,7 @@ paths:
           schema:
             type: object
             properties:
-              categoryId:
+              id:
                 type: integer
                 example: 3910
         401:
@@ -557,7 +560,7 @@ paths:
           schema:
             type: object
             properties:
-              dishId:
+              id:
                 type: integer
                 example: 3910
         401:
@@ -760,21 +763,7 @@ paths:
         200:
           description: OK
           schema:
-            type: object
-            properties:
-              id:
-                type: string
-                example: DDD123
-              name:
-                type: string
-                example: 点都德
-              info:
-                type: string
-                example: Hello, 点都德
-              carousel:
-                $ref: "#/definitions/Carousel"
-              menu:
-                $ref: "#/definitions/Menu"
+            $ref: "#/definitions/Restaurant"
         404:
           description: "restaurant not found"
           schema:
@@ -802,9 +791,20 @@ paths:
             name:
               type: string
               example: "点都德"
-            info:
+            description:
               type: string
               example: "一个吃饭的地方"
+            img:
+              type: string
+              example: example.com/1.jpg
+            open:
+              type: string
+              format: date-time
+              example: "2017-11-23 16:10:10"
+            close:
+              type: string
+              format: date-time
+              example: "2017-11-23 16:10:10"
       responses:
         200:
           description: OK
@@ -814,8 +814,6 @@ paths:
               message:
                 type: string
                 example: "Modify rstr info successfully."
-                
-  
 
   # Customer Operation
   /order/cuser/<userId>/:
@@ -828,7 +826,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "dishes中的内容为: 菜1id, 菜1数量, 菜2id, 菜2数量...."
+        description: "dishes中的内容为: 菜1id, 菜2id....   quantity中的内容为: 菜1数量, 菜2数量..."
         required: true
         schema:
           type: object
@@ -838,7 +836,10 @@ paths:
               example: "23E"
             dishes:
               type: string
-              example: "1030, 1, 2030, 2"
+              example: "1030, 2030"
+            quantity:
+              type: string
+              example: "1, 2"
       responses:
         200:
           description: OK
@@ -1042,6 +1043,31 @@ paths:
               message:
                 type: string
                 example: "Login required."
+  
+  /order/buser/<buserId>/oid/<orderId>:
+    put:
+      tags:
+      - "order"
+      summary: "2B: 修改订单"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "完成某个菜: 传送数据为{finished:'dish1id, dish2id'},其他催单点赞类似"
+        required: true
+        schema:
+          $ref: "#/definitions/Order"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully modify."
+      
 
 # Data Models
 definitions:
@@ -1106,6 +1132,9 @@ definitions:
       id:
         type: integer
         example: 4396
+      userid:
+        type: integer
+        example: 10
       tableId:
         type: string
         example: "23E"
@@ -1134,6 +1163,77 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Dish"
+      quantity:
+        type: array
+        items:
+          type: integer
+          example: 1
+      finished:
+        type: array
+        items:
+          type: integer
+          example: 1001
+      costtime:
+        type: array
+        items:
+          type: integer
+          example: 1001
+      reminder:
+        type: array
+        items:
+          type: integer
+          example: 1001
+      likes:
+        type: array
+        items:
+          type: integer
+          example: 1001
+      isfinished:
+        type: boolean
+        example: true
+  
+  Activity:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      theme:
+        type: string
+        example: 端午节活动
+      begin:
+        type: string
+        format: date-time
+        example: "2017-11-23 16:10:10"
+      end:
+        type: string
+        format: date-time
+        example: "2017-11-23 16:10:10"
+      isend:
+        type: boolean
+        example: true
+      discount:
+        type: array
+        items:
+          $ref: "#/definitions/Discount"
+  
+  Discount:
+    type: object
+    properties:
+      id: 
+        type: integer
+        example: 1
+      mode:
+        type: string
+        example: 满减
+      requirement:
+        type: number
+        format: float
+        example: 100.0
+      discount:
+        type: number
+        format: float
+        example: 10.0
 
   Category:
     type: object
@@ -1151,7 +1251,34 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Dish"
-      
+
+  Restaurant:
+    type: object
+    properties:
+      name:
+        type: string
+        example: 点都德
+      description:
+        type: string
+        example: ddd
+      img:
+        type: string
+        example: "example.com/1.jpg"
+      open:
+        type: string
+        format: date-time
+        example: "2017-11-23 16:10:10"
+      close:
+        type: string
+        format: date-time
+        example: "2017-11-23 16:10:10"
+      menu:
+        type: array
+        items:
+          $ref: "#/definitions/Menu"
+      carousel:
+        example:
+          $ref: "#/definitions/Carousel"
 
   Carousel:
     type: array
