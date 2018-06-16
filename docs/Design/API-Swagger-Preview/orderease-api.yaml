@@ -819,7 +819,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "dishes中的内容为: 菜1id, 菜2id....   quantity中的内容为: 菜1数量, 菜2数量..."
+        description: "提交订单"
         required: true
         schema:
           type: object
@@ -827,12 +827,17 @@ paths:
             tableId:
               type: string
               example: "23E"
-            dishes:
-              type: string
-              example: "1030, 2030"
-            quantity:
-              type: string
-              example: "1, 2"
+            content:
+              type: array
+              items:
+                type: object
+                properties:
+                  dish:
+                    type: integer
+                    example: 1
+                  quantity:
+                    type: integer
+                    example: 2
       responses:
         200:
           description: OK
