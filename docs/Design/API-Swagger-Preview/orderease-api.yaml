@@ -12,7 +12,7 @@ schemes:
 - "https"
 paths:
   # CUser
-  /cuser/session:
+  /cusers/session:
     post:
       tags:
       - "cuser"
@@ -69,7 +69,7 @@ paths:
                 example: "Login required."
 
   # BUser 
-  /buser/:
+  /busers/:
     post:
       tags:
       - "buser"
@@ -82,9 +82,6 @@ paths:
         schema:
           type: object
           properties:
-            restId:
-              type: string
-              example: DDD123
             username: 
               type: string
               example: simpleUsername
@@ -120,7 +117,7 @@ paths:
                 type: string
                 example: "Restaurant not found."
 
-  /buser/<id>:
+  /busers:
     put:
       tags:
       - "buser"
@@ -162,7 +159,7 @@ paths:
                 type: string
                 example: "Login required."
 
-  /buser/session:
+  /busers/session:
     post:
       tags:
       - "buser"
@@ -178,9 +175,6 @@ paths:
             username: 
               type: string
               example: simpleUsername
-            restId:
-              type: string
-              example: DDD123
             password:
               type: string
               example: naviePassword
@@ -233,7 +227,7 @@ paths:
                 example: "Login required"
 
   # Menu
-  /menu/:  
+  /menus/:  
     post:
       tags:
       - "menu"
@@ -300,7 +294,7 @@ paths:
                 type: string
                 example: "Login required."
   
-  /menu/<menuid>:    
+  /menus/<menuid>:    
     put:
       tags:
       - "menu"
@@ -395,7 +389,7 @@ paths:
                 example: "Login required."
  
 
-  /menu/<menuid>/category/:
+  /menus/<menuid>/categories/:
     post:
       tags:
       - "category"
@@ -443,7 +437,7 @@ paths:
                 type: string
                 example: "Lack of authority."
       
-  /menu/<menuid>/category/<catId>:
+  /menus/<menuid>/categories/<catId>:
     delete:
       tags:
       - "category"
@@ -531,7 +525,7 @@ paths:
                 type: string
                 example: "Lack of authority."
   
-  /menu/<menuid>/category/<catId>/dish:
+  /menus/<menuid>/categories/<catId>/dishes/:
     # Add A New Dish
     post:
       tags:
@@ -630,7 +624,7 @@ paths:
   #               example: "Login required"
                         
   
-  /menu/<menuid>/category/<catId>/dish/<dishId>:      
+  /menus/<menuid>/categories/<catId>/dishes/<dishId>:      
     # Get A Specific Info of A Dish
     get:
       tags:
@@ -773,7 +767,6 @@ paths:
                 type: string
                 example: "Restaurant not found"
   
-  /rstr/buser/<userId>:  
     put:
       tags:
       - "rstr"
@@ -816,7 +809,7 @@ paths:
                 example: "Modify rstr info successfully."
 
   # Customer Operation
-  /order/cuser/<userId>/:
+  /orders/cuser/:
     post:
       tags:
       - "order"
@@ -865,37 +858,7 @@ paths:
               message:
                 type: string
                 example: "Login required."
-          
-  /order/cuser/<userId>/oid/<orderid>:      
-    get:
-      tags:
-      - "order"
-      summary: "2C: 用户获取单个订单"
-      consumes:
-      - "application/json"
-      responses:
-        200:
-          description: OK
-          schema:
-            $ref: "#/definitions/Order"
-        404:
-          description: "order not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Order not found"
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required."
-
-  /order/cuser/<userId>:      
+                
     get:
       tags:
       - "order"
@@ -928,8 +891,37 @@ paths:
               message:
                 type: string
                 example: "Login required and you can only get your own order(s)."
+  
+  /orders/cuser/oid/<orderid>:      
+    get:
+      tags:
+      - "order"
+      summary: "2C: 用户获取单个订单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found"
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
-  /order/buser/<userid>/oid/<orderId>:      
+  /orders/buser/oid/<orderId>:      
     get:
       tags:
       - "order"
@@ -957,8 +949,31 @@ paths:
               message:
                 type: string
                 example: "Login required and you can only get your own order."
+    
+    put:
+      tags:
+      - "order"
+      summary: "2B: 修改订单"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "完成某个菜: 传送数据为{finished:'dish1id, dish2id'},其他催单点赞类似"
+        required: true
+        schema:
+          $ref: "#/definitions/Order"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully modify."
 
-  /order/buser/<userid>:      
+  /orders/buser/:      
     get:
       tags:
       - "order"
@@ -992,7 +1007,7 @@ paths:
                 type: string
                 example: "Login required."
 
-  /order/cuser/<cuserId>/oid/<orderId>:
+  /orders/cuser/oid/<orderId>:
     put:
       tags:
       - "order"
@@ -1043,31 +1058,7 @@ paths:
               message:
                 type: string
                 example: "Login required."
-  
-  /order/buser/<buserId>/oid/<orderId>:
-    put:
-      tags:
-      - "order"
-      summary: "2B: 修改订单"
-      consumes:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "完成某个菜: 传送数据为{finished:'dish1id, dish2id'},其他催单点赞类似"
-        required: true
-        schema:
-          $ref: "#/definitions/Order"
-      responses:
-        200:
-          description: OK
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Successfully modify."
-      
+
 
 # Data Models
 definitions:
