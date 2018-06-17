@@ -2,11 +2,20 @@
 
 ## 中英命名
 
-菜品 | Dish
-
-菜单 | Menu
-
-餐厅 | Restaurant (简写 Rest)
+| 中文                        | 英文                        |
+| --------------------------- | --------------------------- |
+| 菜品                        | Dish                        |
+|菜品类别|Type|
+| 菜单                        | Menu                        |
+| 餐厅                        | Restaurant (简写 Restrt)    |
+| 活动                        | Promotion                   |
+| 优惠 (「活动」中的具体条款) | Promotion Rule (简写 PRule) |
+|优惠要求金额|Promotion Requirement (简写 PReq)|
+|优惠程度|Promotion Discount (简写 PDiscount)|
+| 上架 / 下架                 | Available  / Unavailable    |
+| 点赞                        | Like                        |
+| 催单                        | Urge                        |
+| 库存                        | Stock                       |
 
 ## HTTP 请求
 
