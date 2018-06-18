@@ -389,10 +389,10 @@ paths:
                 example: "Login required."
  
 
-  /menus/<menuid>/categories/:
+  /menus/<menuid>/types/:
     post:
       tags:
-      - "category"
+      - "type"
       summary: "2B: 在某一菜单下新增一个类别"
       consumes:
       - "application/json"
@@ -402,7 +402,7 @@ paths:
         description: "不需要id和dishes"
         required: true
         schema:
-          $ref: "#/definitions/Category"
+          $ref: "#/definitions/Type"
       responses:
         400:
           description: "Invalid input"
@@ -413,7 +413,7 @@ paths:
                 type: string
                 example: "[error message]"
         200:
-          description: "add a new category successfully"
+          description: "add a new type successfully"
           schema:
             type: object
             properties:
@@ -437,10 +437,10 @@ paths:
                 type: string
                 example: "Lack of authority."
       
-  /menus/<menuid>/categories/<catId>:
+  /menus/<menuid>/types/<typeId>:
     delete:
       tags:
-      - "category"
+      - "type"
       summary: "2B: 在某一菜单下删除一个类别"
       consumes:
       - "application/json"
@@ -454,7 +454,7 @@ paths:
                 type: string
                 example: "[error message]"
         200:
-          description: "delete a category successfully"
+          description: "delete a type successfully"
           schema:
             type: object
             properties:
@@ -480,7 +480,7 @@ paths:
     
     put:
       tags:
-      - "category"
+      - "type"
       summary: "2B: 在某一菜单下修改一个类别"
       consumes:
       - "application/json"
@@ -490,7 +490,7 @@ paths:
         description: "不需要id和dishes, 只需提交要修改的字段, 请不要在这里修改dish"
         required: true
         schema:
-          $ref: "#/definitions/Category"
+          $ref: "#/definitions/Type"
       responses:
         444:
           description: "error message"
@@ -501,7 +501,7 @@ paths:
                 type: string
                 example: "[error message]"
         200:
-          description: "delete a category successfully"
+          description: "delete a type successfully"
           schema:
             type: object
             properties:
@@ -525,7 +525,7 @@ paths:
                 type: string
                 example: "Lack of authority."
   
-  /menus/<menuid>/categories/<catId>/dishes/:
+  /menus/<menuid>/types/<typeId>/dishes/:
     # Add A New Dish
     post:
       tags:
@@ -574,7 +574,7 @@ paths:
                 type: string
                 example: "Lack of authority."
   
-  # /menu/<menuid>/dish/category/<cat>:
+  # /menu/<menuid>/dish/type/<cat>:
   #   get:
   #     tags:
   #     - "menu&dish"
@@ -590,7 +590,7 @@ paths:
   #         # Identifier of the dish
   #         type: object
   #         properties:
-  #           category:
+  #           type:
   #             type: string
   #             example: "荤菜"
   #     responses:
@@ -599,7 +599,7 @@ paths:
   #         schema:
   #           type: object
   #           properties:
-  #             category:
+  #             type:
   #               type: string
   #               example: "荤菜"
   #             dishes:
@@ -607,13 +607,13 @@ paths:
   #               items:
   #                 $ref: "#/definitions/Dish"
   #       404:
-  #         description: "category not found"
+  #         description: "type not found"
   #         schema:
   #           type: object
   #           properties:
   #             message:
   #               type: string
-  #               example: "Category not found"
+  #               example: "type not found"
   #       401:
   #         description: "login required"
   #         schema:
@@ -624,7 +624,7 @@ paths:
   #               example: "Login required"
                         
   
-  /menus/<menuid>/categories/<catId>/dishes/<dishId>:      
+  /menus/<menuid>/types/<typeId>/dishes/<dishId>:      
     # Get A Specific Info of A Dish
     get:
       tags:
@@ -746,10 +746,10 @@ paths:
                 example: "Lack of authority"
   
   # restaurant information
-  /rstr:
+  /restrt:
     get:
       tags:
-      - "rstr"
+      - "restrt"
       summary: "2C: 获取餐馆信息"
       consumes:
       - "application/json"
@@ -769,7 +769,7 @@ paths:
   
     put:
       tags:
-      - "rstr"
+      - "restrt"
       summary: "2B: 修改餐馆信息"
       consumes:
       - "application/json"
@@ -806,7 +806,7 @@ paths:
             properties:
               message:
                 type: string
-                example: "Modify rstr info successfully."
+                example: "Modify restrt info successfully."
 
   # Customer Operation
   /orders/cuser/:
@@ -1118,7 +1118,7 @@ definitions:
       content:
         type: array
         items:
-          $ref: "#/definitions/Category"
+          $ref: "#/definitions/Type"
     required:
     - name
 
@@ -1162,24 +1162,30 @@ definitions:
       quantity:
         type: array
         items:
-          type: integer
-          example: 1
-      finished:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            quantity:
+              type: integer
+              example: 2
+      finishedlist:
         type: array
         items:
           type: integer
           example: 1001
-      costtime:
+      timelist:
         type: array
         items:
           type: integer
           example: 1001
-      reminder:
+      urgelist:
         type: array
         items:
           type: integer
           example: 1001
-      likes:
+      likeslist:
         type: array
         items:
           type: integer
@@ -1188,7 +1194,7 @@ definitions:
         type: boolean
         example: true
   
-  Activity:
+  Promotion:
     type: object
     properties:
       id:
@@ -1208,12 +1214,12 @@ definitions:
       isend:
         type: boolean
         example: true
-      discount:
+      prule:
         type: array
         items:
-          $ref: "#/definitions/Discount"
+          $ref: "#/definitions/PRule"
   
-  Discount:
+  PRule:
     type: object
     properties:
       id: 
@@ -1222,16 +1228,16 @@ definitions:
       mode:
         type: string
         example: 满减
-      requirement:
+      preq:
         type: number
         format: float
         example: 100.0
-      discount:
+      pdiscount:
         type: number
         format: float
         example: 10.0
 
-  Category:
+  Type:
     type: object
     properties:
       id:
