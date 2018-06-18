@@ -1158,38 +1158,26 @@ definitions:
       dishes:
         type: array
         items:
-          $ref: "#/definitions/Dish"
-      quantity:
-        type: array
-        items:
           type: object
           properties:
-            id:
-              type: integer
-              example: 1
+            dish:
+              $ref: "#/definitions/Dish"
             quantity:
               type: integer
               example: 2
-      finishedlist:
-        type: array
-        items:
-          type: integer
-          example: 1001
-      timelist:
-        type: array
-        items:
-          type: integer
-          example: 1001
-      urgelist:
-        type: array
-        items:
-          type: integer
-          example: 1001
-      likeslist:
-        type: array
-        items:
-          type: integer
-          example: 1001
+            finished:
+              type: integer
+              example: 1
+            time:
+              type: string
+              format: date-time
+              example: "2017-11-23 16:10:10"
+            urge:
+              type: integer
+              example: 1
+            like:
+              type: integer
+              example: 0
       isfinished:
         type: boolean
         example: true
@@ -1214,7 +1202,7 @@ definitions:
       isend:
         type: boolean
         example: true
-      prule:
+      prules:
         type: array
         items:
           $ref: "#/definitions/PRule"
@@ -1226,8 +1214,8 @@ definitions:
         type: integer
         example: 1
       mode:
-        type: string
-        example: 满减
+        type: integer
+        example: 1(满减), 2(满折)
       preq:
         type: number
         format: float
