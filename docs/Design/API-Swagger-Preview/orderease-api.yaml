@@ -1202,12 +1202,12 @@ definitions:
       isend:
         type: boolean
         example: true
-      prules:
+      rules:
         type: array
         items:
-          $ref: "#/definitions/PRule"
+          $ref: "#/definitions/Rule"
   
-  PRule:
+  Rule:
     type: object
     properties:
       id: 
@@ -1216,11 +1216,11 @@ definitions:
       mode:
         type: integer
         example: 1(满减), 2(满折)
-      preq:
+      requirement:
         type: number
         format: float
         example: 100.0
-      pdiscount:
+      discount:
         type: number
         format: float
         example: 10.0
