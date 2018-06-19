@@ -961,7 +961,12 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "完成某个菜: 传送数据为{finished:'dish1id, dish2id'},其他催单点赞类似"
+        description: "可以修改的字段: total, due, payWay, payId, orderItem. 
+        OrderItem的修改: orderItem:[
+          {
+            dishId: 123, 
+            (要修改的字段和值)
+            }]"
         required: true
         schema:
           $ref: "#/definitions/Order"
@@ -1440,30 +1445,44 @@ definitions:
       dishes:
         type: array
         items:
-          type: object
-          properties:
-            dish:
-              $ref: "#/definitions/Dish"
-            quantity:
-              type: integer
-              example: 2
-            finished:
-              type: integer
-              example: 1
-            time:
-              type: string
-              format: date-time
-              example: "2017-11-23 16:10:10"
-            urge:
-              type: integer
-              example: 1
-            like:
-              type: integer
-              example: 0
+          $ref: "#/definitions/Dish"
+      orderItem:
+        type: array
+        items:
+          $ref: "#/definitions/OrderItem"
       finished:
         type: integer
         example: 1
   
+  OrderItem:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      orderId:
+        type: integer
+        example: 2
+      dishId:
+        type: integer
+        example: 3
+      quantity:
+        type: integer
+        example: 2
+      finished:
+        type: integer
+        example: 1
+      time:
+        type: string
+        format: date-time
+        example: "2017-11-23 16:10:10"
+      urge:
+        type: integer
+        example: 1
+      like:
+        type: integer
+        example: 0
+
   Promotion:
     type: object
     properties:
@@ -1549,21 +1568,20 @@ definitions:
         items:
           $ref: "#/definitions/Menu"
       carousel:
-        example:
+        type: array
+        items:
           $ref: "#/definitions/Carousel"
 
   Carousel:
-    type: array
-    items:
-      type: object
-      properties:
-        id:
-          type: number
-          example: 1
-        info:
-          type: string
-          example: "some info here"
-        img:
-          type: string
-          example: "example.com/1.jpg"
+    type: object
+    properties:
+      id:
+        type: number
+        example: 1
+      info:
+        type: string
+        example: "some info here"
+      img:
+        type: string
+        example: "example.com/1.jpg"
   
