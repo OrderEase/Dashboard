@@ -874,12 +874,9 @@ paths:
         200:
           description: OK
           schema:
-            type: object
-            properties:
-              orders:
-                type: array
-                items:
-                  $ref: "#/definitions/Order"
+            type: array
+            items:
+              $ref: "#/definitions/Order"
         404:
           description: "order not found"
           schema:
@@ -989,12 +986,9 @@ paths:
         200:
           description: OK
           schema:
-            type: object
-            properties:
-              orders:
-                type: array
-                items:
-                  $ref: "#/definitions/Order"
+            type: array
+            items:
+              $ref: "#/definitions/Order"
         404:
           description: "order not found"
           schema:
@@ -1064,6 +1058,295 @@ paths:
                 type: string
                 example: "Login required."
 
+  /promotions/:      
+    get:
+      tags:
+      - "promotion"
+      summary: "获取活动列表"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Promotion"
+        404:
+          description: "promotions not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Promotions not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+
+    post:
+      tags:
+      - "promotion"
+      summary: "新建活动"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "新建活动,只需要theme, begin, end, isend"
+        required: true
+        schema:
+          $ref: "#/definitions/Promotion"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+
+  /promotions/<pid>:
+    get:
+      tags:
+      - "promotion"
+      summary: "获取单个活动"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Promotion"
+        404:
+          description: "promotion not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Promotion not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+    
+    put:
+      tags:
+      - "promotion"
+      summary: "修改某个活动"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "修改活动,可以修改theme, begin, end, isend"
+        required: true
+        schema:
+          $ref: "#/definitions/Promotion"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "modify promotion successfully"
+        404:
+          description: "promotion not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Promotion not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+    
+    delete:
+      tags:
+      - "promotion"
+      summary: "删除某个活动"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "delete promotion successfully"
+        404:
+          description: "promotion not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Promotion not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+
+  /promotions/<pid>/rules/:
+    post:
+      tags:
+      - "rule"
+      summary: "新建活动规则"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "新建活动规则"
+        required: true
+        schema:
+          $ref: "#/definitions/Rule"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+
+  /promotions/<pid>/rules/<rid>:
+    get:
+      tags:
+      - "rule"
+      summary: "获取单个活动规则"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Rule"
+        404:
+          description: "rule not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "rule not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+    
+    put:
+      tags:
+      - "rule"
+      summary: "修改某个活动规则"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "修改活动规则"
+        required: true
+        schema:
+          $ref: "#/definitions/Rule"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Rule"
+        404:
+          description: "rule not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "rule not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+    
+    delete:
+      tags:
+      - "rule"
+      summary: "删除某个活动规则"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "delete rule successfully"
+        404:
+          description: "rule not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "rule not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
 
 # Data Models
 definitions:
@@ -1088,10 +1371,9 @@ definitions:
         example: 28.5
       stock:
         type: integer
-        format: "int32"
         example: 99
       avaliable:
-        type: "boolean"
+        type: integer
         example: 1
       likes:
         type: integer
@@ -1113,7 +1395,7 @@ definitions:
         type: string
         example: "springMenu"
       used:
-        type: boolean
+        type: integer
         example: 1
       content:
         type: array
@@ -1128,7 +1410,7 @@ definitions:
       id:
         type: integer
         example: 4396
-      userid:
+      userId:
         type: integer
         example: 10
       tableId:
@@ -1143,8 +1425,8 @@ definitions:
         format: float
         example: 92.3
       isPay:
-        type: boolean
-        example: true
+        type: integer
+        example: 1
       payWay:
         type: string
         example: alipay
@@ -1178,9 +1460,9 @@ definitions:
             like:
               type: integer
               example: 0
-      isfinished:
-        type: boolean
-        example: true
+      finished:
+        type: integer
+        example: 1
   
   Promotion:
     type: object
@@ -1200,8 +1482,8 @@ definitions:
         format: date-time
         example: "2017-11-23 16:10:10"
       isend:
-        type: boolean
-        example: true
+        type: integer
+        example: 1
       rules:
         type: array
         items:
