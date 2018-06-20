@@ -274,9 +274,12 @@ paths:
         200:
           description: "Successful delete for menu info"
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Menu"
+            type: object
+            properties:
+              menus:
+                type: array 
+                items:
+                  $ref: "#/definitions/Menu"
         404:
           description: "Menu not found"
           schema:
@@ -874,9 +877,12 @@ paths:
         200:
           description: OK
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Order"
+            type: object
+            properties:
+              orders:
+                type: array
+                items:
+                  $ref: "#/definitions/Order"
         404:
           description: "order not found"
           schema:
@@ -991,9 +997,12 @@ paths:
         200:
           description: OK
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Order"
+            type: object
+            properties:
+              orders:
+                type: array
+                items:
+                  $ref: "#/definitions/Order"
         404:
           description: "order not found"
           schema:
@@ -1074,9 +1083,12 @@ paths:
         200:
           description: OK
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Promotion"
+            type: object
+            properties:
+              promotions:
+                type: array
+                items:
+                  $ref: "#/definitions/Promotion"
         404:
           description: "promotions not found"
           schema:
