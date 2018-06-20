@@ -389,10 +389,10 @@ paths:
                 example: "Login required."
  
 
-  /menus/<menuid>/types/:
+  /menus/<menuid>/categories/:
     post:
       tags:
-      - "type"
+      - "category"
       summary: "2B: 在某一菜单下新增一个类别"
       consumes:
       - "application/json"
@@ -402,7 +402,7 @@ paths:
         description: "不需要id和dishes"
         required: true
         schema:
-          $ref: "#/definitions/Type"
+          $ref: "#/definitions/Category"
       responses:
         400:
           description: "Invalid input"
@@ -413,7 +413,7 @@ paths:
                 type: string
                 example: "[error message]"
         200:
-          description: "add a new type successfully"
+          description: "add a new category successfully"
           schema:
             type: object
             properties:
@@ -437,10 +437,10 @@ paths:
                 type: string
                 example: "Lack of authority."
       
-  /menus/<menuid>/types/<typeId>:
+  /menus/<menuid>/categories/<catId>:
     delete:
       tags:
-      - "type"
+      - "category"
       summary: "2B: 在某一菜单下删除一个类别"
       consumes:
       - "application/json"
@@ -454,7 +454,7 @@ paths:
                 type: string
                 example: "[error message]"
         200:
-          description: "delete a type successfully"
+          description: "delete a category successfully"
           schema:
             type: object
             properties:
@@ -480,7 +480,7 @@ paths:
     
     put:
       tags:
-      - "type"
+      - "category"
       summary: "2B: 在某一菜单下修改一个类别"
       consumes:
       - "application/json"
@@ -490,7 +490,7 @@ paths:
         description: "不需要id和dishes, 只需提交要修改的字段, 请不要在这里修改dish"
         required: true
         schema:
-          $ref: "#/definitions/Type"
+          $ref: "#/definitions/Category"
       responses:
         444:
           description: "error message"
@@ -501,7 +501,7 @@ paths:
                 type: string
                 example: "[error message]"
         200:
-          description: "delete a type successfully"
+          description: "delete a category successfully"
           schema:
             type: object
             properties:
@@ -525,7 +525,7 @@ paths:
                 type: string
                 example: "Lack of authority."
   
-  /menus/<menuid>/types/<typeId>/dishes/:
+  /menus/<menuid>/categories/<catId>/dishes/:
     # Add A New Dish
     post:
       tags:
@@ -624,7 +624,7 @@ paths:
   #               example: "Login required"
                         
   
-  /menus/<menuid>/types/<typeId>/dishes/<dishId>:      
+  /menus/<menuid>/categories/<catId>/dishes/<dishId>:      
     # Get A Specific Info of A Dish
     get:
       tags:
@@ -1405,7 +1405,7 @@ definitions:
       content:
         type: array
         items:
-          $ref: "#/definitions/Type"
+          $ref: "#/definitions/Category"
     required:
     - name
 
@@ -1446,7 +1446,7 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Dish"
-      orderItem:
+      orderItems:
         type: array
         items:
           $ref: "#/definitions/OrderItem"
@@ -1526,7 +1526,7 @@ definitions:
         format: float
         example: 10.0
 
-  Type:
+  Category:
     type: object
     properties:
       id:
