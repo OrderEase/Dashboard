@@ -1563,11 +1563,11 @@ definitions:
         type: string
         format: date-time
         example: "2017-11-23 16:10:10"
-      menu:
+      menus:
         type: array
         items:
           $ref: "#/definitions/Menu"
-      carousel:
+      carousels:
         type: array
         items:
           $ref: "#/definitions/Carousel"
