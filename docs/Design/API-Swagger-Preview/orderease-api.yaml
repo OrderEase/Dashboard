@@ -816,7 +816,7 @@ paths:
     post:
       tags:
       - "order"
-      summary: "2C: 用户提交订单"
+      summary: "用户提交订单, total为原总价, due为折后总价"
       consumes:
       - "application/json"
       parameters:
@@ -830,6 +830,14 @@ paths:
             tableId:
               type: string
               example: "23E"
+            total:
+              type: number
+              format: float
+              example: 100.8
+            due:
+              type: number
+              format: float
+              example: 90.8
             content:
               type: array
               items:
@@ -928,54 +936,30 @@ paths:
               message:
                 type: string
                 example: "Login required."
-
-  /orders/buser/oid/<orderId>:      
-    get:
-      tags:
-      - "order"
-      summary: "2B: 商家获取一个订单"
-      consumes:
-      - "application/json"
-      responses:
-        200:
-          description: OK
-          schema:
-            $ref: "#/definitions/Order"
-        404:
-          description: "order not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Order not found."
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required and you can only get your own order."
     
     put:
       tags:
       - "order"
-      summary: "2B: 修改订单"
+      summary: "用户修改订单信息"
       consumes:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "可以修改的字段: total, due, payWay, payId, orderItem. 
-        OrderItem的修改: orderItem:[
-          {
-            dishId: 123, 
-            (要修改的字段和值)
-            }]"
+        description: "可以修改的字段: orderItem中的urge和like."
         required: true
         schema:
-          $ref: "#/definitions/Order"
+          type: object
+          properties:
+            dishId:
+              type: integer
+              example: 123
+            like:
+              type: integer
+              example: 1
+            urge:
+              type: integer
+              example: 2
       responses:
         200:
           description: OK
@@ -985,43 +969,8 @@ paths:
               message:
                 type: string
                 example: "Successfully modify."
-
-  /orders/buser/:      
-    get:
-      tags:
-      - "order"
-      summary: "2B: 商家获取全部订单"
-      consumes:
-      - "application/json"
-      responses:
-        200:
-          description: OK
-          schema:
-            type: object
-            properties:
-              orders:
-                type: array
-                items:
-                  $ref: "#/definitions/Order"
-        404:
-          description: "order not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Order not found."
-        401:
-          description: "login required"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Login required."
-
-  /orders/cuser/oid/<orderId>:
-    put:
+    
+    post:
       tags:
       - "order"
       summary: "2C: 订单付款"
@@ -1063,6 +1012,103 @@ paths:
               message:
                 type: string
                 example: "Payid is wrong, no such payment."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required."
+
+  /orders/buser/oid/<orderId>:      
+    get:
+      tags:
+      - "order"
+      summary: "2B: 商家获取一个订单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
+        401:
+          description: "login required"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Login required and you can only get your own order."
+    
+    put:
+      tags:
+      - "order"
+      summary: "商家修改订单"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "可以修改的字段: orderItem中的finished和time."
+        required: true
+        schema:
+          type: object
+          properties:
+            dishId: 
+              type: integer
+              example: 123
+            time:
+              type: string
+              format: date-time
+              example: "2018-06-21 19:00:00"
+            finished:
+              type: integer
+              example: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Successfully modify."
+
+  /orders/buser/:      
+    get:
+      tags:
+      - "order"
+      summary: "2B: 商家获取全部订单"
+      consumes:
+      - "application/json"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              orders:
+                type: array
+                items:
+                  $ref: "#/definitions/Order"
+        404:
+          description: "order not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Order not found."
         401:
           description: "login required"
           schema:
