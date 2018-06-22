@@ -355,7 +355,7 @@ paths:
                 example: Menu not found
 
   /menus/cuser:
-      get:
+    get:
       tags:
         - menu
       summary: '2C: 获取菜单'
