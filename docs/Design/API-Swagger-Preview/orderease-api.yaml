@@ -1,541 +1,589 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "OrderEase RESTful API"
-  version: "1.0"
-  title: "OrderEase API"
-host: "orderease.ml"
-basePath: "/v1"
-
-
-# API
+  description: OrderEase RESTful API
+  version: '1.0'
+  title: OrderEase API
+host: orderease.ml
+basePath: /v1
 schemes:
-- "https"
+  - https
 paths:
-  # CUser
   /cusers/session:
     post:
       tags:
-      - "cuser"
-      summary: "2C: 顾客登出"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "user info for login"
-        required: true
-        schema:
-          type: object
-          properties:
-            username: 
-              type: string
-              example: "simpleUsername"
+        - cuser
+      summary: '2C: 顾客登入'
+      parameters:
+        - in: body
+          name: body
+          description: user info for login
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                example: simpleUsername
       responses:
-        200:
-          description: "successfully login"
+        '200':
+          description: successfully login
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully login."
-        404:
-          description: "restaurant id not found"
+                example: Successfully login.
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Restaurant not found."
-
+                example: '[error message]'
+        '404':
+          description: restaurant id not found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Restaurant not found.
     put:
       tags:
-      - "cuser"
-      summary: "2C: 顾客登出"
+        - cuser
+      summary: '2C: 顾客登出'
       responses:
-        200:
-          description: "successfully logout"
+        '200':
+          description: successfully logout
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully logout"
-        401:
-          description: "login required"
+                example: Successfully logout
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
-  # BUser 
+                example: Login required.
   /busers/:
     post:
       tags:
-      - "buser"
-      summary: "2B: 新建商家用户"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "register info"
-        required: true
-        schema:
-          type: object
-          properties:
-            username: 
-              type: string
-              example: simpleUsername
-            password:
-              type: string
-              example: naviePassword
-            authority:
-              type: string
-              example: manager
+        - buser
+      summary: '2B: 新建商家用户'
+      parameters:
+        - in: body
+          name: body
+          description: register info
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                example: simpleUsername
+              password:
+                type: string
+                example: naviePassword
+              authority:
+                type: string
+                example: manager
       responses:
-        200:
-          description: "successfully register"
+        '200':
+          description: successfully register
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully register"
-        400:
-          description: "invalid username or password"
+                example: Successfully register
+        '400':
+          description: invalid username or password
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "[error message]"
-        404:
-          description: "restaurant id not found"
+                example: '[error message]'
+        '404':
+          description: restaurant id not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Restaurant not found."
-
-  /busers:
+                example: Restaurant not found.
+  /busers/avatar:
+    get:
+      tags:
+        - buser
+      summary: '2B：商家获取图片'
+      responses:
+        '200':
+          description: successfully get the avatar path
+          schema:
+            type: object
+            properties:
+              path:
+                type: string
+                example: static/images/users/4a47a0db6e.png
+        '401':
+          description: login required
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Login required.
     put:
       tags:
-      - "buser"
-      summary: "2B: 商家改密码"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "register info"
-        required: true
-        schema:
-          type: object
-          properties:
-            password:
-              type: string
-              example: naviePassword
+        - buser
+      summary: '2B：商家更改图片'
+      parameters:
+        - in: body
+          name: body
+          description: image URL encoded by png;base64
+          required: true
+          schema:
+            type: object
+            properties:
+              data:
+                type: string
+                example: data:image/png;base64,.....
       responses:
-        200:
-          description: "successfully change password"
+        '200':
+          description: successfully upload avatar
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Change password successfully."
-        400:
-          description: "invalid password"
+                example: Successfully upload
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Invalid password."
-        401:
-          description: "login required"
+                example: '[error message]'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
+                example: Login required.
+  /busers/password:
+    put:
+      tags:
+        - buser
+      summary: '2B: 商家改密码'
+      parameters:
+        - in: body
+          name: body
+          description: register info
+          required: true
+          schema:
+            type: object
+            properties:
+              password:
+                type: string
+                example: naviePassword
+      responses:
+        '200':
+          description: successfully change password
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Change password successfully.
+        '400':
+          description: invalid password
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Invalid password.
+        '401':
+          description: login required
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Login required.
   /busers/session:
     post:
       tags:
-      - "buser"
-      summary: "2B: 商家登录"
-      parameters: 
-      - in: "body"
-        name: "body"
-        description: "user info for login"
-        required: true
-        schema:
-          type: object
-          properties:
-            username: 
-              type: string
-              example: simpleUsername
-            password:
-              type: string
-              example: naviePassword
+        - buser
+      summary: '2B: 商家登录'
+      parameters:
+        - in: body
+          name: body
+          description: user info for login
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                example: simpleUsername
+              password:
+                type: string
+                example: naviePassword
       responses:
-        200:
-          description: "successfully login"
+        '200':
+          description: successfully login
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully login."
-        401:
-          description: "invalid username or password"
+                example: Successfully login.
+        '401':
+          description: invalid username or password
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Invalid username or password."
-        404:
-          description: "restaurant id not found"
+                example: Invalid username or password.
+        '404':
+          description: restaurant id not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Restaurant not found."
-        
+                example: Restaurant not found.
     put:
       tags:
-      - "buser"
-      summary: "2B: 商家登出"
+        - buser
+      summary: '2B: 商家登出'
       responses:
-        200:
-          description: "successfully logout"
+        '200':
+          description: successfully logout
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully logout."
-        401:
-          description: "login required"
+                example: Successfully logout.
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required"
-
-  # Menu
-  /menus/:  
+                example: Login required
+  /menus/:
     post:
       tags:
-      - "menu"
-      summary: "2B: 给该餐馆新建菜单"
+        - menu
+      summary: '2B: 给该餐馆新建菜单'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "只需要菜单名，排序，是否使用"
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-              example: "春季菜单"
-            rank:
-              type: integer
-              example: 1
-            used:
-              type: boolean
-              example: 1
+        - in: body
+          name: body
+          description: 只需要菜单名，排序，是否使用
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 春季菜单
+              rank:
+                type: integer
+                example: 1
+              used:
+                type: boolean
+                example: 1
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Add a new menu successfully"
+                example: Add a new menu successfully
               id:
                 type: integer
                 example: 1
-    
     get:
       tags:
-      - "menu"
-      summary: "2B: 获取所有菜单"
+        - menu
+      summary: '2B: 获取所有菜单'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
-          description: "Successful delete for menu info"
+        '200':
+          description: Successful delete for menu info
           schema:
             type: object
             properties:
               menus:
-                type: array 
+                type: array
                 items:
-                  $ref: "#/definitions/Menu"
-        404:
-          description: "Menu not found"
+                  $ref: '#/definitions/Menu'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Menu not found"
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: Menu not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-  
-  /menus/<menuid>:    
+                example: Menu not found
+  /menus/<menuid>:
     put:
       tags:
-      - "menu"
-      summary: "2B: 给该餐馆修改菜单"
+        - menu
+      summary: '2B: 给该餐馆修改菜单'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "不要使用该api修改类别和菜！"
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-              example: "春季菜单"
-            rank:
-              type: integer
-              example: 1
-            used:
-              type: boolean
-              example: 1
+        - in: body
+          name: body
+          description: 不要使用该api修改类别和菜！
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 春季菜单
+              rank:
+                type: integer
+                example: 1
+              used:
+                type: boolean
+                example: 1
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Modify a new menu successfully"
-                
+                example: Modify a new menu successfully
     get:
       tags:
-      - "menu"
-      summary: "2B: 获取某一菜单"
+        - menu
+      summary: '2B: 获取某一菜单'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
-          description: "Successful query for menu info"
+        '200':
+          description: Successful query for menu info
           schema:
-            $ref: "#/definitions/Menu"
-        404:
-          description: "Menu not found"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "Menu not found"
-        401:
-          description: "login required"
+            $ref: '#/definitions/Menu'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-    
+                example: Login required.
+        '404':
+          description: Menu not found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Menu not found
     delete:
       tags:
-      - "menu"
-      summary: "2B: 删除某一菜单"
+        - menu
+      summary: '2B: 删除某一菜单'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
-          description: "Successful delete for menu info"
-          schema:  
-            type: object
-            properties:
-              message:
-                type: string
-                example: "OK"
-        404:
-          description: "Menu not found"
+        '200':
+          description: Successful delete for menu info
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Menu not found"
-        401:
-          description: "login required"
+                example: OK
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
- 
-
+                example: Login required.
+        '404':
+          description: Menu not found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Menu not found
   /menus/<menuid>/categories/:
     post:
       tags:
-      - "category"
-      summary: "2B: 在某一菜单下新增一个类别"
+        - category
+      summary: '2B: 在某一菜单下新增一个类别'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "不需要id和dishes"
-        required: true
-        schema:
-          $ref: "#/definitions/Category"
-      responses:
-        400:
-          description: "Invalid input"
+        - in: body
+          name: body
+          description: 不需要id和dishes
+          required: true
           schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "[error message]"
-        200:
-          description: "add a new category successfully"
+            $ref: '#/definitions/Category'
+      responses:
+        '200':
+          description: add a new category successfully
           schema:
             type: object
             properties:
               id:
                 type: integer
                 example: 3910
-        401:
-          description: "login required"
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-        403:
-          description: "lack of authority"
+                example: '[error message]'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Lack of authority."
-      
+                example: Login required.
+        '403':
+          description: lack of authority
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Lack of authority.
   /menus/<menuid>/categories/<catId>:
     delete:
       tags:
-      - "category"
-      summary: "2B: 在某一菜单下删除一个类别"
+        - category
+      summary: '2B: 在某一菜单下删除一个类别'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        444:
-          description: "error message"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "[error message]"
-        200:
-          description: "delete a category successfully"
+        '200':
+          description: delete a category successfully
           schema:
             type: object
             properties:
               message:
                 type: string
                 example: OK
-        401:
-          description: "login required"
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-        403:
-          description: "lack of authority"
+                example: Login required.
+        '403':
+          description: lack of authority
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Lack of authority."
-    
+                example: Lack of authority.
+        '444':
+          description: error message
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: '[error message]'
     put:
       tags:
-      - "category"
-      summary: "2B: 在某一菜单下修改一个类别"
+        - category
+      summary: '2B: 在某一菜单下修改一个类别'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "不需要id和dishes, 只需提交要修改的字段, 请不要在这里修改dish"
-        required: true
-        schema:
-          $ref: "#/definitions/Category"
-      responses:
-        444:
-          description: "error message"
+        - in: body
+          name: body
+          description: '不需要id和dishes, 只需提交要修改的字段, 请不要在这里修改dish'
+          required: true
           schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "[error message]"
-        200:
-          description: "delete a category successfully"
+            $ref: '#/definitions/Category'
+      responses:
+        '200':
+          description: delete a category successfully
           schema:
             type: object
             properties:
               message:
                 type: string
                 example: OK
-        401:
-          description: "login required"
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-        403:
-          description: "lack of authority"
+                example: Login required.
+        '403':
+          description: lack of authority
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Lack of authority."
-  
+                example: Lack of authority.
+        '444':
+          description: error message
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: '[error message]'
   /menus/<menuid>/categories/<catId>/dishes/:
-    # Add A New Dish
     post:
       tags:
-      - "dish"
-      summary: "2B: 在某一菜单下新增一个菜"
+        - dish
+      summary: '2B: 在某一菜单下新增一个菜'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
       - in: "body"
         name: "body"
@@ -544,126 +592,72 @@ paths:
         schema:
           $ref: "#/definitions/Dish"
       responses:
-        400:
-          description: "Invalid input"
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: "[error message]"
-        200:
-          description: "add a new dish successfully"
+        '200':
+          description: add a new dish successfully
           schema:
             type: object
             properties:
               id:
                 type: integer
                 example: 3910
-        401:
-          description: "login required"
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-        403:
-          description: "lack of authority"
+                example: '[error message]'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Lack of authority."
-  
-  # /menu/<menuid>/dish/type/<cat>:
-  #   get:
-  #     tags:
-  #     - "menu&dish"
-  #     summary: "2B&2C: 获取一个类别的所有菜"
-  #     consumes:
-  #     - "application/json"
-  #     parameters:
-  #     - in: "body"
-  #       name: "body"
-  #       description: "Identifier of the dishes list"
-  #       required: true
-  #       schema:
-  #         # Identifier of the dish
-  #         type: object
-  #         properties:
-  #           type:
-  #             type: string
-  #             example: "荤菜"
-  #     responses:
-  #       200:
-  #         description: OK
-  #         schema:
-  #           type: object
-  #           properties:
-  #             type:
-  #               type: string
-  #               example: "荤菜"
-  #             dishes:
-  #               type: array
-  #               items:
-  #                 $ref: "#/definitions/Dish"
-  #       404:
-  #         description: "type not found"
-  #         schema:
-  #           type: object
-  #           properties:
-  #             message:
-  #               type: string
-  #               example: "type not found"
-  #       401:
-  #         description: "login required"
-  #         schema:
-  #           type: object
-  #           properties:
-  #             message:
-  #               type: string
-  #               example: "Login required"
-                        
-  
-  /menus/<menuid>/categories/<catId>/dishes/<dishId>:      
-    # Get A Specific Info of A Dish
+                example: Login required.
+        '403':
+          description: lack of authority
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Lack of authority.
+  /menus/<menuid>/categories/<catId>/dishes/<dishId>:
     get:
       tags:
-      - "dish"
-      summary: "2B&2C: 获取一个菜"
+        - dish
+      summary: '2B&2C: 获取一个菜'
       consumes:
-      - "application/json"
+        - application/json
       responses:
         200:
           description: "'img'的值为图片的路径"
           schema:
-            $ref: "#/definitions/Dish"
-        404:
-          description: "dish not found"
+            $ref: '#/definitions/Dish'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Dish not found"
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: dish not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
-    # Update Info of A Dish
+                example: Dish not found
     put:
       tags:
-      - "dish"
-      summary: "2B: 更新一个菜"
+        - dish
+      summary: '2B: 更新一个菜'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
       - in: "body"
         name: "body"
@@ -672,110 +666,105 @@ paths:
         schema:
           $ref: "#/definitions/Dish"
       responses:
-        200:
-          description: "Successful update"
-        404:
-          description: "dish Not Found"
+        '200':
+          description: Successful update
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Dish not found"
-        400:
-          description: "Invalid input"
+                example: '[error message]'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "[error message]"
-        401:
-          description: "login required"
+                example: Login required
+        '403':
+          description: lack of authority
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required"
-        403:
-          description: "lack of authority"
+                example: Lack of authority.
+        '404':
+          description: dish Not Found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Lack of authority."
-              
-    # DELETE A Dish
+                example: Dish not found
     delete:
       tags:
-      - "dish"
-      summary: "2B: 删除一个菜"
+        - dish
+      summary: '2B: 删除一个菜'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
-          description: "successfully delete"
+        '200':
+          description: successfully delete
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully delete."
-        404:
-          description: "dish not found"
+                example: Successfully delete.
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Dish not found."
-        401:
-          description: "login required"
+                example: Login required.
+        '403':
+          description: lack of authority
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-        403:
-          description: "lack of authority"
+                example: Lack of authority
+        '404':
+          description: dish not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Lack of authority"
-  
-  # restaurant information
+                example: Dish not found.
   /restrt:
     get:
       tags:
-      - "restrt"
-      summary: "2C: 获取餐馆信息"
+        - restrt
+      summary: '2C: 获取餐馆信息'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
-            $ref: "#/definitions/Restaurant"
-        404:
-          description: "restaurant not found"
+            $ref: '#/definitions/Restaurant'
+        '404':
+          description: restaurant not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Restaurant not found"
-  
+                example: Restaurant not found
     put:
       tags:
-      - "restrt"
-      summary: "2B: 修改餐馆信息"
+        - restrt
+      summary: '2B: 修改餐馆信息'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
       - in: "body"
         name: "body"
@@ -802,23 +791,21 @@ paths:
               format: date-time
               example: "2017-11-23 16:10:10"
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Modify restrt info successfully."
-
-  # Customer Operation
+                example: Modify restrt info successfully.
   /orders/cuser/:
     post:
       tags:
       - "order"
       summary: "用户提交订单"
       consumes:
-      - "application/json"
+        - application/json
       parameters:
       - in: "body"
         name: "body"
@@ -850,7 +837,7 @@ paths:
                     type: integer
                     example: 2
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
@@ -858,31 +845,30 @@ paths:
               orderId:
                 type: integer
                 example: 4396
-        400:
-          description: "wrong order"
+        '400':
+          description: wrong order
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "[invalid order form message]"
-        401:
-          description: "login required"
+                example: '[invalid order form message]'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-                
+                example: Login required.
     get:
       tags:
-      - "order"
-      summary: "2C: 用户获取全部订单"
+        - order
+      summary: '2C: 用户获取全部订单'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
@@ -890,209 +876,203 @@ paths:
               orders:
                 type: array
                 items:
-                  $ref: "#/definitions/Order"
-        404:
-          description: "order not found"
+                  $ref: '#/definitions/Order'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Order not found."
-        401:
-          description: "login required"
+                example: Login required and you can only get your own order(s).
+        '404':
+          description: order not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required and you can only get your own order(s)."
-  
-  /orders/cuser/oid/<orderid>:      
+                example: Order not found.
+  /orders/cuser/oid/<orderid>:
     get:
       tags:
-      - "order"
-      summary: "2C: 用户获取单个订单"
+        - order
+      summary: '2C: 用户获取单个订单'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
-            $ref: "#/definitions/Order"
-        404:
-          description: "order not found"
+            $ref: '#/definitions/Order'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Order not found"
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: order not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-    
+                example: Order not found
     put:
       tags:
-      - "order"
-      summary: "用户修改订单信息"
+        - order
+      summary: 用户修改订单信息
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "可以修改的字段: orderItem中的urge和like."
-        required: true
-        schema:
-          type: object
-          properties:
-            dishId:
-              type: integer
-              example: 123
-            like:
-              type: integer
-              example: 1
-            urge:
-              type: integer
-              example: 2
+        - in: body
+          name: body
+          description: '可以修改的字段: orderItem中的urge和like.'
+          required: true
+          schema:
+            type: object
+            properties:
+              dishId:
+                type: integer
+                example: 123
+              like:
+                type: integer
+                example: 1
+              urge:
+                type: integer
+                example: 2
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully modify."
-    
+                example: Successfully modify.
     post:
       tags:
-      - "order"
-      summary: "2C: 订单付款"
+        - order
+      summary: '2C: 订单付款'
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "payment id and the corresponding order id"
-        required: true
-        schema:
-          type: object
-          properties:
-            payId:
-              type: integer
-              example: 2200
+        - in: body
+          name: body
+          description: payment id and the corresponding order id
+          required: true
+          schema:
+            type: object
+            properties:
+              payId:
+                type: integer
+                example: 2200
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully pay."
-        404:
-          description: "order not found"
+                example: Successfully pay.
+        '400':
+          description: 'ayid is wrong, no such payment'
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Order not found."
-        400:
-          description: "ayid is wrong, no such payment"
+                example: 'Payid is wrong, no such payment.'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Payid is wrong, no such payment."
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: order not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
-  /orders/buser/oid/<orderId>:      
+                example: Order not found.
+  /orders/buser/oid/<orderId>:
     get:
       tags:
-      - "order"
-      summary: "2B: 商家获取一个订单"
+        - order
+      summary: '2B: 商家获取一个订单'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
-            $ref: "#/definitions/Order"
-        404:
-          description: "order not found"
+            $ref: '#/definitions/Order'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Order not found."
-        401:
-          description: "login required"
+                example: Login required and you can only get your own order.
+        '404':
+          description: order not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required and you can only get your own order."
-    
+                example: Order not found.
     put:
       tags:
-      - "order"
-      summary: "商家修改订单"
+        - order
+      summary: 商家修改订单
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "可以修改的字段: orderItem中的finished和time."
-        required: true
-        schema:
-          type: object
-          properties:
-            dishId: 
-              type: integer
-              example: 123
-            time:
-              type: string
-              format: date-time
-              example: "2018-06-21 19:00:00"
-            finished:
-              type: integer
-              example: 1
+        - in: body
+          name: body
+          description: '可以修改的字段: orderItem中的finished和time.'
+          required: true
+          schema:
+            type: object
+            properties:
+              dishId:
+                type: integer
+                example: 123
+              time:
+                type: string
+                format: date-time
+                example: '2018-06-21 19:00:00'
+              finished:
+                type: integer
+                example: 1
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Successfully modify."
-
-  /orders/buser/:      
+                example: Successfully modify.
+  /orders/buser/:
     get:
       tags:
-      - "order"
-      summary: "2B: 商家获取全部订单"
+        - order
+      summary: '2B: 商家获取全部订单'
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
@@ -1100,33 +1080,32 @@ paths:
               orders:
                 type: array
                 items:
-                  $ref: "#/definitions/Order"
-        404:
-          description: "order not found"
+                  $ref: '#/definitions/Order'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Order not found."
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: order not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
-  /promotions/:      
+                example: Order not found.
+  /promotions/:
     get:
       tags:
-      - "promotion"
-      summary: "获取活动列表"
+        - promotion
+      summary: 获取活动列表
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
@@ -1134,39 +1113,38 @@ paths:
               promotions:
                 type: array
                 items:
-                  $ref: "#/definitions/Promotion"
-        404:
-          description: "promotions not found"
+                  $ref: '#/definitions/Promotion'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Promotions not found."
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: promotions not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
+                example: Promotions not found.
     post:
       tags:
-      - "promotion"
-      summary: "新建活动"
+        - promotion
+      summary: 新建活动
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "新建活动,只需要theme, begin, end, isend"
-        required: true
-        schema:
-          $ref: "#/definitions/Promotion"
+        - in: body
+          name: body
+          description: '新建活动,只需要theme, begin, end, isend'
+          required: true
+          schema:
+            $ref: '#/definitions/Promotion'
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
@@ -1174,131 +1152,143 @@ paths:
               id:
                 type: integer
                 example: 1
-        401:
-          description: "login required"
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
+                example: '[error message]'
+        '401':
+          description: login required
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Login required.
   /promotions/<pid>:
     get:
       tags:
-      - "promotion"
-      summary: "获取单个活动"
+        - promotion
+      summary: 获取单个活动
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
-            $ref: "#/definitions/Promotion"
-        404:
-          description: "promotion not found"
+            $ref: '#/definitions/Promotion'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Promotion not found."
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: promotion not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-    
+                example: Promotion not found.
     put:
       tags:
-      - "promotion"
-      summary: "修改某个活动"
+        - promotion
+      summary: 修改某个活动
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "修改活动,可以修改theme, begin, end, isend"
-        required: true
-        schema:
-          $ref: "#/definitions/Promotion"
+        - in: body
+          name: body
+          description: '修改活动,可以修改theme, begin, end, isend'
+          required: true
+          schema:
+            $ref: '#/definitions/Promotion'
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "modify promotion successfully"
-        404:
-          description: "promotion not found"
+                example: modify promotion successfully
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Promotion not found."
-        401:
-          description: "login required"
+                example: '[error message]'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-    
+                example: Login required.
+        '404':
+          description: promotion not found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Promotion not found.
     delete:
       tags:
-      - "promotion"
-      summary: "删除某个活动"
+        - promotion
+      summary: 删除某个活动
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "delete promotion successfully"
-        404:
-          description: "promotion not found"
+                example: delete promotion successfully
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Promotion not found."
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: promotion not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
+                example: Promotion not found.
   /promotions/<pid>/rules/:
     post:
       tags:
-      - "rule"
-      summary: "新建活动规则"
+        - rule
+      summary: 新建活动规则
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "新建活动规则"
-        required: true
-        schema:
-          $ref: "#/definitions/Rule"
+        - in: body
+          name: body
+          description: 新建活动规则
+          required: true
+          schema:
+            $ref: '#/definitions/Rule'
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
@@ -1306,112 +1296,123 @@ paths:
               id:
                 type: integer
                 example: 1
-        401:
-          description: "login required"
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
+                example: '[error message]'
+        '401':
+          description: login required
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Login required.
   /promotions/<pid>/rules/<rid>:
     get:
       tags:
-      - "rule"
-      summary: "获取单个活动规则"
+        - rule
+      summary: 获取单个活动规则
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
-            $ref: "#/definitions/Rule"
-        404:
-          description: "rule not found"
+            $ref: '#/definitions/Rule'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "rule not found."
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: rule not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-    
+                example: rule not found.
     put:
       tags:
-      - "rule"
-      summary: "修改某个活动规则"
+        - rule
+      summary: 修改某个活动规则
       consumes:
-      - "application/json"
+        - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "修改活动规则"
-        required: true
-        schema:
-          $ref: "#/definitions/Rule"
+        - in: body
+          name: body
+          description: 修改活动规则
+          required: true
+          schema:
+            $ref: '#/definitions/Rule'
       responses:
-        200:
+        '200':
           description: OK
           schema:
-            $ref: "#/definitions/Rule"
-        404:
-          description: "rule not found"
+            $ref: '#/definitions/Rule'
+        '400':
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "rule not found."
-        401:
-          description: "login required"
+                example: '[error message]'
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-    
+                example: Login required.
+        '404':
+          description: rule not found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: rule not found.
     delete:
       tags:
-      - "rule"
-      summary: "删除某个活动规则"
+        - rule
+      summary: 删除某个活动规则
       consumes:
-      - "application/json"
+        - application/json
       responses:
-        200:
+        '200':
           description: OK
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "delete rule successfully"
-        404:
-          description: "rule not found"
+                example: delete rule successfully
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "rule not found."
-        401:
-          description: "login required"
+                example: Login required.
+        '404':
+          description: rule not found
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: "Login required."
-
-# Data Models
+                example: rule not found.
 definitions:
   Dish:
     type: object
@@ -1421,16 +1422,16 @@ definitions:
         example: 3910
       name:
         type: string
-        example: "毛血旺"
+        example: 毛血旺
       rank:
         type: integer
         example: 1
       img:
         type: string
-        example: "example.com/maoxuewan.jpg"
+        example: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAA"
       price:
         type: number
-        format: "float"
+        format: float
         example: 28.5
       stock:
         type: integer
@@ -1443,11 +1444,10 @@ definitions:
         example: 4
       description:
         type: string
-        example: "Hello 毛血旺"
+        example: Hello 毛血旺
     required:
-    - name
-    - price
-
+      - name
+      - price
   Menu:
     type: object
     properties:
@@ -1456,17 +1456,16 @@ definitions:
         example: 10
       name:
         type: string
-        example: "springMenu"
+        example: springMenu
       used:
         type: integer
         example: 1
       content:
         type: array
         items:
-          $ref: "#/definitions/Category"
+          $ref: '#/definitions/Category'
     required:
-    - name
-
+      - name
   Order:
     type: object
     properties:
@@ -1478,7 +1477,7 @@ definitions:
         example: 10
       tableId:
         type: string
-        example: "23E"
+        example: 23E
       total:
         type: number
         format: float
@@ -1496,22 +1495,21 @@ definitions:
       payDate:
         type: string
         format: date-time
-        example: "2017-11-23 16:10:10"
+        example: '2017-11-23 16:10:10'
       payId:
         type: integer
         example: 123
       dishes:
         type: array
         items:
-          $ref: "#/definitions/Dish"
+          $ref: '#/definitions/Dish'
       orderItems:
         type: array
         items:
-          $ref: "#/definitions/OrderItem"
+          $ref: '#/definitions/OrderItem'
       finished:
         type: integer
         example: 1
-  
   OrderItem:
     type: object
     properties:
@@ -1533,14 +1531,13 @@ definitions:
       time:
         type: string
         format: date-time
-        example: "2017-11-23 16:10:10"
+        example: '2017-11-23 16:10:10'
       urge:
         type: integer
         example: 1
       like:
         type: integer
         example: 0
-
   Promotion:
     type: object
     properties:
@@ -1553,37 +1550,35 @@ definitions:
       begin:
         type: string
         format: date-time
-        example: "2017-11-23 16:10:10"
+        example: '2017-11-23 16:10:10'
       end:
         type: string
         format: date-time
-        example: "2017-11-23 16:10:10"
+        example: '2017-11-23 16:10:10'
       isend:
         type: integer
         example: 1
       rules:
         type: array
         items:
-          $ref: "#/definitions/Rule"
-  
+          $ref: '#/definitions/Rule'
   Rule:
     type: object
     properties:
-      id: 
+      id:
         type: integer
         example: 1
       mode:
         type: integer
-        example: 1(满减), 2(满折)
+        example: '1(满减), 2(满折)'
       requirement:
         type: number
         format: float
-        example: 100.0
+        example: 100
       discount:
         type: number
         format: float
-        example: 10.0
-
+        example: 10
   Category:
     type: object
     properties:
@@ -1599,8 +1594,7 @@ definitions:
       dishes:
         type: array
         items:
-          $ref: "#/definitions/Dish"
-
+          $ref: '#/definitions/Dish'
   Restaurant:
     type: object
     properties:
@@ -1612,11 +1606,11 @@ definitions:
         example: ddd
       img:
         type: string
-        example: "example.com/1.jpg"
+        example: example.com/1.jpg
       open:
         type: string
         format: date-time
-        example: "2017-11-23 16:10:10"
+        example: '2017-11-23 16:10:10'
       close:
         type: string
         format: date-time
@@ -1628,8 +1622,7 @@ definitions:
       carousels:
         type: array
         items:
-          $ref: "#/definitions/Carousel"
-
+          $ref: '#/definitions/Carousel'
   Carousel:
     type: object
     properties:
@@ -1638,8 +1631,7 @@ definitions:
         example: 1
       info:
         type: string
-        example: "some info here"
+        example: some info here
       img:
         type: string
-        example: "example.com/1.jpg"
-  
+        example: example.com/1.jpg
