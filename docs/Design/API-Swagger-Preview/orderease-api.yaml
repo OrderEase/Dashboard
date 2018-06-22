@@ -539,7 +539,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dish object to add into database. Id is not needed"
+        description: "'img'的值为真正的图片"
         required: true
         schema:
           $ref: "#/definitions/Dish"
@@ -637,7 +637,7 @@ paths:
       - "application/json"
       responses:
         200:
-          description: "Successful query for dish info"
+          description: "'img'的值为图片的路径"
           schema:
             $ref: "#/definitions/Dish"
         404:
@@ -667,7 +667,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dish object with update information. Id is not needed"
+        description: "'img'的值为真正的图片"
         required: true
         schema:
           $ref: "#/definitions/Dish"
@@ -779,7 +779,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dishes format should be '<dishId>, <dishId>...'"
+        description: "img的值为真正的图片"
         required: true
         schema:
           type: object
@@ -816,13 +816,13 @@ paths:
     post:
       tags:
       - "order"
-      summary: "用户提交订单, total为原总价, due为折后总价"
+      summary: "用户提交订单"
       consumes:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "提交订单"
+        description: "提交订单, total为原总价, due为折后总价"
         required: true
         schema:
           type: object
@@ -1621,10 +1621,10 @@ definitions:
         type: string
         format: date-time
         example: "2017-11-23 16:10:10"
-      menus:
-        type: array
-        items:
-          $ref: "#/definitions/Menu"
+      # menus:
+      #   type: array
+      #   items:
+      #     $ref: "#/definitions/Menu"
       carousels:
         type: array
         items:
