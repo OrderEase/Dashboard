@@ -117,68 +117,6 @@ paths:
               message:
                 type: string
                 example: Restaurant not found.
-  /busers/avatar:
-    get:
-      tags:
-        - buser
-      summary: '2B：商家获取图片'
-      responses:
-        '200':
-          description: successfully get the avatar path
-          schema:
-            type: object
-            properties:
-              path:
-                type: string
-                example: static/images/users/4a47a0db6e.png
-        '401':
-          description: login required
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: Login required.
-    put:
-      tags:
-        - buser
-      summary: '2B：商家更改图片'
-      parameters:
-        - in: body
-          name: body
-          description: image URL encoded by png;base64
-          required: true
-          schema:
-            type: object
-            properties:
-              data:
-                type: string
-                example: data:image/png;base64,.....
-      responses:
-        '200':
-          description: successfully upload avatar
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: Successfully upload
-        '400':
-          description: Invalid input
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: '[error message]'
-        '401':
-          description: login required
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: Login required.
   /busers/password:
     put:
       tags:
@@ -617,7 +555,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "'img'的值为真正的图片"
+        description: "'img'的值为图片的url"
         required: true
         schema:
           $ref: "#/definitions/Dish"
@@ -663,7 +601,7 @@ paths:
         - application/json
       responses:
         200:
-          description: "'img'的值为图片的路径"
+          description: "'img'的值为图片的url"
           schema:
             $ref: '#/definitions/Dish'
         '401':
@@ -691,7 +629,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "'img'的值为真正的图片"
+        description: "'img'的值为图片的url"
         required: true
         schema:
           $ref: "#/definitions/Dish"
@@ -798,7 +736,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "img的值为真正的图片"
+        description: ""
         required: true
         schema:
           type: object
@@ -1443,6 +1381,68 @@ paths:
               message:
                 type: string
                 example: rule not found.
+  /photos/restrt:
+    post:
+      tags:
+        - photos
+      summary: 上传店铺图片
+      consumes:
+        - application/json
+      parameters:
+        - in: FileStorage
+          name: FileStorage
+          description: '店铺图片'
+          required: true
+          schema:
+            file: FileStorage
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              url:
+                type: string
+                example: http://domain.com/photos/avatar.png
+        '401':
+          description: login required
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Login required.
+  /photos/dish:
+    post:
+      tags:
+        - photos
+      summary: 上传菜品图片
+      consumes:
+        - application/json
+      parameters:
+        - in: FileStorage
+          name: FileStorage
+          description: '菜品图片'
+          required: true
+          schema:
+            file: FileStorage
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              url:
+                type: string
+                example: http://domain.com/photos/avatar.png
+        '401':
+          description: login required
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Login required.
 definitions:
   Dish:
     type: object
@@ -1458,7 +1458,7 @@ definitions:
         example: 1
       img:
         type: string
-        example: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAA"
+        example: "http://domain.com/photos/dish/milk.png"
       price:
         type: number
         format: float
