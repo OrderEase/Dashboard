@@ -522,6 +522,18 @@ paths:
                 type: string
                 example: Lack of authority.
   /menus/<menuid>/categories/<catId>:
+    get:
+      tags:
+        - category
+      summary: '2B: 在某一菜单下获取一个类别'
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: category
+          schema:
+            $ref: '#/definitions/Category'
+
     delete:
       tags:
         - category
