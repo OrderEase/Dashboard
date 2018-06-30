@@ -48,4 +48,6 @@ OrderEase Development Progress, Meeting Records, etc.
 	- [Answer #3](./ModelingPractice/answerAndFeedback3.md)
 - ECB Design Practice
   - [ECB_Model](./Requirement Specification/ECB_Model.pdf)
+- Final Report
+  - [15331339](./TechWorkReport/FinalReport-15331339.pdf)
 
