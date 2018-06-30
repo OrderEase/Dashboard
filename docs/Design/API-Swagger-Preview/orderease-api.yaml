@@ -901,6 +901,39 @@ paths:
               message:
                 type: string
                 example: Order not found
+    
+    delete:
+      tags:
+        - order
+      summary: '2C: 用户删除未支付订单'
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: delete successfully
+        '401':
+          description: login required
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Login required.
+        '404':
+          description: order not found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Order not found
+
     put:
       tags:
         - order
@@ -915,7 +948,7 @@ paths:
           schema:
             type: object
             properties:
-              dishId:
+              orderItemId:
                 type: integer
                 example: 123
               like:
@@ -1025,7 +1058,7 @@ paths:
           schema:
             type: object
             properties:
-              dishId:
+              orderItemId:
                 type: integer
                 example: 123
               time:
