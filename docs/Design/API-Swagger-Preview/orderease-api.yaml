@@ -70,53 +70,68 @@ paths:
               message:
                 type: string
                 example: Login required.
-  /busers/:
-    post:
+  /busers/avatar:
+    get:
       tags:
         - buser
-      summary: '2B: 新建商家用户'
-      parameters:
-        - in: body
-          name: body
-          description: register info
-          required: true
+      summary: 2B：商家获取图片
+      responses:
+        '200':
+          description: successfully get the avatar path
           schema:
             type: object
             properties:
-              username:
+              path:
                 type: string
-                example: simpleUsername
-              password:
-                type: string
-                example: naviePassword
-              authority:
-                type: string
-                example: manager
-      responses:
-        '200':
-          description: successfully register
+                example: static/images/users/4a47a0db6e.png
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: Successfully register
+                example: Login required.
+    put:
+      tags:
+        - buser
+      summary: 2B：商家更改图片
+      parameters:
+        - in: body
+          name: body
+          description: image URL encoded by png;base64
+          required: true
+          schema:
+            type: object
+            properties:
+              data:
+                type: string
+                example: 'data:image/png;base64,.....'
+      responses:
+        '200':
+          description: successfully upload avatar
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Successfully upload
         '400':
-          description: invalid username or password
+          description: Invalid input
           schema:
             type: object
             properties:
               message:
                 type: string
                 example: '[error message]'
-        '404':
-          description: restaurant id not found
+        '401':
+          description: login required
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: Restaurant not found.
+                example: Login required.
   /busers/password:
     put:
       tags:
@@ -267,7 +282,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: '所有菜单'
+          description: Successful delete for menu info
           schema:
             type: object
             properties:
@@ -291,36 +306,6 @@ paths:
               message:
                 type: string
                 example: Menu not found
-
-  /menus/cuser:
-    get:
-      tags:
-        - menu
-      summary: '2C: 获取菜单'
-      consumes:
-        - application/json
-      responses:
-        '200':
-          description: '正在使用的菜单, 只包含上架了的菜'
-          schema:
-            $ref: '#/definitions/Menu'
-        '401':
-          description: login required
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: Login required.
-        '404':
-          description: Menu not found
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: Menu not found
-
   /menus/<menuid>:
     put:
       tags:
@@ -460,18 +445,6 @@ paths:
                 type: string
                 example: Lack of authority.
   /menus/<menuid>/categories/<catId>:
-    get:
-      tags:
-        - category
-      summary: '2B: 在某一菜单下获取一个类别'
-      consumes:
-        - application/json
-      responses:
-        '200':
-          description: category
-          schema:
-            $ref: '#/definitions/Category'
-
     delete:
       tags:
         - category
@@ -565,12 +538,12 @@ paths:
       consumes:
         - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "'img'的值为图片的url"
-        required: true
-        schema:
-          $ref: "#/definitions/Dish"
+        - in: body
+          name: body
+          description: Dish object to add into database. Id is not needed
+          required: true
+          schema:
+            $ref: '#/definitions/Dish'
       responses:
         '200':
           description: add a new dish successfully
@@ -612,8 +585,8 @@ paths:
       consumes:
         - application/json
       responses:
-        200:
-          description: "'img'的值为图片的url"
+        '200':
+          description: Successful query for dish info
           schema:
             $ref: '#/definitions/Dish'
         '401':
@@ -639,12 +612,12 @@ paths:
       consumes:
         - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "'img'的值为图片的url"
-        required: true
-        schema:
-          $ref: "#/definitions/Dish"
+        - in: body
+          name: body
+          description: Dish object with update information. Id is not needed
+          required: true
+          schema:
+            $ref: '#/definitions/Dish'
       responses:
         '200':
           description: Successful update
@@ -746,30 +719,30 @@ paths:
       consumes:
         - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: ""
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-              example: "点都德"
-            description:
-              type: string
-              example: "一个吃饭的地方"
-            img:
-              type: string
-              example: example.com/1.jpg
-            open:
-              type: string
-              format: date-time
-              example: "2017-11-23 16:10:10"
-            close:
-              type: string
-              format: date-time
-              example: "2017-11-23 16:10:10"
+        - in: body
+          name: body
+          description: 'Dishes format should be ''<dishId>, <dishId>...'''
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 点都德
+              description:
+                type: string
+                example: 一个吃饭的地方
+              img:
+                type: string
+                example: example.com/1.jpg
+              open:
+                type: string
+                format: date-time
+                example: '2017-11-23 16:10:10'
+              close:
+                type: string
+                format: date-time
+                example: '2017-11-23 16:10:10'
       responses:
         '200':
           description: OK
@@ -782,40 +755,40 @@ paths:
   /orders/cuser/:
     post:
       tags:
-      - "order"
-      summary: "用户提交订单"
+        - order
+      summary: '用户提交订单, total为原总价, due为折后总价'
       consumes:
         - application/json
       parameters:
-      - in: "body"
-        name: "body"
-        description: "提交订单, total为原总价, due为折后总价"
-        required: true
-        schema:
-          type: object
-          properties:
-            tableId:
-              type: string
-              example: "23E"
-            total:
-              type: number
-              format: float
-              example: 100.8
-            due:
-              type: number
-              format: float
-              example: 90.8
-            content:
-              type: array
-              items:
-                type: object
-                properties:
-                  dish:
-                    type: integer
-                    example: 1
-                  quantity:
-                    type: integer
-                    example: 2
+        - in: body
+          name: body
+          description: 提交订单
+          required: true
+          schema:
+            type: object
+            properties:
+              tableId:
+                type: string
+                example: 23E
+              total:
+                type: number
+                format: float
+                example: 100.8
+              due:
+                type: number
+                format: float
+                example: 90.8
+              content:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    dish:
+                      type: integer
+                      example: 1
+                    quantity:
+                      type: integer
+                      example: 2
       responses:
         '200':
           description: OK
@@ -1114,7 +1087,7 @@ paths:
     get:
       tags:
         - promotion
-      summary: 获取活动列表
+      summary: 获取活动列表(customer 获取当前有效的，manager 获取所有的)
       consumes:
         - application/json
       responses:
@@ -1426,69 +1399,225 @@ paths:
               message:
                 type: string
                 example: rule not found.
-  /photos/restrt:
-    post:
+
+  /analytics/turnover:
+    get:
+      parameters:
+        - in: path
+          name: days
+          type: integer
+          required: true
+          description: Only 7 or 30 days are available.
       tags:
-        - photos
-      summary: 上传店铺图片
+        - analytics
+      summary: '获取交易额统计'
       consumes:
         - application/json
-      parameters:
-        - in: FileStorage
-          name: FileStorage
-          description: '店铺图片'
-          required: true
-          schema:
-            file: FileStorage
       responses:
         '200':
           description: OK
           schema:
             type: object
             properties:
-              url:
+              xAxis:
                 type: string
-                example: http://domain.com/photos/avatar.png
-        '401':
-          description: login required
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                example: Login required.
-  /photos/dish:
-    post:
+                example: ['6月23日', '6月24日', '6月25日', '6月26日', '6月27日', '6月28日', '6月29日']
+              data:
+                type: object
+                example:
+                  - name: '主食'
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                  - name: '肉类'
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                  - name: '青菜'
+                    data: [257, 358, 278, 234, 290, 330, 310]
+
+  /analytics/count/card:
+    get:
       tags:
-        - photos
-      summary: 上传菜品图片
+        - analytics
+      summary: ''
       consumes:
         - application/json
-      parameters:
-        - in: FileStorage
-          name: FileStorage
-          description: '菜品图片'
-          required: true
-          schema:
-            file: FileStorage
       responses:
         '200':
           description: OK
           schema:
             type: object
-            properties:
-              url:
-                type: string
-                example: http://domain.com/photos/avatar.png
-        '401':
-          description: login required
+            example:
+              - todayUser: 123
+                todayNewUser: 128
+                todayTurnover: 43805
+                todayDish: 3950
+
+  /analytics/count/orders:
+    get:
+      tags:
+        - analytics
+      summary: ''
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: OK
           schema:
             type: object
-            properties:
-              message:
-                type: string
-                example: Login required.
+            example:
+              - name: '周一'
+                value: 453
+              - name: '周二'
+                value: 879
+              - name: '周三'
+                value: 235
+              - name: '周四'
+                value: 159
+              - name: '周五'
+                value: 130
+              - name: '周六'
+                value: 543
+              - name: '周日'
+                value: 130
+
+  /analytics/count/payWay:
+    get:
+      tags:
+        - analytics
+      summary: ''
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            example:
+              - name: '微信'
+                value: 453
+              - name: '支付宝'
+                value: 879
+              - name: '支付宝'
+                value: 235
+              - name: '比特币'
+                value: 159
+
+  /analytics/count/finishTime:
+    get:
+      tags:
+        - analytics
+      summary: ''
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            example:
+              order:
+                - avg: 49
+                  max: 60
+              dish:
+                - avg: 18
+                  max: 30
+
+  /analytics/rank/likes:
+    get:
+      tags:
+        - analytics
+      summary: ''
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            example:
+              - name: '牛板筋'
+                value: 250
+              - name: '香菇炖鸡'
+                value: 141
+              - name: '白切鸡'
+                value: 138
+              - name: '油焖小龙虾'
+                value: 74
+
+  /analytics/rank/sales:
+    get:
+      tags:
+        - analytics
+      summary: ''
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            example:
+              - name: '麻辣香锅'
+                value: 3421
+              - name: '牛板筋'
+                value: 2444
+              - name: '香菇炖鸡'
+                value: 1111
+              - name: '油焖小龙虾'
+                value: 910
+
+  /analytics/summary:
+    get:
+      tags:
+        - analytics
+      summary: ''
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            example:
+              - date: '2018-06-17'
+                dayOrder: 123
+                dayDish: 321
+                dayAvgOrderFinishTime: 31
+                dayAvgDishFinishTime: 15
+                dayDue: 12
+                dayTotal: 1500
+              - date: '2018-06-18'
+                dayOrder: 123
+                dayDish: 321
+                dayAvgOrderFinishTime: 31
+                dayAvgDishFinishTime: 15
+                dayDue: 12511
+                total: 1500
+              - date: '2018-06-19'
+                dayOrder: 123
+                dayDish: 321
+                dayAvgOrderFinishTime: 31
+                dayAvgDishFinishTime: 15
+                dayDue: 1240
+                dayTotal: 1500
+
+
 definitions:
+  Turnover:
+    type: object
+    properties:
+      name:
+        type: string
+        example: meat
+      data:
+        type: integer
+        example:
+          - 320
+          - 330
+          - 332
+          - 294
+          - 345
+          - 212
+          - 377
+
   Dish:
     type: object
     properties:
@@ -1503,7 +1632,7 @@ definitions:
         example: 1
       img:
         type: string
-        example: "http://domain.com/photos/dish/milk.png"
+        example: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAA'
       price:
         type: number
         format: float
@@ -1689,11 +1818,11 @@ definitions:
       close:
         type: string
         format: date-time
-        example: "2017-11-23 16:10:10"
-      # menus:
-      #   type: array
-      #   items:
-      #     $ref: "#/definitions/Menu"
+        example: '2017-11-23 16:10:10'
+      menus:
+        type: array
+        items:
+          $ref: '#/definitions/Menu'
       carousels:
         type: array
         items:
