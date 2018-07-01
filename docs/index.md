@@ -33,6 +33,7 @@ OrderEase Development Progress, Meeting Records, etc.
   - [System Architecture Model](./Design/SystemArchitectureDigram.md)
 - Production Specification
   - [RESTful API Specification](./Production Specifications/RESTful-API-Style.md)
+  - [Relationships Between ECB & Logic Structure & Directory Design](./Production Specifications/RelationshipsBetweenECB&LogicStructure&DirectoryDesign.md)
 - Meeting Record
   - [1st meeting](./meeting/inception.md)
   - [2nd meeting](./meeting/2nd-meeting.md)
