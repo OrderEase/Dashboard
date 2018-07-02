@@ -42,7 +42,7 @@
   - Feedback
     - [Answer #1](./ModelingPractice/answerAndFeedback.md)
     - [Answer #2](./ModelingPractice/answerAndFeedback2.md)
-  - [Answer #3](./ModelingPractice/answerAndFeedback3.md)
+    - [Answer #3](./ModelingPractice/answerAndFeedback3.md)
 - ECB Design Practice
   - [ECB_Model](./Requirement Specification/ECB_Model.pdf)
 - Final Report
@@ -51,3 +51,5 @@
   - [15331371](./TechWorkReport/15331371.md)
   - [15331372](./TechWorkReport/15331372.md)
   - [15331373](./TechWorkReport/15331373.md)
+  - [15331359](./TechWorkReport/15331359.md)
+  - [15331376](./TechWorkReport/15331376.md)
