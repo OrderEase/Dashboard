@@ -1,7 +1,3 @@
-# Dashboard
-
-OrderEase Development Progress, Meeting Records, etc.
-
 # Teamwork Index
 
 - [About](./about.md)
