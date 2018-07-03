@@ -4,18 +4,17 @@ OrderEase Development Progress, Meeting Records, etc.
 
 # Teamwork Index
 
-- [About](./about.md)
-- [Team Profile](./teamProfile.md)
-- [Investigation](./investigation.md)
-- [Vision](./vision.md)
-- [Product Backlog](./backlog.md)
-- Requirement Specification
-  - [Use Cases](./Requirement Specification/useCase.md)
-  - [Usecase Digram](./Requirement Specification/use-case-diagram.md)
-  - [Usecase (Use Case + Activity Diagram)?](./Requirement Specification/useCase.md)
-  - [Domain Model](./Requirement Specification/domainModel.md)
-  - [State Model](./Requirement Specification/stateModel.md)
-  - System Sequence Diagram
+- [1. About](./about.md)
+- [2. Team Profile](./teamProfile.md)
+- [3. Investigation](./investigation.md)
+- [4. Vision](./vision.md)
+- [5. Product Backlog](./backlog.md)
+- 6. Requirement Specification
+  - [6.1 Usecase Digram](./Requirement Specification/use-case-diagram.md)
+  - [6.2 Use Cases](./Requirement Specification/useCase.md)
+  - [6.3 Domain Model](./Requirement Specification/domainModel.md)
+  - [6.4 State Model](./Requirement Specification/stateModel.md)
+  - 6.5 System Sequence Diagram
     - [Ordering Scene](./Requirement Specification/System Sequence Diagram/scene-of-place-order.md)
     - [2B Login Scene](./Requirement Specification/System Sequence Diagram/scene-of-2b-login.md)
     - [Check Order Scene](./Requirement Specification/System Sequence Diagram/scene-of-check-order.md)
@@ -23,33 +22,24 @@ OrderEase Development Progress, Meeting Records, etc.
     - [Promot Editing Scene](./Requirement Specification/System Sequence Diagram/scene-of-edit-promotion.md)
     - [Kitchen Order Scene](./Requirement Specification/System Sequence Diagram/scene-of-view-kitchen-order.md)
     - [Payment Scene](./Requirement Specification/System Sequence Diagram/payment_seq.md)
-- Design
-  - UI Design
+- 7. Design
+  - 7.1 UI Design
     - [2B Phone](./Design/OrderEase-2B-Phone/index.html)
     - [2B Web](./Design/OrderEase-2B-Web/index.html)
     - [2C Phone](./Design/OrderEase-2C-Phone/index.html)
-  - [Database Design](./Design/databaseDesign.md)
-  - [API Design](./Design/API-Swagger-Preview/index.html)
-  - [System Architecture Model](./Design/SystemArchitectureDigram.md)
-- Production Specification
-  - [RESTful API Specification](./Production Specifications/RESTful-API-Style.md)
-  - [Relationships Between ECB & Logic Structure & Directory Design](./Production Specifications/RelationshipsBetweenECB&LogicStructure&DirectoryDesign.md)
-- Meeting Record
+  - [7.2 Database Design](./Design/databaseDesign.md)
+  - [7.3 API Design](./Design/API-Swagger-Preview/index.html)
+  - [7.4 System Architecture Model](./Design/SystemArchitectureDigram.md)
+  - [7.5 ECB_Model](./Requirement Specification/ECB_Model.pdf)
+- 8 Production Specification
+  - [Code Specification]()
+  - [8.2 RESTful API Specification](./Production Specifications/RESTful-API-Style.md)
+  - [8.3 Relationships Between ECB & Logic Structure & Directory Design](./Production Specifications/RelationshipsBetweenECB&LogicStructure&DirectoryDesign.md)
+- X1 Meeting Record
   - [1st meeting](./meeting/inception.md)
   - [2nd meeting](./meeting/2nd-meeting.md)
-- Tech/Work Report
- - [payment](./Requirement Specification/System Sequence Diagram/payment_seq.md)
-- 建模练习
-- Modeling Practice
-  - APP:ShanBei-RememberWords
-  - [Modeling Requirement](./ModelingPractice/ShanBay_RememberWord_V1.md)
-  - Feedback
-    - [Answer #1](./ModelingPractice/answerAndFeedback.md)
-    - [Answer #2](./ModelingPractice/answerAndFeedback2.md)
-    - [Answer #3](./ModelingPractice/answerAndFeedback3.md)
-- ECB Design Practice
-  - [ECB_Model](./Requirement Specification/ECB_Model.pdf)
-- Final Report
+- X2 Tech/Work Report
+- X3 Final Report
   - [15331339](./TechWorkReport/FinalReport-15331339.pdf)
   - [15331340](./TechWorkReport/15331340-前端工程师.md)
   - [15331371](./TechWorkReport/15331371.md)
@@ -57,3 +47,11 @@ OrderEase Development Progress, Meeting Records, etc.
   - [15331373](./TechWorkReport/15331373.md)
   - [15331359](./TechWorkReport/15331359.md)
   - [15331376](./TechWorkReport/15331376.md)
+- XX Modeling Practice
+  APP:ShanBei-RememberWords
+  - [Modeling Requirement](./ModelingPractice/ShanBay_RememberWord_V1.md)
+  - Feedback
+    - [Answer #1](./ModelingPractice/answerAndFeedback.md)
+    - [Answer #2](./ModelingPractice/answerAndFeedback2.md)
+    - [Answer #3](./ModelingPractice/answerAndFeedback3.md)
+
