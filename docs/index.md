@@ -7,7 +7,7 @@
 - [5. Product Backlog](./backlog.md)
 - 6 Requirement Specification
   - [6.1 Usecase Digram](./Requirement Specification/use-case-diagram.md)
-  - [6.2 Use Cases](./Requirement Specification/useCase.md)
+  - [6.2 Use Cases (and Activity Diagram)](./Requirement Specification/useCase.md)
   - [6.3 Domain Model](./Requirement Specification/domainModel.md)
   - [6.4 State Model](./Requirement Specification/stateModel.md)
   - 6.5 System Sequence Diagram
@@ -26,7 +26,7 @@
   - [7.2 Database Design](./Design/databaseDesign.md)
   - [7.3 API Design](./Design/API-Swagger-Preview/index.html)
   - [7.4 System Architecture Model](./Design/SystemArchitectureDigram.md)
-  - [7.5 ECB_Model](./Requirement Specification/ECB_Model.pdf)
+  - [7.5 ECB Model](./Requirement Specification/ECB_Model.pdf)
 - 8 Production Specification
   - 8.1 Code Specification
     - [HTML / CSS](./Production\ Specifications/styleguide/htmlcssguide.html)

@@ -76,6 +76,9 @@ Customers have access to the Internet to finish mobile payment.
 9b. The price of the whole order is correctly accounted by the system and discounts / sales are considered.
 
 9c. Customers' signatures are needed when they choose to pay via credit cards.
+
+
+![Order Usecase Activity Diagram](./assets/activity_1.jpg)
  
 # Brief Use Case
 
@@ -139,3 +142,5 @@ The customer wants to check his order again and the app shows his order.
 Alternative Scene:
 
 The customer wants to check his order again, while the server returns wrong data, then he complains in the app via report.
+
+![Scan QR Code Usecase Activity Diagram](./assets/activity_2.jpg)
