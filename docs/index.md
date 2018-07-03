@@ -1,5 +1,7 @@
 # Teamwork Index
 
+For documentation coursework required by **SE 308 - Wang Qiang**, please refer to [SE 308 Submission](./SE308/index.md)
+
 - [1. About](./about.md)
 - [2. Team Profile](./teamProfile.md)
 - [3. Investigation](./investigation.md)
