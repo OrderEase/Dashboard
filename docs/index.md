@@ -28,7 +28,10 @@
   - [7.4 System Architecture Model](./Design/SystemArchitectureDigram.md)
   - [7.5 ECB_Model](./Requirement Specification/ECB_Model.pdf)
 - 8 Production Specification
-  - [8.1 Code Specification]()
+  - 8.1 Code Specification
+    - [HTML / CSS](./Production\ Specifications/styleguide/htmlcssguide.html)
+    - [Python](./Production\ Specifications/styleguide/pyguide.html)
+    - [JavaScript](./Production\ Specifications/styleguide/jsguide.html)
   - [8.2 RESTful API Specification](./Production Specifications/RESTful-API-Style.md)
   - [8.3 Relationships Between ECB & Logic Structure & Directory Design](./Production Specifications/RelationshipsBetweenECB&LogicStructure&DirectoryDesign.md)
 - X1 Meeting Record
