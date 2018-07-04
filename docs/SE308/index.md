@@ -1,5 +1,5 @@
 - [安装部署说明]()
-- [使用说明]()
+- [使用说明](manual.md)
 - 源代码
   - 前端源代码
     - [用户端](https://github.com/OrderEase/OrderEase-2C)
