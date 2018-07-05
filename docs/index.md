@@ -40,7 +40,7 @@ For documentation coursework required by **SE 308 - Wang Qing**, please refer to
   - [1st meeting](./meeting/inception.md)
   - [2nd meeting](./meeting/2nd-meeting.md)
 - X2 Tech/Work Report
-  - [15331339]()
+  - [15331339:中期项目总结(一)](https://mp.csdn.net/mdeditor/79944821)
   - [15331340]()
   - [15331359](./TechWorkReport/15331359-产品经理.md)
   - [15331371]()
