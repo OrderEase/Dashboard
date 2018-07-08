@@ -6,5 +6,5 @@
     - [商家端](https://github.com/OrderEase/OrderEase-2B)
   - [后端源代码](https://github.com/OrderEase/Server)
 - [软件需求规格说明书 (SRS)](srs.md)
-- [软件设计文档 (SDS)]()
+- [软件设计文档 (SDS)](sds.md)
 - [小组分工与贡献率说明](contribution.md)
