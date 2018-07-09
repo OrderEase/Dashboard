@@ -44,7 +44,7 @@ For documentation coursework required by **SE 308 - Wang Qing**, please refer to
   - [15331340]()
   - [15331359](./TechWorkReport/15331359-产品经理.md)
   - [15331371](https://blog.csdn.net/yaozhili_/article/details/79937498)
-  - [15331372]()
+  - [15331372: Blogs](https://www.jianshu.com/u/7dbde400025a)
   - [15331373: Docker 安装并运行 Express 应用](http://www.elsye.cn/docker/docker-install-express/)
   - [15331376]()
 - X3 Final Report

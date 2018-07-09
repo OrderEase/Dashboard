@@ -23,7 +23,7 @@
 
 * 控制层：利用 Flask 框架为前端提供调用逻辑层方法的 RESTful API
 
-  ![后端架构](./assets/backend arch.png)
+  ![后端架构](assets/backend_arch.png)
 
 ### 模块划分
 
