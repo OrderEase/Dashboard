@@ -39,12 +39,25 @@
 
 ### 1.2 架构设计
 
-#### 1.2.1 客户端
+为了使得前端整体更容易管理以及拓展，我们将前端分为四层，按顺序分别是视图层、逻辑层、数据层和网络访问层，各个层次只与相邻层直接相关，以下是结合文件组织的详细说明：
 
-#### 1.2.2 商家端
++ 视图层：界面设计
+	+ component/ - 包含各个页面所需组件
+
++ 逻辑层：实现各种页面逻辑
+	+ component/ - 直接在组件实现时，完成了与组件相关的用户逻辑
+	+ router/ - 前端路由，控制跳转，即实现组件之间的替换
+
++ 数据层：存储前端需要的所有数据
+	+ store/ - Vuex状态管理，根据类别划分不同模块，存储组件所有需要的数据
+
++ 网络访问层：负责与后端的交互
+	+ api/ - 请求数据，并返还给数据层所需要的数据格式
+
+#### 整体架构图
+![](assets/2c_structure.png)
 
 ### 1.3 模块划分
-
 #### 1.3.1 客户端
 
 ##### 客户端系统前端分主要为4个页面
@@ -127,32 +140,32 @@ dist 为项目打包后文件
 ├── config  # 存放 Vue 项目中需要用到的配置
 ├── dist    # 编译后目录
 └── src
-    ├── api       # axios 与后台对接 api
-    ├── images    # 存放图片
-    ├── libs      # 存放通用函数
-    ├── locale
-    ├── router    # vue-router 
-    ├── store     # vuex
-    ├── styles    # 存放通用样式
-    ├── template  # HtmlWebpackPlugin 模板
-    ├── vendors
-    ├── views     # 视图组件等
-    │   ├── error-page
-    │   ├── analytics
-    │   ├── home
-    │   ├── kitchen
-    │   ├── menu
-    │   ├── order
-    │   ├── promotion
-    │   ├── qrcode
-    │   ├── home
-    │   ├── kitchen
-    │   ├── main-components
-    │   ├── my-components
-    │   ├── login.less
-    │   ├── login.vue
-    │   ├── main.less
-    │   └── Main.vue
+ ?? ├── api       # axios 与后台对接 api
+ ?? ├── images    # 存放图片
+ ?? ├── libs      # 存放通用函数
+ ?? ├── locale
+ ?? ├── router    # vue-router 
+ ?? ├── store     # vuex
+ ?? ├── styles    # 存放通用样式
+ ?? ├── template  # HtmlWebpackPlugin 模板
+ ?? ├── vendors
+ ?? ├── views     # 视图组件等
+ ?? │?? ├── error-page
+ ?? │?? ├── analytics
+ ?? │?? ├── home
+ ?? │?? ├── kitchen
+ ?? │?? ├── menu
+ ?? │?? ├── order
+ ?? │?? ├── promotion
+ ?? │?? ├── qrcode
+ ?? │?? ├── home
+ ?? │?? ├── kitchen
+ ?? │?? ├── main-components
+ ?? │?? ├── my-components
+ ?? │?? ├── login.less
+ ?? │?? ├── login.vue
+ ?? │?? ├── main.less
+ ?? │?? └── Main.vue
     ├── app.vue
     └── main.js
 
@@ -361,33 +374,33 @@ dist 为项目打包后文件
 ├── LICENSE
 ├── README.md
 ├── app
-│   ├── __init__.py
-│   ├── api 逻辑层，每一个文件中实现对应 api 中的操作
-│   │   └── v1
-│   │       ├── __init__.py
-│   │       ├── analytics.py
-│   │       ├── buser.py
-│   │       ├── cuser.py
-│   │       ├── menu.py
-│   │       ├── order.py
-│   │       ├── photo.py
-│   │       ├── promotion.py
-│   │       ├── restrt.py
-│   │       ├── rule.py
-│   │       └── utils.py
-│   ├── config.py  配置模块，存有各项默认配置
-│   ├── gen_data.py
-│   ├── login.py  登录、权限验证模块
-│   └── models.py  数据访问层，主要有 Flask SQLAlchemy 提供
+│?? ├── __init__.py
+│?? ├── api 逻辑层，每一个文件中实现对应 api 中的操作
+│?? │?? └── v1
+│?? │??     ├── __init__.py
+│?? │??     ├── analytics.py
+│?? │??     ├── buser.py
+│?? │??     ├── cuser.py
+│?? │??     ├── menu.py
+│?? │??     ├── order.py
+│?? │??     ├── photo.py
+│?? │??     ├── promotion.py
+│?? │??     ├── restrt.py
+│?? │??     ├── rule.py
+│?? │??     └── utils.py
+│?? ├── config.py  配置模块，存有各项默认配置
+│?? ├── gen_data.py
+│?? ├── login.py  登录、权限验证模块
+│?? └── models.py  数据访问层，主要有 Flask SQLAlchemy 提供
 ├── docker-entrypoint.sh
 ├── manage.py  控制层，主要由 Flask 提供
 ├── requirements.txt
 ├── static
-│   └── images
-│       ├── dishes
-│       │   └── default.png
-│       └── restrts
-│           └── default.png
+│?? └── images
+│??     ├── dishes
+│??     │?? └── default.png
+│??     └── restrts
+│??         └── default.png
 └── tests 单元测试模块
     ├── test_analytics.py
     ├── test_buser.py
