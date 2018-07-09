@@ -3,7 +3,7 @@
 ------- | -------| -------| -------
 15331340 | Xu Qi| cell2 | cell2
 15331371 | Yao Zhili| API 与数据库设计，API实现与测试 | 14.29%
-15331373 | Ye Jiaquan| cell2| cell2
+15331373 | Ye Jiaquan| 商家端界面设计与实现 | 14.29%
 15331376 | Ye Zheng| cell2| cell2
 15331372 | Ye Hongjiang| API 与数据库设计，API 实现与测试 | 10% 
 15331359 | Yang Junran| 项目管理、需求分析、UI设计、项目文档编写及整理 | 14.29%
