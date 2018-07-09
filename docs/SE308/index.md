@@ -1,4 +1,4 @@
-- [安装部署说明]()
+- [安装部署说明](https://github.com/OrderEase/Deployment)
 - [使用说明](manual.md)
 - 源代码
   - 前端源代码
