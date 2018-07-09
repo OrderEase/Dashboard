@@ -113,11 +113,11 @@
 
 #### 1.4.1 客户端
 
-##### 客户端项目中，主要包含以下包：  
+##### 客户端项目中，主要包含以下包：
 
 + build：开发环境和项目构建的代码
 + config：项目打包时的配置文件
-+ src：项目源码，其中又分为以下几个部分：  
++ src：项目源码，其中又分为以下几个部分：
  + api：封装后的网络请求 api
  + assets：项目资源文件
  + components：项目组件文件
@@ -134,41 +134,40 @@ dist 为项目打包后文件
 .
 ├── LICENSE
 ├── README.md
-├── package.json
+├── package.json
 ├── ...
-├── build   # 存放 webpack 配置文件
-├── config  # 存放 Vue 项目中需要用到的配置
+├── build   # 存放 webpack 配置文件
+├── config  # 存放 Vue 项目中需要用到的配置
 ├── dist    # 编译后目录
 └── src
- ?? ├── api       # axios 与后台对接 api
- ?? ├── images    # 存放图片
- ?? ├── libs      # 存放通用函数
- ?? ├── locale
- ?? ├── router    # vue-router 
- ?? ├── store     # vuex
- ?? ├── styles    # 存放通用样式
- ?? ├── template  # HtmlWebpackPlugin 模板
- ?? ├── vendors
- ?? ├── views     # 视图组件等
- ?? │?? ├── error-page
- ?? │?? ├── analytics
- ?? │?? ├── home
- ?? │?? ├── kitchen
- ?? │?? ├── menu
- ?? │?? ├── order
- ?? │?? ├── promotion
- ?? │?? ├── qrcode
- ?? │?? ├── home
- ?? │?? ├── kitchen
- ?? │?? ├── main-components
- ?? │?? ├── my-components
- ?? │?? ├── login.less
- ?? │?? ├── login.vue
- ?? │?? ├── main.less
- ?? │?? └── Main.vue
+    ├── api       # axios 与后台对接 api
+    ├── images    # 存放图片
+    ├── libs      # 存放通用函数
+    ├── locale
+    ├── router    # vue-router
+    ├── store     # vuex
+    ├── styles    # 存放通用样式
+    ├── template  # HtmlWebpackPlugin 模板
+    ├── vendors
+    ├── views     # 视图组件等
+    │   ├── error-page
+    │   ├── analytics
+    │   ├── home
+    │   ├── kitchen
+    │   ├── menu
+    │   ├── order
+    │   ├── promotion
+    │   ├── qrcode
+    │   ├── home
+    │   ├── kitchen
+    │   ├── main-components
+    │   ├── my-components
+    │   ├── login.less
+    │   ├── login.vue
+    │   ├── main.less
+    │   └── Main.vue
     ├── app.vue
     └── main.js
-
 ```
 
 ### 1.5 软件设计技术
@@ -374,33 +373,33 @@ dist 为项目打包后文件
 ├── LICENSE
 ├── README.md
 ├── app
-│?? ├── __init__.py
-│?? ├── api 逻辑层，每一个文件中实现对应 api 中的操作
-│?? │?? └── v1
-│?? │??     ├── __init__.py
-│?? │??     ├── analytics.py
-│?? │??     ├── buser.py
-│?? │??     ├── cuser.py
-│?? │??     ├── menu.py
-│?? │??     ├── order.py
-│?? │??     ├── photo.py
-│?? │??     ├── promotion.py
-│?? │??     ├── restrt.py
-│?? │??     ├── rule.py
-│?? │??     └── utils.py
-│?? ├── config.py  配置模块，存有各项默认配置
-│?? ├── gen_data.py
-│?? ├── login.py  登录、权限验证模块
-│?? └── models.py  数据访问层，主要有 Flask SQLAlchemy 提供
+│   ├── __init__.py
+│   ├── api 逻辑层，每一个文件中实现对应 api 中的操作
+│   │   └── v1
+│   │       ├── __init__.py
+│   │       ├── analytics.py
+│   │       ├── buser.py
+│   │       ├── cuser.py
+│   │       ├── menu.py
+│   │       ├── order.py
+│   │       ├── photo.py
+│   │       ├── promotion.py
+│   │       ├── restrt.py
+│   │       ├── rule.py
+│   │       └── utils.py
+│   ├── config.py  配置模块，存有各项默认配置
+│   ├── gen_data.py
+│   ├── login.py  登录、权限验证模块
+│   └── models.py  数据访问层，主要有 Flask SQLAlchemy 提供
 ├── docker-entrypoint.sh
 ├── manage.py  控制层，主要由 Flask 提供
 ├── requirements.txt
 ├── static
-│?? └── images
-│??     ├── dishes
-│??     │?? └── default.png
-│??     └── restrts
-│??         └── default.png
+│   └── images
+│       ├── dishes
+│       │   └── default.png
+│       └── restrts
+│           └── default.png
 └── tests 单元测试模块
     ├── test_analytics.py
     ├── test_buser.py
