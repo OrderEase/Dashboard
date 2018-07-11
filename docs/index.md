@@ -62,4 +62,6 @@ For documentation coursework required by **SE 308 - Wang Qing**, please refer to
     - [Answer #1](./ModelingPractice/answerAndFeedback.md)
     - [Answer #2](./ModelingPractice/answerAndFeedback2.md)
     - [Answer #3](./ModelingPractice/answerAndFeedback3.md)
+- [Product Display](./SE308/manual.md)
+
 
